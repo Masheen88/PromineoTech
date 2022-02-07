@@ -1,0 +1,1 @@
+In Week 2 of my Proineo projects I have managed to utilize booleans, conditions, and loops to create a multiplication table!
