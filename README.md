@@ -3,7 +3,7 @@ Promineo Tech Projects
 <h1>
 
 <h5>
-This repo contains skills learned utilizing langues and software such as:
+This repo contains skills learned utilizing languages and software such as:
 <br>
 	-JavaScript
 <br>
