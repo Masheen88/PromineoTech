@@ -1,13 +1,37 @@
-<h1>Hi, I am Matthew Cox.<h1>
+<h1>
+Promineo Tech Projects
+<h1>
 
-<h2>About Me<h2>
-	
-- [View My LinkedIn](https://www.linkedin.com/in/matthewthomascox/) <br><br>
-![alt text](https://raw.githubusercontent.com/Masheen88/PromineoTech/main/promineotechlogo.webp "https://www.promineotech.com") <br>
-- I'm working with Promineo Tech to developer my skills as a Software Developer.
-  This includes utilizing languages such as HTML / CSS, JS, JQUERY, REACT.
-
-- I love finding solutions to everyday problems.
-
-- I love writing and discovering music.
-
+<h5>
+This repo contains skills learned utilizing langues and software such as:
+<br>
+	-JavaScript
+<br>
+	-Algorithms
+<br>
+	-OOP
+<br>
+	-Design Patterns
+<br>
+	-Unit Testing
+<br>
+	-HTML / CSS
+<br>
+	-JQuery
+<br>
+	-Bootstrap
+<br>
+	-AJAX
+<br>
+	-React
+<br>
+	-JSX
+<br>
+	-REST
+<br>
+	-NPM
+<br>
+	-AWS
+<br>
+	-and more.
+</h5>
