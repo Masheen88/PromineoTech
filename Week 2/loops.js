@@ -7,6 +7,7 @@ for (let i = 0; i <= 10; i++) {
   console.log(i);
 }
 //Display's only even numbers
+// % is the Remainder Operator
 console.log("Even Numbers: ");
 for (let i = 0; i <= 20; i++) {
   if (i % 2 == 0) {
@@ -147,3 +148,45 @@ for (var input = 1; input <= 10; input++) {
   let total = input * num;
   console.log(num, "x", input, "=", total);
 }
+
+/*
+Write a while loop that does a countdown from the variable countdown.
+This number represents the number that a user enters.
+Check to make sure the number is not larger than 10, but greater than or equal to 3.
+Each time the loop runs, print to the console the value of the counter followed by three periods (…).
+Once out of the loop, print to the console "We have lift off!".
+If a number is less than 3 or greater than 10, then the only message printed to the console is "We have lift off!"
+*/
+//Countdown from 5 to Blast Off! Example
+
+console.log("- Blast Off Example: ");
+let input2 = 5;
+let countDown = 5;
+/* Incorrect Usage
+while (countDown > 10 || countDown >= 2) {
+  //Decraments input by 1 each loop
+
+  countDown = input2--;
+  console.log(countDown + "...");
+}
+if (countDown < 3 || countDown > 10) {
+  console.log("We have lift off!");
+} else {
+  console.log("We have lift off!");
+}
+*/
+
+//Correct Usage
+//If the count down timer is less than or equal to 10 AND it is greater than 3 execute code.
+//While the count down timer is greater than or equal to 1 execute code.
+//Log the count down timer to console and decrement count down.
+//Repeat these steps until the if condition is NOT met and outputs to console. "We have lift off!"
+
+if (countDown <= 10 && countDown >= 3) {
+  while (countDown >= 1) {
+    console.log(countDown + "...");
+    countDown--;
+  }
+}
+
+console.log("We have lift off!");

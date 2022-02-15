@@ -13,7 +13,7 @@ var num2 = 5;
 if (num1 == num2) {
   console.log("A");
 } else if (num1 > num2) {
-  console.log("C");
+  console.log("B");
 } else {
   console.log("C");
 }
