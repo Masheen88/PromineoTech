@@ -293,7 +293,7 @@ function buyGas(gallonsOfFuel, milesLeftToDrive) {
   let goBuyGas;
 
   //If Your gallons of fuel are less than or euqal to the miles you have left let the user know they need gas.
-  if (gallonsOfFuel >= milesLeftToDrive) {
+  if (gallonsOfFuel <= milesLeftToDrive) {
     goBuyGas =
       "You have " +
       gallonsOfFuel +

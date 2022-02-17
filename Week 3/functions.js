@@ -85,3 +85,80 @@ function avg(arr) {
 }
 
 console.log(avg("The average of the array is:", arr));
+
+/*
+Write a function called speakFriend that takes one parameter. 
+Return the string "Access Denied". But, if the passed in value is "Mellon", return "Enter"
+*/
+var a = "awesome";
+
+function speakFriend(par1) {
+  if (par1 === "Mellon") {
+    return "Enter";
+  } else {
+    return "Access Denied";
+  }
+}
+
+console.log(speakFriend(a));
+
+/*
+Create a function named checkout that accepts 2 variables named cardBalance and price. 
+If the price is more than the card balance, return false. Otherwise, return the new card balance.
+*/
+var a = 11;
+var b = 7;
+
+function checkout(cardBalance, price) {
+  if (price > cardBalance) {
+    return false;
+  }
+  return cardBalance - price;
+}
+
+console.log(checkout(a, b));
+
+/*
+Create a function named *returnSum* that accepts 3 integer variables named
+ *num1*, *num2*, and *num3*. **Return** the sum of the three variables.
+*/
+
+let d = 5;
+let e = 6;
+let f = 4;
+
+function returnSum(num1, num2, num3) {
+  return num1 + num2 + num3;
+}
+
+console.log(returnSum(d, e, f));
+
+/*
+Write a function called loopUntilX that takes one parameter.
+Within the function, write a loop that loops as many times as the passed in value, starting at 0.
+ Within the loop, print the number of iterations to the console. Once the loop is done, return true.
+*/
+
+let x = 5;
+
+function loopUntilX(par1) {
+  for (let i = 0; i < par1; i++) {
+    console.log(i);
+  }
+  return true;
+}
+
+console.log(loopUntilX(x));
+
+let x = 5;
+let y = "testing";
+
+function loopUntilX(par1) {
+  for (let i = 0; i < par1; i++) {
+    console.log(i);
+  }
+  return true;
+}
+
+console.log("Test 1", loopUntilX(x));
+console.log("Test 2", loopUntilX(y));
