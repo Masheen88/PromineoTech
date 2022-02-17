@@ -68,3 +68,48 @@ let returnNumber = (num) => {
 let xor = (num1, num2) => {
   return num1 ^ num2;
 };
+
+/*
+Convert the following function into an arrow function. Refer to the new function as returnSquareRoot.
+
+function myFunction(num) { return Math.sqrt(num); }
+*/
+let g = 4;
+
+let returnSquareRoot = (num) => {
+  return Math.sqrt(num);
+};
+
+console.log(returnSquareRoot(g));
+
+/*Convert the following function into an arrow function. Refer to the new function as revert.
+function myFunction(value){ return !value; }*/
+let h = 1;
+
+let revert = (num) => {
+  return !num;
+};
+
+console.log(revert(h));
+
+/*Convert the following function into an arrow function. Refer to the new function as returnSum.
+function addTwoInputs(a,b) { return a+b; }*/
+let i = 4;
+let j = 6;
+
+let returnSum = (num1, num2) => {
+  return num1 + num2;
+};
+
+console.log(returnSum(i, j));
+
+/*Convert the following function into an arrow function. Refer to the new function as pythagoras.
+function myFunction(num1, num2) { return Math.sqrt((num1*num2)+(num2*num2)); }*/
+let k = 4;
+let l = 7;
+
+let pythagoras = (num1, num2) => {
+  return Math.sqrt(num1 * num2 + num2 * num2);
+};
+
+console.log(pythagoras(k, l));
