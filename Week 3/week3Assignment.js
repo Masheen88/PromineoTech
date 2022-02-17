@@ -112,6 +112,7 @@ nameLengths = [5, 3, 4] //create this new array
  */
 let nameLengths = [];
 
+//Runs a loop to iterate through the names length array.
 for (let i = 0; i < names.length; i++) {
   nameLengths.push(names[i].length);
 }
@@ -123,8 +124,11 @@ console.log("5. Names character lengths add to new array:", nameLengths);
 Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. 
 Print the result to the console.
  */
+
+//Sets a blank variable for the total name array length.
 let totalNameArrLength;
 
+//Runs a loop to iterate through the names length array.
 for (let i = 0; i < nameLengths.length; i++) {
   totalNameArrLength = nameLengths.length;
 }
@@ -137,11 +141,13 @@ word and n, as arguments and returns the word concatenated to itself n number of
 (i.e. if I pass in ‘Hello’ and 3, I would expect the function to return ‘HelloHelloHello’).
  */
 
+/*Creates a function to repeat a string by a given number of times.
+This accepts two parameters. A string and a number.*/
 function parAddition(word, n) {
   wordRep = word.repeat(n);
   return wordRep;
 }
-
+//Sets a variable to call the function parAddition
 let wordRepeating = parAddition("Hello", 3);
 
 //Logs out the results of the wordRepeating variable to the browser console.
@@ -151,11 +157,14 @@ console.log("7. Word Concatenating based on n number of times:", wordRepeating);
 Write a function that takes two parameters, firstName and lastName, and returns a full name 
 (the full name should be the first and the last name separated by a space).
  */
+
+/*Creates a function to display a full name.
+This accepts two parameters. A First Name and Last Name ie. John, Doe*/
 function fullName(firstName, lastName) {
   fullNameMerged = firstName + " " + lastName;
   return fullNameMerged;
 }
-
+//Sets a variable to call the function fullName
 let yourFullName = fullName("Matthew", "Cox");
 
 //Logs out the results of the yourFullName variable to the browser console.
@@ -165,9 +174,12 @@ console.log("8. First name and last name:", yourFullName);
 Write a function that takes an array of numbers and returns true 
 if the sum of all the numbers in the array is greater than 100.
  */
+
 //Sets a variable to an array of numbers.
 let yourArray = [10, 20, 30, 40, 1];
 
+/*Creates a function to return true/false if the array is greater than 100.
+This accepts one array parameter.*/
 function trueArray(arr1) {
   arrayTotal = 0;
   for (let i = 0; i < arr1.length; i++) {
@@ -187,12 +199,13 @@ console.log("9. Is array sum greater than 100?", yourSummedArray);
 Write a function that takes an array of numbers and returns the average of all the elements in the array.
  */
 
+/*Creatse a function to output the average of all numbers in the array.
+This accepts one array parameter.*/
 function averageArray(arr1) {
   let total = 0;
   arr1.forEach(function (num, index) {
     total += num;
   });
-
   return total / arr1.length;
 }
 
@@ -207,23 +220,35 @@ Write a function that takes two arrays of numbers and returns true if
 the average of the elements in the first array is greater than the average of the elements in the second array.
  */
 
+//Two arrays are declared below.
 let array1 = [10, 10, 10];
+//Feel free to change the 9 to a 10.
 let array2 = [10, 10, 9];
 
+/*Creates a function to compare the average of the first array vs the second array.
+This accepts two array parameters.*/
 function averageTwoArrays(arr1, arr2) {
+  //Two variables are set to 0 and will be added to later in the function.
   let totalarr1 = 0;
   let totalarr2 = 0;
 
-  arr1.forEach(function (num, index) {
-    totalarr1 += num;
+  //Uses a forEach loop to iterate through each arr1's element and index.
+  arr1.forEach(function (arr1Element, index) {
+    //Adds each of arr1's elements together and adds them to variable totalarr1
+    totalarr1 += arr1Element;
   });
+  //Sets a variable that divides arr1's total by the length of arr1.
   array1Average = totalarr1 / arr1.length;
 
-  arr2.forEach(function (num, index) {
-    totalarr2 += num;
+  //Uses a forEach loop to iterate through each arr2's element and index.
+  arr2.forEach(function (arr2Element, index) {
+    //Adds each of arr2's elements together and adds them to variable totalarr1
+    totalarr2 += arr2Element;
   });
+  //Sets a variable that divides arr2's total by the length of arr2.
   array2Average = totalarr2 / arr2.length;
 
+  //Returns true if array1 is greater than array2
   return array1Average > array2Average;
 }
 
@@ -237,6 +262,9 @@ console.log(
 Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and 
 returns true if it is hot outside and if moneyInPocket is greater than 10.50.
  */
+
+/*Creates a function to determine if it is hot outside and if you have enough money to buy a drink.
+This accepts two parameters. Parameter one is true or false. Parameter two is the amount of money you have.*/
 function willBuyDrink(isHotOutside, moneyInPocket) {
   let buyADrink = isHotOutside == true && moneyInPocket > 10.5;
 
