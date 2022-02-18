@@ -93,7 +93,7 @@ console.log(arrayTest.length); //Returns the number of total elements in the arr
 // arrayTest.reduce(); // Performs a function on each element, returns a value.
 // arrayTest.forEach(); // Calls a function on each element, modifies the array.
 // arrayTest.filter(); // Calls a function on each element, returns a new array where only the elements return true.
-// arrayTest.splace(); //Adds, receives, or replaces elements in an array.
+// arrayTest.splice(); //Adds, receives, or replaces elements in an array.
 
 // var runners = ["Bill", "Richard", "Simon", "Mandy", "Paula"];
 // alert(runners[0], "is the winner!"); // Calls the index in the array.
@@ -125,11 +125,30 @@ let newObject = {
 
 console.log(message.toSstring());
 
-let reducedArray = [1, 3, 5, 6, 7, 8, 9];
+let array1 = [10, 10, 10, 20];
 let initialValue = 0;
-reducedArray.reduce(function(previousValue,
-  currentValue){return previousValue + currentValue}
+let newTotal = array1.reduce(
+  (previousValue, currentValue) => previousValue + currentValue,
   initialValue
-  };
+);
 
-console.log(reducedArray);
+console.log("reduced array:", newTotal);
+
+let array2 = [5, 5, 5, 20];
+let initialValue2 = 0;
+let newTotal2 = array2.map((currentArrayValues) => {
+  newArrayValue = currentArrayValues + 2;
+  return newArrayValue;
+});
+
+console.log("mapped array", newTotal2);
+
+function hungry(gimmeChicken) {
+  if (gimmeChicken === false) {
+    return "I'm not hungry";
+  } else {
+    return "I need the chicken now!";
+  }
+}
+
+console.log("Chicken?", hungry(true));

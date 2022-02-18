@@ -315,3 +315,4 @@ let milesLeft = prompt("How many miles do you need to drive?");
 
 //Logs out the results of the buyGas function to the browser console.
 console.log("13. Should I buy gas?", buyGas(gasLeft, milesLeft));
+console.log("2" == 2);
