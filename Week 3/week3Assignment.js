@@ -221,9 +221,9 @@ the average of the elements in the first array is greater than the average of th
  */
 
 //Two arrays are declared below.
-let array1 = [10, 10, 10];
+let array1 = [10, 15, 10];
 //Feel free to change the 9 to a 10.
-let array2 = [10, 10, 9];
+let array2 = [10, 10, 12];
 
 /*Creates a function to compare the average of the first array vs the second array.
 This accepts two array parameters.*/
@@ -232,7 +232,7 @@ function averageTwoArrays(arr1, arr2) {
   let totalarr1 = 0;
   let totalarr2 = 0;
 
-  //Uses a forEach loop to iterate through each arr1's element and index.
+  //Uses a forEach method to iterate through each arr1's element and index.
   arr1.forEach(function (arr1Element, index) {
     //Adds each of arr1's elements together and adds them to variable totalarr1
     totalarr1 += arr1Element;
@@ -240,7 +240,7 @@ function averageTwoArrays(arr1, arr2) {
   //Sets a variable that divides arr1's total by the length of arr1.
   array1Average = totalarr1 / arr1.length;
 
-  //Uses a forEach loop to iterate through each arr2's element and index.
+  //Uses a forEach method to iterate through each arr2's element and index.
   arr2.forEach(function (arr2Element, index) {
     //Adds each of arr2's elements together and adds them to variable totalarr1
     totalarr2 += arr2Element;
