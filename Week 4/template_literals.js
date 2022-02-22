@@ -25,3 +25,9 @@ You can interpolate or execute code inside a string which allows it to be much m
 This is done by wrapping something in curly braces and a $. ${}
 */
 console.log(`Interpolation of code: Six times five - ${10 * 3}`);
+
+countSheeps([true, false, false, true, true]);
+
+function countSheeps(arrayofsheeps) {
+  return console.log(arrayofsheeps.filter(Boolean));
+}
