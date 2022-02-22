@@ -19,9 +19,3 @@ try {
 }
 
 console.log("Code beyond the try catch has ran!");
-
-countSheeps([true, false, false, true, true]);
-
-function countSheeps(arrayofsheeps) {
-  return console.log(arrayofsheeps.filter(Boolean));
-}

@@ -70,7 +70,7 @@ class PromotionSender extends NotificationSender {
     //Super, refers to the parent class. When paranthesis are used it refers to the parent class constructor.
     //ie. constructor(status)
     //You must ALWAYS call the parents' constructor in a class that extends another class.
-    //This gives the extended class access to the the methods in that class. ie NOtificationSender.
+    //This gives the extended class access to the the methods in that class. ie NotificationSender.
     super(status);
   }
 
