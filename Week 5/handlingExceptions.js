@@ -19,3 +19,19 @@ try {
 }
 
 console.log("Code beyond the try catch has ran!");
+
+
+const ConsoleLog = ({ children }) => {
+  console.log(children);
+  return false;
+};
+
+
+render () {
+  return(
+    <div>
+      <h1>List of todos</h1>
+      <ConsoleLog>{ this.props.todos }</ConsoleLog>
+    </div>  
+  );
+}

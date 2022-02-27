@@ -33,7 +33,7 @@ class Team {
   }
 }
 
-//Start of Selection menu.
+//Start of Selection menu - Begin
 class Menu {
   constructor() {
     this.teams = [];
@@ -41,7 +41,7 @@ class Menu {
   }
 
   start() {
-    //Shows the menu until something is selected.
+    //Shows the menu until selection has been made.
     let selection = this.showMainMenuOptions();
     while (selection != 0) {
       switch (selection) {
@@ -117,7 +117,7 @@ class Menu {
     if (index > -1 && index < this.teams.length) {
       this.selectedTeam = this.teams[index];
       let description = "Team Name: " + this.selectedTeam.name + `\n`;
-      //Builds a list of all team players.
+      //selectedTeam; //Builds a list of all team players.
       for (let i = 0; i < this.selectedTeam.players.length; i++) {
         description +=
           i +
