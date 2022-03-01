@@ -6,6 +6,7 @@
 class deckOfCards {
   constructor() {
     this.cardDeck = [];
+    // this.cardValues = [];
 
     const cardSuits = ["clubs", "diamonds", "hearts", "spades"];
     const cardRanks = [
@@ -23,20 +24,18 @@ class deckOfCards {
       "K",
       "A",
     ];
-
+    const cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
     //For loop to iterate through each card.
+
     for (let cardSuit in cardSuits) {
       for (let cardRank in cardRanks) {
-        this.cardDeck.push(`${cardRanks[cardRank]} of ${cardSuits[cardSuit]}`);
+        this.cardDeck.push([
+          cardValues[cardRank],
+          ": " + cardRanks[cardRank] + "of " + cardSuits[cardSuit],
+        ]);
+        // this.cardValues.push(cardValues[cardRank]);
       }
     }
-  }
-}
-//Class declares the cards for the game - Begin
-class cards {
-  constructor() {
-    cardSuit = [];
-    cardRank = [];
   }
 }
 
@@ -72,12 +71,14 @@ console.log("Player 2 is:", Player2);
 
 //Declares the deck of cards to be used in the game - Begin
 alert("Click Ok to get a deck of cards.");
+console.log("UnShuffled Card Deck:", new deckOfCards().cardDeck);
 let newDeckOfCards = new deckOfCards();
 let gameDeckOfCards = newDeckOfCards.cardDeck;
-console.log("Deck of Cards:", gameDeckOfCards);
+//Logs card values and each card in the deck.
+// console.log("Deck of Cards:", newDeckOfCards.cardValues, gameDeckOfCards);
 
 //Shuffles the deck of cards
-function shuffleDeckOfCards(gameDeckOfCards) {
+function shuffleDeckOfCards(gameDeckOfCards, gameDeckOfCardsValue) {
   for (
     let indexOfCards = gameDeckOfCards.length - 1;
     indexOfCards > 0;
@@ -93,7 +94,10 @@ function shuffleDeckOfCards(gameDeckOfCards) {
 
 //Declares the shuffled game deck of cards - Begin
 alert("Click Ok to get a shuffle your deck of cards.");
-let shuffledGameDeckOfCards = shuffleDeckOfCards(gameDeckOfCards);
+let shuffledGameDeckOfCards = shuffleDeckOfCards(
+  gameDeckOfCards,
+  newDeckOfCards.cardValues
+);
 console.log("Deck of ShuffledCards:", shuffledGameDeckOfCards);
 
 //Equally deals the cards to each player.
@@ -105,10 +109,14 @@ function dealCards(shuffledGameDeckOfCards) {
   return [player1Hand, player2Hand];
 }
 
+//Declares what each player hand will be - Begin
+alert("Click OK to deal the cards to each player.");
 let playerHands = dealCards(shuffledGameDeckOfCards);
-console.log("Player Hands:", playerHands);
+// console.log("Player Hands:", playerHands);
 let player1Hands = playerHands[0];
 let player2Hands = playerHands[1];
 
 console.log("Player 1 hand is:", player1Hands);
 console.log("Player 2 hand is:", player2Hands);
+
+//Declares which player goes first.
