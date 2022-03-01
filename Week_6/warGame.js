@@ -107,10 +107,10 @@ console.log("Deck of ShuffledCards:", shuffledGameDeckOfCards);
 //Equally deals the cards to each player.
 function dealCards(shuffledGameDeckOfCards) {
   let half = Math.ceil(shuffledGameDeckOfCards.length / 2);
-  let player1Hand = shuffledGameDeckOfCards.slice(0, half);
-  let player2Hand = shuffledGameDeckOfCards.slice(-half);
+  let player1Hands = shuffledGameDeckOfCards.slice(0, half);
+  let player2Hands = shuffledGameDeckOfCards.slice(-half);
 
-  return [player1Hand, player2Hand];
+  return [player1Hands, player2Hands];
 }
 
 //Declares what each player hand will be - Begin
@@ -131,7 +131,9 @@ console.log("P2", player2Hands[0][0], player2Hands[0], playerHands[0][1]);
 //Determines each turn for the game - Begin
 function takeTurns(player1Hands, player2Hands) {
   //   console.log("TEST", player1Hands);
+
   for (let i = 0; i < player1Hands.length; i++) {
+    // console.log("TESTING", player1Hands[i]);
     if (player1Hands[i][0] < player2Hands[i][0]) {
       alert("Press OK to lay down your cards");
       console.log(
@@ -143,6 +145,9 @@ function takeTurns(player1Hands, player2Hands) {
         "Player 2 Wins:",
         player2Hands[i]
       );
+      player1Hands.push(player2Hands[i]);
+      player1Hands.shift();
+      console.log("P1 gives card to P2");
     } else if (player1Hands[i][0] > player2Hands[i][0]) {
       alert("Press OK to lay down your cards");
       console.log(
@@ -152,15 +157,28 @@ function takeTurns(player1Hands, player2Hands) {
         "Player 1 Wins:",
         player1Hands[i]
       );
+      player2Hands.push(player1Hands[i]);
+      player2Hands.shift();
+      console.log("P2 gives card to P1");
     } else if (player1Hands[i][0] === player2Hands[i][0]) {
       console.log(
         "Player Hands are equal: We are going to card WAR!",
         `\n ${player1Hands[i]} vs ${player2Hands[i]}`
       );
+    } else if (player1Hands[i] === 0) {
+      console.log("Game Over P1");
     }
   }
-  return console.log("GameOver");
+  console.log(
+    "Game Over!",
+    "P1: " + player1Hands,
+    "\n",
+    "\n",
+    "P2: " + player2Hands
+  );
+  return [player1Hands, player2Hands];
 }
 
 //Declares the player turns.
-console.log(takeTurns(player1Hands, player2Hands));
+let turns = takeTurns(player1Hands, player2Hands);
+console.log(turns);
