@@ -8,7 +8,12 @@ class deckOfCards {
     this.cardDeck = [];
     // this.cardValues = [];
 
-    const cardSuits = ["clubs", "diamonds", "hearts", "spades"];
+    const cardSuits = [
+      "clubs \u2663",
+      "diamonds \u2666",
+      "hearts \u2665",
+      "spades \u2660",
+    ];
     const cardRanks = [
       "2",
       "3",
@@ -25,15 +30,14 @@ class deckOfCards {
       "A",
     ];
     const cardValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-    //For loop to iterate through each card.
 
+    //For in loop to iterate through each card. Each Suit/Rank of a card has a value of 1-13.
     for (let cardSuit in cardSuits) {
       for (let cardRank in cardRanks) {
         this.cardDeck.push([
           cardValues[cardRank],
-          ": " + cardRanks[cardRank] + "of " + cardSuits[cardSuit],
+          cardRanks[cardRank] + " of " + cardSuits[cardSuit],
         ]);
-        // this.cardValues.push(cardValues[cardRank]);
       }
     }
   }
@@ -119,4 +123,44 @@ let player2Hands = playerHands[1];
 console.log("Player 1 hand is:", player1Hands);
 console.log("Player 2 hand is:", player2Hands);
 
-//Declares which player goes first.
+//
+
+console.log("P1", player1Hands[0][0], player1Hands[0], player1Hands[0][1]);
+console.log("P2", player2Hands[0][0], player2Hands[0], playerHands[0][1]);
+
+//Determines each turn for the game - Begin
+function takeTurns(player1Hands, player2Hands) {
+  //   console.log("TEST", player1Hands);
+  for (let i = 0; i < player1Hands.length; i++) {
+    if (player1Hands[i][0] < player2Hands[i][0]) {
+      alert("Press OK to lay down your cards");
+      console.log(
+        "Player 1 Loses:",
+
+        player1Hands[i],
+        "-VS-",
+
+        "Player 2 Wins:",
+        player2Hands[i]
+      );
+    } else if (player1Hands[i][0] > player2Hands[i][0]) {
+      alert("Press OK to lay down your cards");
+      console.log(
+        "Player 2 Loses:",
+        player2Hands[i],
+        "-VS-",
+        "Player 1 Wins:",
+        player1Hands[i]
+      );
+    } else if (player1Hands[i][0] === player2Hands[i][0]) {
+      console.log(
+        "Player Hands are equal: We are going to card WAR!",
+        `\n ${player1Hands[i]} vs ${player2Hands[i]}`
+      );
+    }
+  }
+  return console.log("GameOver");
+}
+
+//Declares the player turns.
+console.log(takeTurns(player1Hands, player2Hands));
