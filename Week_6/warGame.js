@@ -1,13 +1,7 @@
-/*
-
-*/
-
 //Class declares an unshuffled default deck of playing cards - Begin
 class deckOfCards {
   constructor() {
     this.cardDeck = [];
-    // this.cardValues = [];
-
     const cardSuits = [
       "clubs \u2663",
       "diamonds \u2666",
@@ -49,7 +43,7 @@ class Players {
     this.player = [];
   }
 
-  //Function to create players for the game.
+  //Function to create players for the game
   createPlayers() {
     let maxPlayers = 2;
     for (let i = 0; i < maxPlayers; i++) {
@@ -60,11 +54,10 @@ class Players {
   }
 }
 
-//>---- Game of War Starts Here! ----<
-
 //Declares the players to be created for the game - Begin
 let startPlayers = new Players();
 let gamePlayers = startPlayers.createPlayers();
+//TESTING - Displays both gamePlayers value.
 console.log("Players:", gamePlayers);
 
 let Player1 = gamePlayers[0];
@@ -75,13 +68,14 @@ console.log("Player 2 is:", Player2);
 
 //Declares the deck of cards to be used in the game - Begin
 alert("Click Ok to get a deck of cards.");
-console.log("UnShuffled Card Deck:", new deckOfCards().cardDeck);
+// TESTING - Displays the unshuffled deck of cards
+// console.log("UnShuffled Card Deck:", new deckOfCards().cardDeck);
 let newDeckOfCards = new deckOfCards();
 let gameDeckOfCards = newDeckOfCards.cardDeck;
 //Logs card values and each card in the deck.
 // console.log("Deck of Cards:", newDeckOfCards.cardValues, gameDeckOfCards);
 
-//Shuffles the deck of cards
+//Function to Shuffle the deck of cards - Begin
 function shuffleDeckOfCards(gameDeckOfCards, gameDeckOfCardsValue) {
   for (
     let indexOfCards = gameDeckOfCards.length - 1;
@@ -102,9 +96,10 @@ let shuffledGameDeckOfCards = shuffleDeckOfCards(
   gameDeckOfCards,
   newDeckOfCards.cardValues
 );
-console.log("Deck of ShuffledCards:", shuffledGameDeckOfCards);
+//TESTING - Displays the shuffled deck of cards.
+// console.log("Deck of ShuffledCards:", shuffledGameDeckOfCards);
 
-//Equally deals the cards to each player.
+//function to equally deals the cards to each player - Begin
 function dealCards(shuffledGameDeckOfCards) {
   let half = Math.ceil(shuffledGameDeckOfCards.length / 2);
   let player1Hands = shuffledGameDeckOfCards.slice(0, half);
@@ -116,21 +111,19 @@ function dealCards(shuffledGameDeckOfCards) {
 //Declares what each player hand will be - Begin
 alert("Click OK to deal the cards to each player.");
 let playerHands = dealCards(shuffledGameDeckOfCards);
-// console.log("Player Hands:", playerHands);
 let player1Hands = playerHands[0];
 let player2Hands = playerHands[1];
+alert(`\n Let the WAR begin! \n`);
+//TESTING - Display Player 1 and 2 Hands.
+// console.log("Player 1 hand is:", player1Hands);
+// console.log("Player 2 hand is:", player2Hands);
 
-//Display Player 1 and 2 Hands.
-console.log("Player 1 hand is:", player1Hands);
-console.log("Player 2 hand is:", player2Hands);
-
-//Display current element in the player hands array.
-// console.log("P1", player1Hands[0][0], player1Hands[0], player1Hands[0][1]);
-// console.log("P2", player2Hands[0][0], player2Hands[0], player2Hands[0][1]);
+//TESTING - Display current element in the player hands array.
+//console.log("P1", player1Hands[0][0], player1Hands[0], player1Hands[0][1]);
+//console.log("P2", player2Hands[0][0], player2Hands[0], player2Hands[0][1]);
 
 //Determines each turn for the game - Begin
 function takeTurns(player1HandArr, player2HandArr) {
-  console.log("takeTurns TEST", player1HandArr[0], "\n \n");
   let Player1NewHand = [];
   let Player2NewHand = [];
 
@@ -147,7 +140,7 @@ function takeTurns(player1HandArr, player2HandArr) {
       );
       Player2NewHand.push(player1HandArr[i][0]);
       Player1NewHand.splice(0, 1);
-      console.log("P1 gives card to P2");
+      console.log("P1 gives a point to P2");
     } else if (player1HandArr[i][0] > player2HandArr[i][0]) {
       //   alert("Press OK to lay down your cards");
       console.log(
@@ -159,7 +152,7 @@ function takeTurns(player1HandArr, player2HandArr) {
       );
       Player1NewHand.push(player2HandArr[i][0]);
       Player2NewHand.splice(0, 1);
-      console.log("P2 gives card to P1");
+      console.log("P2 gives a point to P1");
     } else if (player1HandArr[i][0] === player2HandArr[i][0]) {
       console.log(`
         Player Hands are equal: We are going to card WAR and both lose!"
@@ -169,35 +162,51 @@ function takeTurns(player1HandArr, player2HandArr) {
     }
   }
 
-  console.log(`
-    Game Over!
-    
-    P1: ${Player1NewHand}
-    
-    P2: ${Player2NewHand}
-  `);
+  //TESTING - console.log(`Game Over! P1: ${Player1NewHand} P2: ${Player2NewHand}`);
   return [[Player1NewHand], [Player2NewHand]];
 }
 
 //Declares the player turns totals - Begin
 let turns = takeTurns(player1Hands, player2Hands);
-// console.log(turns);
-console.log("\n \n Turn score arrays: ", "P1:", turns[0], "P2:", turns[1]);
+//TESTING - Displays player 1 and player 2 turn arrays.
+// console.log("\n \n Turn score arrays: ", "P1:", turns[0], "P2:", turns[1]);
 
-function countPlayerScore(turns) {
+//Function to count and output the player score and who won. - Begin
+function countPlayerScore(turns, player1name, player2name) {
   let player1total = 0;
   let player2total = 0;
 
   for (var i = 0; i < turns[0].length; i++) {
     player1total += turns[0][i].length;
-    console.warn("p1test", player1total);
+    // console.warn("p1test", player1total);
   }
   for (var i = 0; i < turns[1].length; i++) {
     player2total += turns[1][i].length;
-    console.warn("p2test", player2total);
   }
-  console.log("Count Player Scores Total:", player1total, player2total);
-  return [player1total, player2total];
+  //   console.log("Count Player Scores Total:", player1total, player2total);
+
+  if (player1total > player2total) {
+    return `
+    Game Over!
+    ${player1name}'s score is: ${player1total}
+    ${player2name}'s score is: ${player2total}
+    ${player1name} Wins!
+    `;
+  } else if (player1total < player2total) {
+    return `
+    Game Over!
+    ${player1name}'s score is: ${player1total}
+    ${player2name}'s score is: ${player2total}
+    ${player2name} Wins!
+    `;
+  } else {
+    `
+    Game Over!
+    ${player1name}'s score is: ${player1total}
+    ${player2name}'s score is: ${player2total}
+    ${player2name} The game was a draw.
+  `;
+  }
 }
 
-console.log(countPlayerScore(turns));
+console.log(countPlayerScore(turns, Player1, Player2));
