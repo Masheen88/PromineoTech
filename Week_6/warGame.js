@@ -67,7 +67,7 @@ console.log("Player 1 is:", Player1);
 console.log("Player 2 is:", Player2);
 
 //Declares the deck of cards to be used in the game - Begin
-alert("Click Ok to get a deck of cards.");
+alert("Click OK to get a deck of cards.");
 // TESTING - Displays the unshuffled deck of cards
 // console.log("UnShuffled Card Deck:", new deckOfCards().cardDeck);
 let newDeckOfCards = new deckOfCards();
@@ -91,7 +91,7 @@ function shuffleDeckOfCards(gameDeckOfCards, gameDeckOfCardsValue) {
 }
 
 //Declares the shuffled game deck of cards - Begin
-alert("Click Ok to get a shuffle your deck of cards.");
+alert("Click OK shuffle your deck of cards.");
 let shuffledGameDeckOfCards = shuffleDeckOfCards(
   gameDeckOfCards,
   newDeckOfCards.cardValues
