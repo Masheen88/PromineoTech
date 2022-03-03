@@ -58,7 +58,7 @@ class Players {
 let startPlayers = new Players();
 let gamePlayers = startPlayers.createPlayers();
 //TESTING - Displays both gamePlayers value.
-console.log("Players:", gamePlayers);
+// console.log("Players:", gamePlayers);
 
 let Player1 = gamePlayers[0];
 let Player2 = gamePlayers[1];
