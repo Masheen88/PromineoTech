@@ -118,7 +118,7 @@ class mainMenu {
     return prompt(`
       0) Previous
       >--------<
-
+Example Orchestra sections can include: 
       * Percussion
       * Basses
       * Violins
@@ -131,26 +131,27 @@ class mainMenu {
   viewExampleInstrumentsTypes() {
     return prompt(`
     0) Previous
-    1) Percussion
-    2) Basses
-    3) Violins
-    4) Oboe
-    5) Bassoon
+    1) View Percussion Instruments
+    2) View Bass Instruments
     `);
   }
 
   //Function that views a submenu of example instruments and types.
   viewSubmenuExamples() {
     let submenuSelection = this.viewExampleInstrumentsTypes();
-    switch (submenuSelection) {
-      case "1":
-        this.viewExamplePercussion();
-        break;
-      case "2":
-        this.viewExampleBasses();
-        break;
+    while (submenuSelection != 0) {
+      switch (submenuSelection) {
+        case "1":
+          this.viewExamplePercussion();
+          break;
+        case "2":
+          this.viewExampleBasses();
+          break;
+        default:
+          submenuSelection = 0;
+      }
+      submenuSelection = this.viewExampleInstrumentsTypes();
     }
-    submenuSelection = this.viewExampleInstrumentsTypes();
   }
 
   //Displays example Percussion Instruments subMenu - Begin
