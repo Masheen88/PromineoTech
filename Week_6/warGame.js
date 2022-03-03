@@ -120,65 +120,84 @@ let playerHands = dealCards(shuffledGameDeckOfCards);
 let player1Hands = playerHands[0];
 let player2Hands = playerHands[1];
 
+//Display Player 1 and 2 Hands.
 console.log("Player 1 hand is:", player1Hands);
 console.log("Player 2 hand is:", player2Hands);
 
-//
-
-console.log("P1", player1Hands[0][0], player1Hands[0], player1Hands[0][1]);
-console.log("P2", player2Hands[0][0], player2Hands[0], playerHands[0][1]);
+//Display current element in the player hands array.
+// console.log("P1", player1Hands[0][0], player1Hands[0], player1Hands[0][1]);
+// console.log("P2", player2Hands[0][0], player2Hands[0], player2Hands[0][1]);
 
 //Determines each turn for the game - Begin
-function takeTurns(player1Hands, player2Hands) {
-  //   console.log("TEST", player1Hands);
+function takeTurns(player1HandArr, player2HandArr) {
+  console.log("takeTurns TEST", player1HandArr[0], "\n \n");
+  let Player1NewHand = [];
+  let Player2NewHand = [];
 
-  for (let i = 0; i < player1Hands.length; i++) {
+  for (let i = 0; i < player1HandArr.length; i++) {
     // console.log("TESTING", player1Hands[i]);
-    if (player1Hands[i][0] < player2Hands[i][0]) {
-      alert("Press OK to lay down your cards");
+    if (player1HandArr[i][0] < player2HandArr[i][0]) {
+      //   alert("Press OK to lay down your cards");
       console.log(
         "Player 1 Loses:",
-
-        player1Hands[i],
+        player1HandArr[i],
         "-VS-",
-
         "Player 2 Wins:",
-        player2Hands[i]
+        player2HandArr[i]
       );
-      player1Hands.push(player2Hands[i]);
-      player1Hands.shift();
+      Player2NewHand.push(player1HandArr[i][0]);
+      Player1NewHand.splice(0, 1);
       console.log("P1 gives card to P2");
-    } else if (player1Hands[i][0] > player2Hands[i][0]) {
-      alert("Press OK to lay down your cards");
+    } else if (player1HandArr[i][0] > player2HandArr[i][0]) {
+      //   alert("Press OK to lay down your cards");
       console.log(
         "Player 2 Loses:",
-        player2Hands[i],
+        player2HandArr[i],
         "-VS-",
         "Player 1 Wins:",
-        player1Hands[i]
+        player1HandArr[i]
       );
-      player2Hands.push(player1Hands[i]);
-      player2Hands.shift();
+      Player1NewHand.push(player2HandArr[i][0]);
+      Player2NewHand.splice(0, 1);
       console.log("P2 gives card to P1");
-    } else if (player1Hands[i][0] === player2Hands[i][0]) {
-      console.log(
-        "Player Hands are equal: We are going to card WAR!",
-        `\n ${player1Hands[i]} vs ${player2Hands[i]}`
-      );
-    } else if (player1Hands[i] === 0) {
-      console.log("Game Over P1");
+    } else if (player1HandArr[i][0] === player2HandArr[i][0]) {
+      console.log(`
+        Player Hands are equal: We are going to card WAR and both lose!"
+        ${player1HandArr[i]} vs ${player2HandArr[i]}`);
+      player1HandArr.shift();
+      player2HandArr.shift();
     }
   }
-  console.log(
-    "Game Over!",
-    "P1: " + player1Hands,
-    "\n",
-    "\n",
-    "P2: " + player2Hands
-  );
-  return [player1Hands, player2Hands];
+
+  console.log(`
+    Game Over!
+    
+    P1: ${Player1NewHand}
+    
+    P2: ${Player2NewHand}
+  `);
+  return [[Player1NewHand], [Player2NewHand]];
 }
 
-//Declares the player turns.
+//Declares the player turns totals - Begin
 let turns = takeTurns(player1Hands, player2Hands);
-console.log(turns);
+// console.log(turns);
+console.log("\n \n Turn score arrays: ", "P1:", turns[0], "P2:", turns[1]);
+
+function countPlayerScore(turns) {
+  let player1total = 0;
+  let player2total = 0;
+
+  for (var i = 0; i < turns[0].length; i++) {
+    player1total += turns[0][i].length;
+    console.warn("p1test", player1total);
+  }
+  for (var i = 0; i < turns[1].length; i++) {
+    player2total += turns[1][i].length;
+    console.warn("p2test", player2total);
+  }
+  console.log("Count Player Scores Total:", player1total, player2total);
+  return [player1total, player2total];
+}
+
+console.log(countPlayerScore(turns));
