@@ -58,10 +58,25 @@ class Players {
 let startPlayers = new Players();
 let gamePlayers = startPlayers.createPlayers();
 
-let Player1 = gamePlayers[0];
-let Player2 = gamePlayers[1];
+let Player1 = gamePlayers[0]; // Declares Player 1 for the game.
+let Player2 = gamePlayers[1]; // Declares Player 2 for the game.
 
-//Display who player 1 and player 2 is.
+//Test that will confirm if players is a string.
+function isPlayersAString(Player1, Player2) {
+  for (let i = 0; i < Player1.length; i++) {
+    if (typeof Player1[i] != "string") {
+      return false;
+    }
+  }
+  for (let i = 0; i < Player2.length; i++) {
+    if (typeof Player2[i] != "string") {
+      return false;
+    }
+    return Player1, Player2;
+  }
+}
+
+//Display who player 1 and player 2 is by name.
 console.log("Player 1 is:", Player1);
 console.log("Player 2 is:", Player2);
 
@@ -93,7 +108,7 @@ let shuffledGameDeckOfCards = shuffleDeckOfCards(
   newDeckOfCards.cardValues
 );
 
-//function to equally deals the cards to each player - Begin
+//Function to equally deal the cards to each player - Begin
 function dealCards(shuffledGameDeckOfCards) {
   let half = Math.ceil(shuffledGameDeckOfCards.length / 2);
   let player1Hands = shuffledGameDeckOfCards.slice(0, half);
@@ -126,8 +141,7 @@ function takeTurns(player1HandArr, player2HandArr, Player1, Player2) {
         "Wins:",
         player2HandArr[i][1]
       );
-
-      player2Score += 1;
+      player2Score += 1; // Adds 1 Point for Player 2
       console.log(Player1, "gives a point to", Player2, ":", player2Score);
     } else if (player1HandArr[i][0] > player2HandArr[i][0]) {
       console.log(
@@ -141,10 +155,11 @@ function takeTurns(player1HandArr, player2HandArr, Player1, Player2) {
         player1HandArr[i][1]
       );
 
-      player1Score += 1;
+      player1Score += 1; // Adds 1 point for Player 1
       console.log(Player2, "gives a point to", Player1, ":", player1Score);
     } else if (player1HandArr[i][0] === player2HandArr[i][0]) {
       console.log(
+        // No players are rewards a point.
         `
         Player Hands are equal: We are going to card WAR! Both players lose! :("\n
         ${Player1}: ${player1HandArr[i][1]} vs ${Player2}: ${player2HandArr[i][1]}`

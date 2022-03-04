@@ -1,0 +1,15 @@
+{
+  "name": "wargameunittesting",
+  "version": "1.0.0",
+  "description": "test for player strings",
+  "main": "index_test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.1"
+  }
+}
