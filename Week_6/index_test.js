@@ -1,15 +1,17 @@
-let expect = chai.expect;
+var expect = chai.expect;
 
-describe("Is Player name a string?", function () {
-  describe("#doSomething", function () {
+describe("Is the Player's name a string?", function () {
+  describe("#createPlayers", function () {
     it("should see if the characters in the prompt submitted are a string.", function () {
-      let playerName = doSomething("Ashley", "Matthew");
-      expect(playerName).to.equal("Ashley", "Matthew");
+      var newPlayers = new Players();
+      var gamePlayers = newPlayers.createPlayers();
+      console.log("Test", gamePlayers);
+      expect().to.equal("Matthew", "Test");
     });
 
     it("should throw an error if the Player name is not a string.", function () {
       expect(function () {
-        doSomething("Ashley", "Matthew");
+        newPlayers.createPlayers("Matthew123", "Test123");
       }).to.throw(Error);
     });
   });
