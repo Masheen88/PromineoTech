@@ -6,41 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Corgi Co</title>
     <center
-      style="
-        background-color: rgb(0, 94, 182);
-        padding-top: 5px;
-        padding-bottom: 5px;
-      "
+      style="background-color: #005eb6; padding-top: 5px; padding-bottom: 5px"
     >
       <h1 style="color: azure">Home</h1>
     </center>
     <nav>
       <!-- <ul style="background-color: #3d3d3d"> -->
       <center>
-        <li><a style="color: azure" href="./home.html">Home</a></li>
-        <li><a style="color: azure" href="./aboutme.html">About Me</a></li>
-        <li><a style="color: azure" href="./blog.html">Blog</a></li>
-        <a href="#darcy" style="color: azure">
-          <p>Oooo what's that down there? ↓</p></a
-        >
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <li>
+          <a style="color: azure" href="./home.html">Home</a>
+        </li>
+        <li>
+          <a style="color: azure" href="./aboutme.html">About Me</a>
+        </li>
+        <li>
+          <a style="color: azure" href="./blog.html">Blog</a>
+        </li>
+        <a href="#darcy" style="color: rgb(216, 0, 191)">
+          <p>Oooo what's that down there? <font size="5">↓</font></p>
+        </a>
         <br />
         <br />
         <br />
@@ -51,6 +35,65 @@
       <!-- </ul> -->
     </nav>
   </head>
+  <body>
+    <center>
+      <header style="background-color: #858303; font-size: 40px">
+        <a name="topNav">Corgi Information</a>
+      </header>
+      <table
+        border="1.5"
+        style="
+          background-color: #858303;
+          border-color: black;
+          border-colo
+          border-spacing: 3px;
+          padding-left: 3px;
+          padding-right: 3px;
+          border-spacing: 3px;
+        "
+      >
+        <tr>
+          <thead>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Color</th>
+          </thead>
+        </tr>
+        <tr>
+          <tbody>
+            <td style="text-align: center">
+              Einstein Pennington the 3rd <br />(Ein)
+            </td>
+            <td style="text-align: center">Pembroke Whelsh Corgi</td>
+            <td style="text-align: center">Fawn</td>
+          </tbody>
+        </tr>
+        <tr>
+          <tbody>
+            <td style="text-align: center">Darcy</td>
+            <td style="text-align: center">Pembroke Whelsh Corgi</td>
+            <td style="text-align: center">
+              Tri-Colored <br />(Black, White, Tan)
+            </td>
+          </tbody>
+        </tr>
+      </table>
+      <br />
+      <br />
+      <br />
+      <header style="background-color: #005eb6; font-size: 30px">
+        Tell me about your dog!
+      </header>
+      <form>
+        <label for="dogName">Dog Name:</label>
+        <input type="text" id="dogName" name="firstName" /><br />
+        <label for="dogType">Dog Type:</label>
+        <input type="text" id="dogType" name="dogType" /><br />
+        <label for="dogColor">Dog Color:</label>
+        <input type="text" id="dogColor" name="dogColor" /><br />
+      </form>
+    </center>
+  </body>
   <br />
   <br />
   <br />
@@ -102,9 +145,10 @@
   <center>
     <body style="background-color: #313131; color: azure">
       <img src="./images/Little_D.jpg" style="width: 480px; height: auto" />
-      <a name="darcy">
+      <a name="darcy" href="#topNav" style="color: azure">
         <p>Alas, you've scrolled too far! A Darcy has consumed you!</p>
       </a>
     </body>
   </center>
+  <footer style="font-size: 10px">© MC - 2022</footer>
 </html>
