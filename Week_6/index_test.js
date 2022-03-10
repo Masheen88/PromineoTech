@@ -1,5 +1,5 @@
 var expect = chai.expect;
-describe("#deckOfCards ", () => {
+describe("#createDeckOfCards ", () => {
   it("should see if the length of the card deck is equal to 52.", function (done) {
     let testDeck = new deckOfCards();
     let cards = testDeck.cardDeck;
