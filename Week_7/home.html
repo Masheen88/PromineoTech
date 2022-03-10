@@ -11,20 +11,21 @@
       <h1 style="color: azure">Home</h1>
     </center>
     <nav>
-      <!-- <ul style="background-color: #3d3d3d"> -->
       <center>
-        <li>
-          <a style="color: azure" href="./home.html">Home</a>
-        </li>
-        <li>
-          <a style="color: azure" href="./aboutme.html">About Me</a>
-        </li>
-        <li>
-          <a style="color: azure" href="./blog.html">Blog</a>
-        </li>
-        <a href="#darcy" style="color: rgb(216, 0, 191)">
-          <p>Oooo what's that down there? <font size="5">↓</font></p>
-        </a>
+        <div style="background-color: #005eb67a; padding-bottom: 10px">
+          <a style="color: azure; padding: 10px" href="./home.html">Home</a>
+
+          <a style="color: azure; padding: 10px" href="./aboutme.html"
+            >About Me</a
+          >
+
+          <a style="color: azure; padding: 10px" href="./blog.html">Blog</a>
+
+          <a href="#darcy" style="color: rgb(216, 0, 191)">
+            <p>Oooo what's that down there? <font size="5">↓</font></p>
+          </a>
+        </div>
+
         <br />
         <br />
         <br />
@@ -40,58 +41,62 @@
       <header style="background-color: #858303; font-size: 40px">
         <a name="topNav">Corgi Information</a>
       </header>
-      <table
-        border="1.5"
-        style="
-          background-color: #858303;
-          border-color: black;
-          border-colo
-          border-spacing: 3px;
-          padding-left: 3px;
-          padding-right: 3px;
-          border-spacing: 3px;
-        "
-      >
-        <tr>
-          <thead>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Color</th>
-          </thead>
-        </tr>
-        <tr>
-          <tbody>
-            <td style="text-align: center">
-              Einstein Pennington the 3rd <br />(Ein)
-            </td>
-            <td style="text-align: center">Pembroke Whelsh Corgi</td>
-            <td style="text-align: center">Fawn</td>
-          </tbody>
-        </tr>
-        <tr>
-          <tbody>
-            <td style="text-align: center">Darcy</td>
-            <td style="text-align: center">Pembroke Whelsh Corgi</td>
-            <td style="text-align: center">
-              Tri-Colored <br />(Black, White, Tan)
-            </td>
-          </tbody>
-        </tr>
-      </table>
+      <div>
+        <table
+          border="1.5"
+          style="
+            background-color: #85830396;
+            border-color: black;
+            border-spacing: 3px;
+            padding-left: 3px;
+            padding-right: 3px;
+            border-spacing: 3px;
+          "
+        >
+          <tr>
+            <thead>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Color</th>
+            </thead>
+          </tr>
+          <tr>
+            <tbody>
+              <td style="text-align: center">
+                Einstein Pennington the 3rd <br />(Ein)
+              </td>
+              <td style="text-align: center">Pembroke Whelsh Corgi</td>
+              <td style="text-align: center">Fawn</td>
+            </tbody>
+          </tr>
+          <tr>
+            <tbody>
+              <td style="text-align: center">Darcy</td>
+              <td style="text-align: center">Pembroke Whelsh Corgi</td>
+              <td style="text-align: center">
+                Tri-Colored <br />(Black, White, Tan)
+              </td>
+            </tbody>
+          </tr>
+        </table>
+      </div>
       <br />
       <br />
       <br />
       <header style="background-color: #005eb6; font-size: 30px">
         Tell me about your dog!
       </header>
-      <form>
-        <label for="dogName">Dog Name:</label>
-        <input type="text" id="dogName" name="firstName" /><br />
-        <label for="dogType">Dog Type:</label>
-        <input type="text" id="dogType" name="dogType" /><br />
-        <label for="dogColor">Dog Color:</label>
-        <input type="text" id="dogColor" name="dogColor" /><br />
-      </form>
+      <div style="background-color: #005eb69a">
+        <form>
+          <label for="dogName">Dog Name:</label>
+          <input type="text" id="dogName" name="firstName" /><br />
+          <label for="dogType">Dog Type:&nbsp;&nbsp;</label>
+          <input type="text" id="dogType" name="dogType" /><br />
+          <label for="dogColor">Dog Color:</label>
+          <input type="text" id="dogColor" name="dogColor" /><br />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </center>
   </body>
   <br />
