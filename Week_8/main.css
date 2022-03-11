@@ -1,0 +1,147 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.topHeaderBar {
+  background-color: rgb(0, 94, 182);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.innerNav {
+  background-color: #005eb67a;
+  padding-bottom: 10px;
+}
+.navLink1,
+.navLink2,
+.navLink3 {
+  padding: 5px;
+  color: azure;
+}
+
+.navLink4 {
+  color: #d800bf;
+}
+.navLink4:hover {
+  color: #000;
+}
+
+body {
+  background-color: #313131;
+  text-align: center;
+}
+
+p {
+  color: rgb(240, 255, 255);
+}
+
+.einDarcyJpg {
+  width: 350px;
+  height: auto;
+  border-radius: 8px;
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 2s;
+  transition-delay: 0.1s;
+}
+
+.einDarcyJpg:hover {
+  opacity: 0.5;
+}
+
+footer {
+  color: azure;
+  font-size: 10px;
+}
+
+h1,
+h2,
+h3 {
+  color: azure;
+  text-align: center;
+}
+h3 {
+  background-color: #005eb6;
+}
+
+.welcomeTitle {
+  color: azure;
+  background-color: #005eb6;
+  padding: 10px;
+}
+
+.pageTitle {
+  background-color: #005eb6;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.homeTableHeader {
+  color: azure;
+  background-color: #858303;
+  font-size: 40px;
+}
+
+.homeTable {
+  margin: auto;
+  color: azure;
+  background-color: #85830396;
+  border-color: black;
+  padding-left: 3px;
+  padding-right: 3px;
+  border-spacing: 3px;
+}
+
+td {
+  color: azure;
+  text-align: center;
+}
+
+.homeFormHeader {
+  color: azure;
+  background-color: #005eb6;
+  font-size: 30px;
+}
+
+.homeForm {
+  background-color: #005eb69a;
+}
+
+.imgLittle_D,
+#imgEinDarcy2 {
+  width: 350px;
+  height: auto;
+}
+
+label {
+  color: azure;
+}
+
+.blog {
+  width: 50%;
+  border-style: dashed;
+}
+
+#blogBody {
+  background-color: hsl(0, 0%, 19%);
+  color: azure;
+}
+
+.blogImg {
+  width: 350px;
+  height: auto;
+  border-radius: 8px;
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 2s;
+  transition-delay: 0.1s;
+}
+
+.blogImg:hover {
+  opacity: 0.2;
+}
+
+.blogDesc {
+  padding: 10px;
+  background-color: #858303;
+}
