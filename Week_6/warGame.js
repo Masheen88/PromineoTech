@@ -9,6 +9,7 @@ class deckOfCards {
       "spades \u2660",
     ];
     const cardRanks = [
+      "10",
       "2",
       "3",
       "4",
@@ -69,7 +70,6 @@ console.log("Player 2 is:", Player2);
 alert("Click OK to get a deck of cards.");
 let newDeckOfCards = new deckOfCards();
 let gameDeckOfCards = newDeckOfCards.cardDeck;
-//Logs card values and each card in the deck.
 
 //Function to Shuffle the deck of cards - Begin
 function shuffleDeckOfCards(gameDeckOfCards) {
@@ -184,5 +184,5 @@ function countPlayerScore(finalScore, player1name, player2name) {
   `;
   }
 }
-
+//Function to run and call the game.
 countPlayerScore(finalScore, Player1, Player2);
