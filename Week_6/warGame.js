@@ -185,4 +185,4 @@ function countPlayerScore(finalScore, player1name, player2name) {
   }
 }
 
-console.log(countPlayerScore(finalScore, Player1, Player2));
+countPlayerScore(finalScore, Player1, Player2);
