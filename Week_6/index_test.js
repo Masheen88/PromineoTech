@@ -1,7 +1,4 @@
 var expect = chai.expect;
-// const expect = require("chai").expect;
-
-const { add } = require("./warGame");
 
 describe("#createDeckOfCards ", () => {
   it("should see if the length of the card deck is equal to 52.", function (done) {
