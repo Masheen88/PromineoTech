@@ -1,5 +1,6 @@
 var expect = chai.expect;
 
+//Checks if the number of cards in a deck.
 describe("#createDeckOfCards ", () => {
   it("should see if the length of the card deck is equal to 52.", function (done) {
     let testDeck = new deckOfCards();
@@ -10,6 +11,7 @@ describe("#createDeckOfCards ", () => {
   });
 });
 
+//Checks if the prompt input contains numbers.
 describe("#createPlayers", () => {
   it("should see if players returned in the prompt are a string with no numbers.", (done) => {
     var newPlayers = new Players();
@@ -28,8 +30,6 @@ describe("#createPlayers", () => {
         testPlayers.push(false, gamePlayers[i]);
       }
     }
-
-    console.log(testPlayers);
 
     if (testPlayers.includes(false)) {
       console.log("Players is false:", testPlayers);
