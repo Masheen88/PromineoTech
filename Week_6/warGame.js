@@ -9,7 +9,6 @@ class deckOfCards {
       "spades \u2660",
     ];
     const cardRanks = [
-      "10",
       "2",
       "3",
       "4",
