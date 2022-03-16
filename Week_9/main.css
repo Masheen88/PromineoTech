@@ -4,3 +4,7 @@ div {
   padding: 5px;
   /* margin: 5px; */
 }
+
+.bi .bi-alarm-fill {
+  color: red;
+}
