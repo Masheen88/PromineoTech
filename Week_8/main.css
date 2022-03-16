@@ -80,13 +80,15 @@ h3 {
   color: azure;
   background-color: #858303;
   font-size: 40px;
+  border: solid black;
 }
 
 .homeTable {
   margin: auto;
   color: azure;
   background-color: #85830396;
-  border-color: black;
+  border: solid black;
+
   padding-left: 3px;
   padding-right: 3px;
   border-spacing: 3px;
@@ -99,11 +101,13 @@ td {
 
 .homeFormHeader {
   color: azure;
+  border: solid black;
   background-color: #005eb6;
   font-size: 30px;
 }
 
 .homeForm {
+  border: solid black;
   background-color: #005eb69a;
 }
 
@@ -144,4 +148,9 @@ label {
 .blogDesc {
   padding: 10px;
   background-color: #858303;
+}
+
+.footer {
+  background-color: #005eb6;
+  padding: 10px;
 }
