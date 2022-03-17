@@ -12,16 +12,27 @@
       rel="stylesheet"
       href="node_modules\bootstrap-icons\font\bootstrap-icons.css"
     />
-    <title>Coding Assignment Page 1</title>
+    <title>Home</title>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1>Week 8 Practice</h1>
-        </div>
+        <div class="col-lg-12 text-center"></div>
       </div>
     </div>
 
     <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <header>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-3" style="border: solid 1px black">
+          <img src="./images/cupocoffeelogo.png" style="width: 200px" />
+        </div>
+        <div class="col-md-9" style="border: solid 1px black">
+          <h2>Here at Cup-O-Coffee, we sell the finest Java around!🥤</h2>
+        </div>
+      </div>
+    </div>
 
     <!--Navbar - Begin-->
 
@@ -61,36 +72,47 @@
         </ul>
       </div>
     </navbar>
-  </head>
+  </header>
   <body>
     <div class="container">
       <div class="row text-center">
-        <div class="col-lg-4" style="border: solid 1px black">
+        <div class="col-lg-12" style="border: solid 1px black">
           <img src="./images/java.png" style="max-width: 80px" />
-        </div>
-        <div class="col-md-8" style="border: solid 1px black">
-          <h2>Here at Cup-O-Coffee, we sell the finest Java around🥤</h2>
+          <p>Mix any type, flavor, and size of coffee!</p>
         </div>
       </div>
     </div>
     <br />
-    <div class="container-fluid text-center">
-      <div class="row">
-        <div class="col-lg-3" style="border: solid 1px black">Container 1</div>
-        <div class="col-md-6" style="border: solid 1px black">Container 2</div>
-        <div class="col-sm-3" style="border: solid 1px black">Container 3</div>
-        <div class="row">
-          <div class="col-md-7" style="border: solid 1px black">
-            Container 1
-          </div>
-          <div class="col-md-5" style="border: solid 1px black">
-            Container 2
-          </div>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="alert alert-primary" role="alert">Alert Works!</div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="table-warning" scope="col">#</th>
+          <th class="table-warning" scope="col">Type of Coffee</th>
+          <th class="table-warning" scope="col">Flavor of Coffee</th>
+          <th class="table-warning" scope="col">Size of Coffee</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Machiato</td>
+          <td>French Vanilla</td>
+          <td>Small</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Iced Coffee</td>
+          <td>Hazelnut</td>
+          <td>Medium</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Cappuccino</td>
+          <td>Mocha</td>
+          <td>Large</td>
+        </tr>
+      </tbody>
+    </table>
 
     <script src="main.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
