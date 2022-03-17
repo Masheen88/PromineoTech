@@ -2,6 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
+#home:hover,
+#blog:hover,
+#aboutme:hover {
+  color: #858303;
+}
+
 .topHeaderBar {
   background-color: rgb(0, 94, 182);
   padding-top: 5px;
@@ -15,12 +21,26 @@ html {
 .navLink1,
 .navLink2,
 .navLink3 {
-  padding: 5px;
+  display: inline-block;
+  padding: 10px;
   color: azure;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.navLink1:hover,
+.navLink2:hover,
+.navLink3:hover {
+  color: #000;
+  transform: scale(1.4);
 }
 
 .navLink4 {
   color: #d800bf;
+}
+.arrow {
+  color: #d800bf;
+  font-size: 24px;
 }
 .navLink4:hover {
   color: #000;
@@ -43,10 +63,12 @@ p {
   transition-property: opacity;
   transition-duration: 2s;
   transition-delay: 0.1s;
+  transition: all 0.8s ease-in-out;
 }
 
 .einDarcyJpg:hover {
   opacity: 0.5;
+  transform: scale(0.8);
 }
 
 footer {
@@ -122,6 +144,7 @@ label {
 }
 
 .blog {
+  display: inline-block;
   width: 50%;
   border-style: dashed;
 }
@@ -153,4 +176,16 @@ label {
 .footer {
   background-color: #005eb6;
   padding: 10px;
+}
+
+#ein {
+  color: #e5aa70;
+}
+
+#darcy {
+  color: rgb(32, 32, 32);
+}
+
+#aboutdogs {
+  background-color: rgba(240, 255, 255, 0.253);
 }
