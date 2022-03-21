@@ -1,4 +1,5 @@
-.navbar-nav {
+.navbar-nav,
+#cartButtons {
   float: none;
   margin: 0 auto;
   display: block;
@@ -15,4 +16,8 @@ nav.navbar.navbar-expand-sm.navbar-dark.bg-dark {
   margin: 0 auto;
   display: block;
   text-align: center;
+}
+
+#cartButtons {
+  padding: 0.5%;
 }
