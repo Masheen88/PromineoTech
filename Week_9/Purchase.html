@@ -12,14 +12,12 @@
       rel="stylesheet"
       href="node_modules\bootstrap-icons\font\bootstrap-icons.css"
     />
-    <title>Home</title>
+    <title>Purchase</title>
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center"></div>
       </div>
     </div>
-
-    <link rel="stylesheet" href="main.css" />
   </head>
 
   <header>
@@ -35,7 +33,6 @@
     </div>
 
     <!--Navbar - Begin-->
-
     <navbar class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="" style="padding: 10px">Navigation</a>
       <button
@@ -43,13 +40,13 @@
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
-        aria-content="navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapsed navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="./">
@@ -58,62 +55,47 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="coding_assignment_page1.html">
+            <a class="nav-link" href="About.html">
               About
-              <span class="sr-only">(current)</span>
+              <span class="sr-only"></span>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="coding_assignment_page2.html">
+            <a class="nav-link" href="Purhcase.html">
               Purchase
-              <span class="sr-only"></span>
+              <span class="sr-only">(current)</span>
             </a>
           </li>
         </ul>
       </div>
     </navbar>
+    <!--Navbar - End-->
   </header>
+
   <body>
     <div class="container">
-      <div class="row text-center">
-        <div class="col-lg-12" style="border: solid 1px black">
-          <img src="./images/java.png" style="max-width: 80px" />
-          <p>Mix any type, flavor, and size of coffee!</p>
+      <div class="row">
+        <i class="bi bi-apple"></i>
+        <div class="col-lg-4">Container Test</div>
+        <div class="col-md-6">Container Test</div>
+        <div class="col-sm-2">Container Test</div>
+      </div>
+    </div>
+    <br />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3">Container 1</div>
+        <div class="col-md-6">Container 2</div>
+        <div class="col-sm-3">Container 3</div>
+        <div class="row">
+          <div class="col-md-7">Container 1</div>
+          <div class="col-md-5">Container 2</div>
         </div>
       </div>
     </div>
     <br />
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th class="table-warning" scope="col">#</th>
-          <th class="table-warning" scope="col">Type of Coffee</th>
-          <th class="table-warning" scope="col">Flavor of Coffee</th>
-          <th class="table-warning" scope="col">Size of Coffee</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Machiato</td>
-          <td>French Vanilla</td>
-          <td>Small</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Iced Coffee</td>
-          <td>Hazelnut</td>
-          <td>Medium</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Cappuccino</td>
-          <td>Mocha</td>
-          <td>Large</td>
-        </tr>
-      </tbody>
-    </table>
-
+    <div class="alert alert-primary" role="alert">Alert Works!</div>
+    <br />
     <script src="main.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
