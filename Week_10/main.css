@@ -16,3 +16,7 @@ nav.navbar.navbar-expand-sm.navbar-dark.bg-dark {
   display: block;
   text-align: center;
 }
+
+.table-warning {
+  background-color: red;
+}
