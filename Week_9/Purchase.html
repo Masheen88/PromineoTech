@@ -23,54 +23,65 @@
   <header>
     <div class="container">
       <div class="row text-center">
-        <div class="col-lg-3" style="border: solid 1px black">
+        <div class="col-lg-3">
           <img src="./images/cupocoffeelogo.png" style="width: 200px" />
         </div>
-        <div class="col-md-9" style="border: solid 1px black">
+        <div class="col-md-9">
           <h2>Here at Cup-O-Coffee, we sell the finest Java around!🥤</h2>
         </div>
       </div>
     </div>
-
-    <!--Navbar - Begin-->
-    <navbar class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="" style="padding: 10px">Navigation</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapsed navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./">
-              Home
-              <span class="sr-only"></span>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="About.html">
-              About
-              <span class="sr-only"></span>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="Purhcase.html">
-              Purchase
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </navbar>
-    <!--Navbar - End-->
   </header>
+
+  <!--Navbar - Begin-->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Coffee</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="./About.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./Purchase.html"
+            >Purchase <span>(current)</span></a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdownMenuLink"
+            href="#"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Products</a
+          >
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Macchiato</a>
+            <a class="dropdown-item" href="#">Iced Coffee</a>
+            <a class="dropdown-item" href="#">Cappuccino</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--Navbar - End-->
 
   <body>
     <div class="container">
