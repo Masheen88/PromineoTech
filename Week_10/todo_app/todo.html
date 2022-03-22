@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+  </head>
+  <body class="container">
+    <br />
+    <!--Card for user input date and task-->
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="new-start-date">Start Date</label>
+              <input type="date" class="form-control" id="new-start-date" />
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="new-end-date">End Date</label>
+              <input type="date" class="form-control" id="new-end-date" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="new-task">Task</label>
+              <input
+                type="text"
+                class="form-control"
+                id="new-task"
+                placeholder="Task"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <br />
+          <button
+            id="add"
+            class="btn btn-primary form-control"
+            style="max-width: 80px"
+          >
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--Table for ToDo List-->
+    <table id="list" class="table table-dark table-striped">
+      <tr>
+        <th>Task</th>
+        <th>Date Created</th>
+        <th>Start Date</th>
+        <th>Due Date</th>
+        <th>Actions</th>
+      </tr>
+    </table>
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="todo.js"></script>
+  </body>
+</html>
