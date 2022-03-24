@@ -34,7 +34,7 @@ let teamId = 0;
 
 //Action taken when clicking on create
 onClick("new-team", () => {
-  teams.push(new Team(teamId++, getValue("new-team-name")));
+  teams.push(new Team(teamId++, getValue("new-team-name"))); //
   //calls the function to iterate over the team array and build a table for each one
   drawDOM();
 });
@@ -51,6 +51,8 @@ function onClick(id, action) {
 //funtion to simplify and get the element itself by id.
 function getValue(id) {
   //returns the value of the element based on the id.
+  console.log("testID:", id);
+
   return document.getElementById(id).value;
 }
 
@@ -118,18 +120,20 @@ function createNewMemberButton(team) {
   btn.className = "btn btn-primary";
   btn.innerHTML = "Create";
   btn.onclick = () => {
-    //Creates a new class memember
     team.members.push(
       new Member(
         getValue(`name-input-${team.id}`),
         getValue(`position-input-${team.id}`)
       )
     );
+    drawDOM();
   };
+  return btn;
 }
 
 //function to build the team table
 function createTeamTable(team) {
+  console.log("Testing TEAM", team);
   let table = document.createElement("table");
   table.setAttribute("class", "table table-dark table-striped");
   let row = table.insertRow(0);
@@ -146,12 +150,12 @@ function createTeamTable(team) {
   let createTh = document.createElement("th");
   //Name of team table
   let nameInput = document.createElement("input");
-  nameInput.setAttribute("id", `name=input-team-${team.id}`);
+  nameInput.setAttribute("id", `name-input-${team.id}`);
   nameInput.setAttribute("type", "text");
   nameInput.setAttribute("class", "form-control");
   //Position of team table
   let positionInput = document.createElement("input");
-  positionInput.setAttribute("id", `position=input-team-${team.id}`);
+  positionInput.setAttribute("id", `position-input-${team.id}`);
   positionInput.setAttribute("type", "text");
   positionInput.setAttribute("class", "form-control");
   //calls the function to create a new button

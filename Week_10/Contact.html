@@ -100,7 +100,7 @@
         </div>
         <!--Container 2-->
         <div class="col-sm-6">
-          <table class="table table-hover">
+          <table class="table table-hover" id="contactTable">
             <thead>
               <tr>
                 <th
@@ -115,15 +115,9 @@
                   style="background-color: #675041; color: azure"
                   scope="col"
                 >
-                  First Name
+                  Full Name
                 </th>
-                <th
-                  class="table-warning"
-                  style="background-color: #675041; color: azure"
-                  scope="col"
-                >
-                  Last Name
-                </th>
+
                 <th
                   class="table-warning"
                   style="background-color: #675041; color: azure"
@@ -135,22 +129,19 @@
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>Test</td>
-                <td>Tester</td>
-                <td>bob@bob.com</td>
+                <td>(static) 1</td>
+                <td>(static) Test Tester</td>
+                <td>(static) bob@bob.com</td>
               </tr>
               <tr>
-                <td>2</td>
-                <td>Test 2</td>
-                <td>Tester 2</td>
-                <td>bob2@bob.com</td>
+                <td>(static) 2</td>
+                <td>(static) Test Tester2</td>
+                <td>(static) bob2@bob.com</td>
               </tr>
               <tr>
-                <td>3</td>
-                <td>Test 3</td>
-                <td>Tester 3</td>
-                <td>bob3@bob.com</td>
+                <td>(static) 3</td>
+                <td>(static) Test Tester3</td>
+                <td>(static) bob3@bob.com</td>
               </tr>
             </tbody>
           </table>
@@ -159,47 +150,41 @@
         <div class="col-sm-4">
           <form>
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label for="emailInput">Email address</label>
               <input
                 type="email"
                 class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
+                id="emailInput"
+                placeholder="Input email"
               />
-              <small id="emailHelp" class="form-text text-muted"
+              <small class="form-text text-muted"
                 ><i style="color: red"
                   >We will share all of your emails.</i
                 ></small
               >
             </div>
             <div class="form-group">
-              <label for="inputFirstName">First Name</label>
+              <label for="fullNameInput">Full Name</label>
               <input
                 type="text"
                 class="form-control"
-                id="inputFirstName"
-                placeholder="First Name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="inputLastName">Last Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputLastName"
-                placeholder="Last Name"
+                id="fullNameInput"
+                placeholder="Full Name"
               />
             </div>
             <br />
-            <button type="submit" class="btn btn-primary" id="submitButton">
+            <button
+              class="btn btn-primary form-control"
+              id="submitContactButton"
+              type="button"
+            >
               Join Our List!
             </button>
           </form>
         </div>
       </div>
     </div>
-
+    <div class="contacts"></div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
