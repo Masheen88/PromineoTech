@@ -1,0 +1,39 @@
+/*Mathoew 1 to use custom font on site*/
+@import "https://matthew-font.web/download.tff";
+
+/*Mathoew 2 to use custom font on site*/
+@font-face {
+  font-family: "MatthewFont";
+  src: url("myfont.com/font");
+}
+
+/* align only applies to display flex. ie. align-content */ /*CSS Reset*/
+* {
+  margin: 0;
+  /* padding: 0; */
+}
+
+divParent {
+  display: flex;
+  flex-direction: row;
+}
+
+divChild {
+  align-self: center /*aligns content in the center of the flex area.*/;
+  justify-self: baseline;
+}
+
+/* Useful media query DB: https://simplecss.eu */
+@media screen and (max-width: 400px) {
+  margin: auto;
+}
+
+/* Material UI, common Google Fonts */
+
+#test {
+  font-family: "Times New Roman", Times, serif, Arial, Helvetica, sans-serif,
+    "Roboto";
+  list-style-type: decimal;
+  /* can draw a custom image */
+  list-style-image: -webkit-gradient();
+}
