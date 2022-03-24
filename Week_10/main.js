@@ -4,6 +4,7 @@ class ContactList {
     this.id = id;
     this.email = email;
     this.fullName = fullName;
+    this.contacts = [];
   }
 
   addContact(contact) {
@@ -50,13 +51,27 @@ function getEmailValue(id) {
   return idValue;
 }
 
+function createDeleteContactButton() {
+  let btn = document.createElement("button");
+  btn.className = "btn btn-primary";
+  btn.innerHTML = "Delete";
+  console.log("Testing:", btn);
+  //after rendering returns the button value
+
+  return btn;
+}
+
 function addContact(contactId, fullName, email) {
   let contactTable = document.getElementById("contactTable");
   let contactRow = contactTable.insertRow(1);
   let contactNumber = contactRow.insertCell(0);
   let contactFullName = contactRow.insertCell(1);
   let contactEmail = contactRow.insertCell(1);
+  let contactDeleteBtn = contactRow.insertCell(3);
+
   contactNumber.innerHTML = contactId;
   contactFullName.innerHTML = fullName;
   contactEmail.innerHTML = email;
+
+  contactDeleteBtn.innerHTML = createDeleteContactButton();
 }
