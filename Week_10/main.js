@@ -35,7 +35,7 @@ onClick("submitContactButton", () => {
   //   console.log("Contacts Email Test:", contacts[0].email);
   //   console.log("Contacts Full Name Test:", contacts[0].fullName);
   let newEmail = contacts.splice(-1);
-  console.log("newemail:", newEmail[0].email);
+  // console.log("newemail:", newEmail[0].email);
   //   console.log("arrayTest:", newEmail[0].ContactList.email);
   addContact(contactId, newEmail[0].email, newEmail[0].fullName);
   //   console.log("Contacts Array:", contacts);
@@ -52,38 +52,42 @@ function onClick(id, formAction) {
 function getEmailValue(id) {
   //   console.log("valueIDTesting", id);
   let idValue = document.getElementById(id).value;
-  console.log("idValue Test:", idValue);
+  // console.log("idValue Test:", idValue);
   return idValue;
 }
 
-function createDeleteContactButton(id, contacts) {
+function createDeleteContactButton(id) {
   let btn = document.createElement("button");
   btn.className = "btn btn-primary";
-  btn.setAttribute("id", id);
+  btn.setAttribute("id", id[0]);
   btn.innerHTML = "Delete";
   console.log("Btn Testing:", btn);
   btn.onclick = () => {
-    console.log("Contact Testing in Function:", id, contacts);
+    // console.log("Contact Testing in Function:", id);
 
-    document.getElementById("contactTable").deleteRow(id);
+    btn.parentNode.removeChild(btn);
+    let rowId = id[0];
+    document.getElementById(`table-row-${rowId}`).innerHTML = "";
   };
 
   return btn;
 }
 
 function addContact(contactId, fullName, email) {
-  console.log("fullName Test:", fullName);
+  let contactInTable = [contactId, fullName, email];
+  console.log("theT:", contactInTable);
+  // console.log("fullName Test:", fullName);
   let contactTable = document.getElementById("contactTable");
   let contactRow = contactTable.insertRow(1);
-  let contactNumber = contactRow.insertCell(0);
+  let contactNumber = contactRow.insertCell(-1);
   let contactFullName = contactRow.insertCell(1);
-  let contactEmail = contactRow.insertCell(1);
+  let contactEmail = contactRow.insertCell(2);
   let contactDeleteBtn = contactRow.insertCell(3);
 
-  contactRow.setAttribute("id", contactId);
+  contactRow.setAttribute("id", `table-row-${contactId}`);
 
   contactNumber.innerHTML = contactId;
   contactFullName.innerHTML = fullName;
   contactEmail.innerHTML = email;
-  contactDeleteBtn.appendChild(createDeleteContactButton(contactId, contacts));
+  contactDeleteBtn.appendChild(createDeleteContactButton(contactInTable));
 }
