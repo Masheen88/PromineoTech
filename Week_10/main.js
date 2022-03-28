@@ -60,7 +60,7 @@ function createDeleteContactButton(id) {
   let btn = document.createElement("button");
   btn.className = "btn btn-primary";
   btn.setAttribute("id", id[0]);
-  btn.innerHTML = "Delete";
+  btn.innerHTML = "Delete!";
   console.log("Btn Testing:", btn);
   btn.onclick = () => {
     // console.log("Contact Testing in Function:", id);
