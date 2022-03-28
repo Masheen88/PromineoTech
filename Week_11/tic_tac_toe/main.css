@@ -1,8 +1,63 @@
-.my-classTest {
-  color: white;
-  background-color: darkblue;
+/*CSS Reset*/
+* {
+  margin: 0;
+  /* padding: 0; */
 }
 
-p {
-  color: red;
+html {
+  background-color: #201f1f;
+}
+
+.gameTitle {
+  background-color: #201f1f;
+  text-align: center;
+  color: azure;
+}
+
+.gameTable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.replayGame {
+  padding-bottom: 20px;
+}
+.centerReplayBtn {
+  padding-bottom: 9px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameCell {
+  float: none;
+  margin: 10px 10px;
+  display: block;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border: 1px solid black;
+  background-color: black;
+  transition-duration: 0.5s;
+}
+
+.container-fluid {
+  max-width: 75%;
+  padding: 2px;
+  border: 1px solid red;
+  background-color: #201f1f;
+}
+
+.gameletter-o,
+.gameletter-x {
+  max-width: 75%;
+}
+
+.gameHover {
+  background-color: red;
+  transform: rotateY(180deg);
 }
