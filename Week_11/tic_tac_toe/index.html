@@ -22,11 +22,20 @@
     <h1 class="gameTitle">Tic-Tac-Toe Game</h1>
 
     <center class="centerReplayBtn">
-      <div class="playerTurn">Player Turn:</div>
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <div class="playerTurn"></div>
+          <button
+            type="button"
+            class="btn btn-warning replayGame"
+            id="replayGame"
+          >
+            Replay Game
+          </button>
+        </div>
+      </div>
+
       <br />
-      <button type="button" class="btn btn-warning replayGame" id="replayGame">
-        Replay Game
-      </button>
     </center>
     <div class="container-fluid gameTable">
       <div class="row">

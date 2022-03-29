@@ -11,7 +11,31 @@ replayButton.onclick = function (replay) {
 //Declares all game tiles. 9 in total for tic-tac-toe
 const gameTiles = document.querySelectorAll(".gameCell");
 console.log(gameTiles);
+
 let maxTurns = 0;
+let players = [1, 2];
+
+//function to andomly select a players turn
+function randomTurn(players) {
+  console.log("players:", players);
+  let p1 = players[0];
+  let p2 = players[1];
+  console.log(p1, p2);
+  return Math.floor(Math.random() * (p2 - p1 + 1) + p1);
+}
+
+let randomPlayersTurn = randomTurn(players);
+
+//Displays the current players turn
+let div = $(".playerTurn");
+div.append(`<p>Player <a class=gt>${randomPlayersTurn}</a> it's your turn!</>`);
+
+console.log(
+  "Testing Random Player Turn:",
+  "Player:",
+  randomPlayersTurn,
+  "it's your turn!"
+);
 
 //onclick add a class to track and flip buttons.
 let test = $(".gameCell").click(function () {

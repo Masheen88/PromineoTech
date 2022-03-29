@@ -41,7 +41,7 @@ html {
   padding-top: 2%;
   padding-bottom: 2%;
   border: 1px solid black;
-  background-color: black;
+  background-color: hsl(0, 0%, 0%, 0.8);
   transition-duration: 0.5s;
 }
 
@@ -49,7 +49,8 @@ html {
   max-width: 75%;
   padding: 2px;
   border: 1px solid red;
-  background-color: #201f1f;
+  display: block;
+  /* background-color: #201f1f; */
 }
 
 .gameletter-o,
@@ -76,40 +77,13 @@ html {
   transform: rotateY(180deg);
 }
 
-/* Spinner Test */
-.spinner {
-  display: flex;
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.card-body {
+  color: azure;
+  background-color: #201f1f;
 }
 
-.spinner::before,
-.spinner:after {
-  content: "";
-  position: absolute;
-  border-radius: inherit;
-}
-
-.spinner:before {
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(0deg, #008cff 0%, #fffc41 100%);
-  animation: spin 0.9s infinite linear;
-}
-
-.spinner:after {
-  width: 85%;
-  height: 85%;
-  background-color: #fff;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+.gt {
+  color: red;
+  font-size: 36px;
+  font-weight: bold;
 }
