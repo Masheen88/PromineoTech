@@ -20,38 +20,42 @@
   </head>
   <body>
     <h1 class="gameTitle">Tic-Tac-Toe Game</h1>
+
     <center class="centerReplayBtn">
-      <button type="button" class="btn btn-warning replayGame">
+      <div class="playerTurn">Player Turn:</div>
+      <br />
+      <button type="button" class="btn btn-warning replayGame" id="replayGame">
         Replay Game
       </button>
     </center>
     <div class="container-fluid gameTable">
       <div class="row">
-        <div class="col-sm-3 gameCell" id="cartButtons">
-          <img class="gameletter-x" src="./images/game_cell_x.gif" />
+        <div class="col-sm-3 gameCell" id="gameButtons">
+          <img class="gameletter-o" src="./images/game_cell_o.gif" />
+          <!-- <img class="gameletter-back" src="./images/game_cell_back.png" /> -->
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
+        <div class="col-sm-3 gameCell" id="gameButtons">
           <img class="gameletter-o" src="./images/game_cell_o.gif" />
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
+        <div class="col-sm-3 gameCell" id="gameButtons">
           <img class="gameletter-x" src="./images/game_cell_x.gif" />
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
+        <div class="col-sm-3 gameCell" id="gameButtons">
           <img class="gameletter-o" src="./images/game_cell_o.gif" />
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
+        <div class="col-sm-3 gameCell" id="gameButtons">
           <img class="gameletter-x" src="./images/game_cell_x.gif" />
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
+        <div class="col-sm-3 gameCell" id="gameButtons">
           <img class="gameletter-o" src="./images/game_cell_o.gif" />
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
-          <img class="gameletter-o" src="./images/game_cell_front.png" />
+        <div class="col-sm-3 gameCell" id="gameButtons">
+          <img class="gameletter-o" src="./images/game_cell_back.png" />
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
-          <img class="gameletter-x" src="./images/game_cell_front.png" />
+        <div class="col-sm-3 gameCell" id="gameButtons">
+          <img class="gameletter-x" src="./images/game_cell_back.png" />
         </div>
-        <div class="col-sm-3 gameCell" id="cartButtons">
+        <div class="col-sm-3 gameCell" id="gameButtons">
           <img class="gameletter-o" src="./images/game_cell_o.gif" />
         </div>
       </div>
