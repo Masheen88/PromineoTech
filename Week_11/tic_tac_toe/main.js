@@ -14,7 +14,7 @@ replayButton.onclick = function (replay) {
 let maxTurns = 0;
 let players = [1, 2];
 
-//function to andomly select a players turn
+//Function to randomly select a players turn
 function randomTurn(players) {
   console.log("players:", players);
   let p1 = players[0];
@@ -35,51 +35,68 @@ div.append(`<p>Player <a class=gt>${randomPlayersTurn}</a> it's your turn!</>`);
 //   randomPlayersTurn,
 //   "it's your turn!"
 // );
-let cellsClicked = [];
-
-//onclick add a class to track and flip buttons.
-
-for (let i = 0; i <= 9; i++) {
-  $(`.gameCell-${i}`).click(function () {
-    $(`.gameCell-${i}`).addClass("gameHover");
-
-    cellsClicked.push(i, `.gameCell-${i}`);
-
-    //Removes any instance of undefined from array.
-    let results = cellsClicked.filter(function (x) {
-      return x !== undefined;
-    });
-    //filters the results and outputs an array with no duplicates.
-    uniqueResults = [...new Set(results)];
-
-    console.log(uniqueResults);
-
-    if (cellsClicked.length >= 18) {
-      console.log("gameEnd");
-    }
-  });
-}
-
-function doSomething() {
-  let i = 0;
-  console.log("more testing:", i++);
-}
 
 //need logic to take turns
-
-function gameTurns(turns) {
-  for (let i = 0; i < 9; i++) {
-    turns++;
-    // console.log(i, "test ", turns);
-  }
-}
 
 console.log("test is a", typeof randomPlayersTurn, "of", randomPlayersTurn);
 
 if (randomPlayersTurn <= 1) {
-  console.log("p1 doing stuff");
+  console.log("1. Player 1 Goes First");
+  flipTiles("game_cell_o", "game_cell_x");
 } else if (randomPlayersTurn > 1) {
-  console.log("p2 doing stuff");
+  console.log("1. Player 2 Goes First");
+  flipTiles("game_cell_x", "game_cell_o");
+}
+
+//function to flip the tiles and iterate turns
+function flipTiles(firstTurn, secondTurn) {
+  console.log("2. firstPlayerTurn:", firstTurn);
+  console.log("3. secondPlayerTurn:", secondTurn);
+
+  let cellsClicked = [];
+  let backFaces = document.getElementsByClassName("gameletter-back");
+  console.log("backFaces:", backFaces);
+  let images = $("img").get();
+  console.log("images:", images);
+  //onclick add a class to track and flip buttons.
+
+  for (let i = 0; i <= 9; i++) {
+    $(`.gameCell-${i}`).click(function () {
+      $(`.gameCell-${i}`).addClass("gameHover");
+      $(`.gameCell-${i}`).addClass(`gameHover-${i}`);
+
+      cellsClicked.push(i, `.gameCell-${i}`);
+      let img = $(`.gameCell-${i}`);
+      let imgback = $(`.gameletter-back-${i}`);
+
+      if (i % 2 == 1) {
+        console.log("first Turn");
+        img.append(
+          `<img class="gameletter-o" src="./images/${firstTurn}.gif" />`
+        );
+        imgback.remove();
+      } else if (i % 2 == 0) {
+        console.log("second Turn");
+        img.append(
+          `<img class="gameletter-o" src="./images/${secondTurn}.gif" />`
+        );
+        imgback.remove();
+      }
+
+      //Removes any instance of undefined from array.
+      let results = cellsClicked.filter(function (x) {
+        return x !== undefined;
+      });
+      //filters the results and outputs an array with no duplicates.
+      uniqueResults = [...new Set(results)];
+
+      console.log(uniqueResults);
+
+      if (cellsClicked.length >= 18) {
+        console.log("gameEnd");
+      }
+    });
+  }
 }
 
 //need logic to calculate cells, if 3 in a row match - game ends (win/lose).

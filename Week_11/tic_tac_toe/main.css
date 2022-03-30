@@ -49,6 +49,12 @@ html {
 .gameletter-o,
 .gameletter-x {
   border-radius: 55px;
+  max-width: 75%;
+}
+
+.gameletter-back {
+  border-radius: 55px;
+  max-width: 75%;
 }
 
 .container-fluid {
@@ -57,11 +63,6 @@ html {
   border: 1px solid red;
   display: block;
   /* background-color: #201f1f; */
-}
-
-.gameletter-o,
-.gameletter-x {
-  max-width: 75%;
 }
 
 .gameTile-front,
@@ -74,10 +75,9 @@ html {
   backface-visibility: hidden;
 }
 
-.gameTile-front {
-  transform: rotateY(180deg);
+.gameHover:before {
+  display: none;
 }
-
 .gameHover {
   background-color: red;
   transform: rotateY(180deg);
