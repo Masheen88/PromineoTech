@@ -28,7 +28,7 @@ onClick("submitContactButton", () => {
       getEmailValue("fullNameInput")
     )
   );
-
+  console.log("testing of contacts:", contacts);
   //   console.log(contactId, "ContactId Test:", contactId);
   //   console.log(contactId, "Contacts Test:", contacts[0]);
   //   console.log("Contacts Email Test:", contacts[0].id);
@@ -52,7 +52,7 @@ function onClick(id, formAction) {
 function getEmailValue(id) {
   //   console.log("valueIDTesting", id);
   let idValue = document.getElementById(id).value;
-  // console.log("idValue Test:", idValue);
+  console.log("idValue Test:", idValue);
   return idValue;
 }
 
@@ -75,7 +75,7 @@ function createDeleteContactButton(id) {
 
 function addContact(contactId, fullName, email) {
   let contactInTable = [contactId, fullName, email];
-  console.log("theT:", contactInTable);
+  console.log("contactInTable Testing:", contactInTable);
   // console.log("fullName Test:", fullName);
   let contactTable = document.getElementById("contactTable");
   let contactRow = contactTable.insertRow(1);
