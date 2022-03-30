@@ -9,8 +9,7 @@ replayButton.onclick = function (replay) {
 // console.log(replayButton);
 
 //Declares all game tiles. 9 in total for tic-tac-toe
-const gameTiles = document.querySelectorAll(".gameCell");
-console.log(gameTiles);
+// const gameTiles = document.querySelectorAll(".gameCell");
 
 let maxTurns = 0;
 let players = [1, 2];
@@ -30,30 +29,58 @@ let randomPlayersTurn = randomTurn(players);
 let div = $(".playerTurn");
 div.append(`<p>Player <a class=gt>${randomPlayersTurn}</a> it's your turn!</>`);
 
-console.log(
-  "Testing Random Player Turn:",
-  "Player:",
-  randomPlayersTurn,
-  "it's your turn!"
-);
+// console.log(
+//   "Testing Random Player Turn:",
+//   "Player:",
+//   randomPlayersTurn,
+//   "it's your turn!"
+// );
+let cellsClicked = [];
 
 //onclick add a class to track and flip buttons.
-let test = $(".gameCell").click(function () {
-  $(".gameCell").addClass("gameHover");
-});
-// console.log(test);
+
+for (let i = 0; i <= 9; i++) {
+  $(`.gameCell-${i}`).click(function () {
+    $(`.gameCell-${i}`).addClass("gameHover");
+
+    cellsClicked.push(i, `.gameCell-${i}`);
+
+    //Removes any instance of undefined from array.
+    let results = cellsClicked.filter(function (x) {
+      return x !== undefined;
+    });
+    //filters the results and outputs an array with no duplicates.
+    uniqueResults = [...new Set(results)];
+
+    console.log(uniqueResults);
+
+    if (cellsClicked.length >= 18) {
+      console.log("gameEnd");
+    }
+  });
+}
+
+function doSomething() {
+  let i = 0;
+  console.log("more testing:", i++);
+}
+
+//need logic to take turns
 
 function gameTurns(turns) {
   for (let i = 0; i < 9; i++) {
     turns++;
-    console.log(i, "test ", turns);
+    // console.log(i, "test ", turns);
   }
 }
 
-gameTurns(maxTurns);
+console.log("test is a", typeof randomPlayersTurn, "of", randomPlayersTurn);
 
-//need logic to take turns
-//need logic to display image based on the turn
+if (randomPlayersTurn <= 1) {
+  console.log("p1 doing stuff");
+} else if (randomPlayersTurn > 1) {
+  console.log("p2 doing stuff");
+}
 
 //need logic to calculate cells, if 3 in a row match - game ends (win/lose).
 //if no tiles match - game ends (draw).
