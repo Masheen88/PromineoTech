@@ -87,7 +87,7 @@ function flipTiles(firstTurn, secondTurn) {
           `<img class="gameletter-o" src="./images/${secondTurn}.gif" />`
         );
         cellsClicked.push(secondTurn);
-        console.log("cellsc:", cellsClicked);
+        // console.log("cellsClicked:", cellsClicked);
 
         imgback.remove();
       }
@@ -99,16 +99,27 @@ function flipTiles(firstTurn, secondTurn) {
       //filters the results and outputs an array with no duplicates.
       uniqueResults = [...new Set(results)];
 
-      console.log(uniqueResults);
+      console.log("unique results:", uniqueResults);
+      NewUniqueResults = [];
+      for (var i = 0; i < uniqueResults.length; i += 3) {
+        // i+=3 can solve your problem
+        var three =
+          (uniqueResults[i], uniqueResults[i + 1], uniqueResults[i + 2]);
+        NewUniqueResults.push(three);
+        console.log(three);
+        console.log(i);
+      }
 
+      console.log("New unique results:", NewUniqueResults);
       //need logic to calculate cells, if 3 in a row match - game ends (win/lose).
 
-      // if (
-      //   uniqueResults.includes(1 && 4 && 7) &&
-      //   uniqueResults.includes(firstTurn)
-      // ) {
-      //   console.log("cell1");
-      // }
+      if (
+        uniqueResults.includes(
+          (1, ".gameCell-1", firstTurn) && (4, ".gameCell-4", firstTurn)
+        )
+      ) {
+        console.log("cell1");
+      }
 
       if (cellsClicked.length >= 18) {
         console.log("gameEnd");
