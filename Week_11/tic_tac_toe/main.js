@@ -16,10 +16,10 @@ let players = [1, 2];
 
 //Function to randomly select a players turn
 function randomTurn(players) {
-  console.log("players:", players);
+  // console.log("players:", players);
   let p1 = players[0];
   let p2 = players[1];
-  console.log(p1, p2);
+  // console.log(p1, p2);
   return Math.floor(Math.random() * (p2 - p1 + 1) + p1);
 }
 
@@ -38,7 +38,7 @@ div.append(`<p>Player <a class=gt>${randomPlayersTurn}</a> it's your turn!</>`);
 
 //need logic to take turns
 
-console.log("test is a", typeof randomPlayersTurn, "of", randomPlayersTurn);
+// console.log("test is a", typeof randomPlayersTurn, "of", randomPlayersTurn);
 
 if (randomPlayersTurn <= 1) {
   console.log("1. Player 1 Goes First");
@@ -50,14 +50,13 @@ if (randomPlayersTurn <= 1) {
 
 //function to flip the tiles and iterate turns
 function flipTiles(firstTurn, secondTurn) {
-  console.log("2. firstPlayerTurn:", firstTurn);
-  console.log("3. secondPlayerTurn:", secondTurn);
+  // console.log("2. firstPlayerTurn:", firstTurn);
+  // console.log("3. secondPlayerTurn:", secondTurn);
 
   let cellsClicked = [];
-  let backFaces = document.getElementsByClassName("gameletter-back");
-  console.log("backFaces:", backFaces);
+
   let images = $("img").get();
-  console.log("images:", images);
+  // console.log("images:", images);
   //onclick add a class to track and flip buttons.
 
   for (let i = 0; i <= 9; i++) {
@@ -68,14 +67,18 @@ function flipTiles(firstTurn, secondTurn) {
       cellsClicked.push(i, `.gameCell-${i}`);
       let img = $(`.gameCell-${i}`);
       let imgback = $(`.gameletter-back-${i}`);
-
-      if (i % 2 == 1) {
+      console.log("i equals", i);
+      if (maxTurns % 2 == 1) {
+        maxTurns++;
+        console.log("i equals:", i);
         console.log("first Turn");
         img.append(
-          `<img class="gameletter-o" src="./images/${firstTurn}.gif" />`
+          `<img class="gameletter-x" src="./images/${firstTurn}.gif" />`
         );
         imgback.remove();
-      } else if (i % 2 == 0) {
+      } else if (maxTurns % 2 == 0) {
+        maxTurns++;
+        console.log("i equals:", i);
         console.log("second Turn");
         img.append(
           `<img class="gameletter-o" src="./images/${secondTurn}.gif" />`
