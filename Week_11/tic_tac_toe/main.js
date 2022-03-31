@@ -98,14 +98,18 @@ function flipTiles(firstTurn, secondTurn) {
       });
 
       console.log("cells Clicked:", cellsClicked);
-      //filters the results and outputs an array with no duplicates.
-      uniqueResults = [...new Set(results)];
       test = [];
-      console.log("unique results:", uniqueResults);
+      for (let i = 0; i < 3; i++) {
+        test.push([cellsClicked]);
+        cellsClicked.shift();
+      }
+      console.log("testArr:", test);
 
-      cellsClicked.splice(0, 3);
-      test.push([cellsClicked]);
-      console.log("testing", test);
+      // //filters the results and outputs an array with no duplicates.
+      // uniqueResults = [...new Set(results)];
+
+      // console.log("unique results:", uniqueResults);
+
       //need logic to calculate cells, if 3 in a row match - game ends (win/lose).
 
       // if (
