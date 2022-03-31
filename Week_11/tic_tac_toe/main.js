@@ -68,21 +68,21 @@ function flipTiles(firstTurn, secondTurn) {
       let img = $(`.gameCell-${i}`);
       let imgback = $(`.gameletter-back-${i}`);
       console.log("i equals", i);
-      if (maxTurns % 2 == 1) {
+      if (maxTurns % 2 !== 0) {
         maxTurns++;
-        // console.log("i equals:", i);
-        // console.log("first Turn");
+        console.log("p1 i equals:", i);
+        console.log("first Turn");
         img.append(
           `<img class="gameletter-x" src="./images/${firstTurn}.gif" />`
         );
         cellsClicked.push(firstTurn);
-        console.log("cellsc:", cellsClicked);
+        // console.log("cellsc:", cellsClicked);
 
         imgback.remove();
       } else if (maxTurns % 2 == 0) {
         maxTurns++;
-        // console.log("i equals:", i);
-        // console.log("second Turn");
+        console.log("p2 i equals:", i);
+        console.log("second Turn");
         img.append(
           `<img class="gameletter-o" src="./images/${secondTurn}.gif" />`
         );
@@ -93,33 +93,28 @@ function flipTiles(firstTurn, secondTurn) {
       }
 
       //Removes any instance of undefined from array.
-      let results = cellsClicked.filter(function (x) {
-        return x !== undefined;
+      let results = cellsClicked.filter(function (index) {
+        return index !== undefined;
       });
+
+      console.log("cells Clicked:", cellsClicked);
       //filters the results and outputs an array with no duplicates.
       uniqueResults = [...new Set(results)];
-
+      test = [];
       console.log("unique results:", uniqueResults);
-      NewUniqueResults = [];
-      for (var i = 0; i < uniqueResults.length; i += 3) {
-        // i+=3 can solve your problem
-        var three =
-          (uniqueResults[i], uniqueResults[i + 1], uniqueResults[i + 2]);
-        NewUniqueResults.push(three);
-        console.log(three);
-        console.log(i);
-      }
 
-      console.log("New unique results:", NewUniqueResults);
+      cellsClicked.splice(0, 3);
+      test.push([cellsClicked]);
+      console.log("testing", test);
       //need logic to calculate cells, if 3 in a row match - game ends (win/lose).
 
-      if (
-        uniqueResults.includes(
-          (1, ".gameCell-1", firstTurn) && (4, ".gameCell-4", firstTurn)
-        )
-      ) {
-        console.log("cell1");
-      }
+      // if (
+      //   uniqueResults.includes(
+      //     (1, ".gameCell-1", firstTurn) && (4, ".gameCell-4", firstTurn)
+      //   )
+      // ) {
+      //   console.log("cell1");
+      // }
 
       if (cellsClicked.length >= 18) {
         console.log("gameEnd");

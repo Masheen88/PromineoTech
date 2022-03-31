@@ -4,6 +4,25 @@
   padding: 0;
 }
 
+.body {
+  background-color: red;
+  /* background: linear-gradient(to right, #f3f3f3, red, yellow);
+  background-size: 400% 400%;
+  animation: animate-background 10s infinite ease-in-out; */
+}
+
+/* @keyframes animate-background {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+} */
+
 html {
   background-color: #201f1f;
 }
