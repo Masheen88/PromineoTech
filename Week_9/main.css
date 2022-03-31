@@ -84,9 +84,11 @@ footer {
 
 .coupon {
   transition-duration: 1s;
+  backdrop-filter: blur(1rem);
 }
 .coupon:hover {
   margin: 5px;
   transform: scale(110%);
   border: 2px solid white;
+  opacity: 0.2;
 }
