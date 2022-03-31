@@ -70,19 +70,25 @@ function flipTiles(firstTurn, secondTurn) {
       console.log("i equals", i);
       if (maxTurns % 2 == 1) {
         maxTurns++;
-        console.log("i equals:", i);
-        console.log("first Turn");
+        // console.log("i equals:", i);
+        // console.log("first Turn");
         img.append(
           `<img class="gameletter-x" src="./images/${firstTurn}.gif" />`
         );
+        cellsClicked.push(firstTurn);
+        console.log("cellsc:", cellsClicked);
+
         imgback.remove();
       } else if (maxTurns % 2 == 0) {
         maxTurns++;
-        console.log("i equals:", i);
-        console.log("second Turn");
+        // console.log("i equals:", i);
+        // console.log("second Turn");
         img.append(
           `<img class="gameletter-o" src="./images/${secondTurn}.gif" />`
         );
+        cellsClicked.push(secondTurn);
+        console.log("cellsc:", cellsClicked);
+
         imgback.remove();
       }
 
@@ -95,6 +101,15 @@ function flipTiles(firstTurn, secondTurn) {
 
       console.log(uniqueResults);
 
+      //need logic to calculate cells, if 3 in a row match - game ends (win/lose).
+
+      // if (
+      //   uniqueResults.includes(1 && 4 && 7) &&
+      //   uniqueResults.includes(firstTurn)
+      // ) {
+      //   console.log("cell1");
+      // }
+
       if (cellsClicked.length >= 18) {
         console.log("gameEnd");
       }
@@ -102,7 +117,6 @@ function flipTiles(firstTurn, secondTurn) {
   }
 }
 
-//need logic to calculate cells, if 3 in a row match - game ends (win/lose).
 //if no tiles match - game ends (draw).
 
 //need logic to display the final results ie win / lose or draw.
