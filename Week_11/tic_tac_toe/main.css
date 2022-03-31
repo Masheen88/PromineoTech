@@ -4,25 +4,6 @@
   padding: 0;
 }
 
-.body {
-  background-color: red;
-  /* background: linear-gradient(to right, #f3f3f3, red, yellow);
-  background-size: 400% 400%;
-  animation: animate-background 10s infinite ease-in-out; */
-}
-
-/* @keyframes animate-background {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-} */
-
 html {
   background-color: #201f1f;
 }
@@ -61,7 +42,6 @@ html {
   padding-bottom: 3%;
   border: 1px solid black;
   border-radius: 90px;
-  /* background-color: hsl(0, 0%, 0%, 0.8); */
   transition-duration: 0.5s;
 }
 div.row {
@@ -86,7 +66,6 @@ div.row {
   padding: 5px;
   border: 1px solid red;
   display: block;
-  /* background-color: #201f1f; */
 }
 
 .gameTile-front,
