@@ -4,6 +4,11 @@
   display: table;
 }
 
+.title {
+  color: azure;
+  padding: 2%;
+}
+
 .navbar-nav {
   float: none;
   margin: 0 auto;
@@ -25,4 +30,30 @@ nav.navbar.navbar-expand-sm.navbar-dark.bg-dark {
 
 .table-warning {
   background-color: red;
+}
+
+.bodyBg {
+  /* background-color: red; */
+  background: linear-gradient(to right, #6f4e37, #d0bb94, #2b0f0e);
+  background-size: 400% 400%;
+  animation: animate-background 10s infinite ease-in-out;
+}
+
+@keyframes animate-background {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  color: azure;
+  background-color: hsl(210, 11%, 15%, 0.25);
 }
