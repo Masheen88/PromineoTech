@@ -1,23 +1,92 @@
+.title {
+  color: azure;
+  padding: 2%;
+}
+
 .navbar-nav,
 #cartButtons {
+  text-align: center;
   float: none;
   margin: 0 auto;
   display: block;
-  text-align: center;
 }
 
 .navbar-nav > li {
-  display: inline-block;
   float: none;
+  display: inline-block;
 }
 
 nav.navbar.navbar-expand-sm.navbar-dark.bg-dark {
+  text-align: center;
   float: none;
   margin: 0 auto;
   display: block;
-  text-align: center;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  color: azure;
+  background-color: hsl(24, 23%, 33%, 0.8);
 }
 
 #cartButtons {
   padding: 0.5%;
+}
+
+.bodyBg {
+  /* background-color: red; */
+  background: linear-gradient(to right, #6f4e37, #d0bb94, #2b0f0e);
+  background-size: 400% 400%;
+  animation: animate-background 10s infinite ease-in-out;
+}
+
+@keyframes animate-background {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.colBannerL {
+  max-width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #675041;
+  border-radius: 5px;
+}
+
+.colBannerR {
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: azure;
+  background-color: #675041;
+  border-radius: 5px;
+}
+
+.bodyText {
+  padding: 2%;
+  background-color: hsl(24, 23%, 33%, 0.5);
+  border-radius: 10px;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  color: azure;
+  background-color: hsl(210, 11%, 15%, 0.25);
+}
+
+.coupon {
+  transition-duration: 1s;
+}
+.coupon:hover {
+  margin: 5px;
+  transform: scale(110%);
+  border: 2px solid white;
 }

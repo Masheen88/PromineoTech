@@ -28,15 +28,17 @@
           <img src="./images/cupocoffeelogo.png" style="width: 200px" />
         </div>
         <div class="col-md-9 justify-content-center align-self-center">
-          <h2>Here at Cup-O-Coffee, we sell the finest Java around!🥤</h2>
+          <h2 class="title">
+            Here at Cup-O-Coffee, we sell the finest Java around!🥤
+          </h2>
         </div>
       </div>
     </div>
   </header>
 
   <!--Navbar - Begin-->
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.html">Coffee</a>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-opacity-25">
+    <a class="navbar-brand" href="index.html">Purchase</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -87,36 +89,23 @@
   </nav>
   <!--Navbar - End-->
 
-  <body>
+  <body class="bodyBg">
     <div class="container" style="padding: 2%">
       <div class="row">
         <div class="col-lg-6">
-          <img
-            src="./images/javajava.jpg"
-            style="
-              max-width: 100%;
-              padding-top: 2%;
-              padding-bottom: 2%;
-              background-color: #675041;
-            "
-          />
+          <img src="./images/javajava.jpg" class="colBannerL" />
         </div>
-        <div
-          class="col-lg-6"
-          style="
-            text-align: center;
-            background-color: #675041;
-            color: azure;
-            padding-bottom: 2%;
-            padding-top: 2%;
-          "
-        >
+        <div class="col-lg-6 colBannerR">
           <strong>
             <i class="bi bi-cup-straw"></i> Get your coffee 50% off today!
             <br /><br />
             Enter Coupon Code JAVA at checkout!
             <br />
-            <img src="./images/javas.jpg" style="max-width: 60%" />
+            <img
+              class="coupon"
+              src="./images/javas.jpg "
+              style="max-width: 60%"
+            />
           </strong>
         </div>
       </div>
@@ -143,14 +132,13 @@
     <div class="alert alert-primary" role="info" style="text-align: center">
       Check out our blog to learn about how to make your very own Coffee!
     </div>
-    <div class="container" style="padding: 2%; background-color: #675041">
+    <div class="container bodyText">
       <div class="row">
         <div class="col-lg-2" style="color: azure"></div>
         <div class="col-lg-8" style="color: azure">
           <p>
-            Java Java Java! You want coffee now and here are 1000 reasons to buy
-            our coffee!
-            <br /><br />
+            <strong>Java Java Java!</strong> You want coffee now and here are
+            1000 reasons to buy our coffee! <br /><br />
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
             inventore natus quam, consequatur perspiciatis laborum voluptatibus
             ex accusantium animi corrupti, maxime totam voluptatum itaque
@@ -161,7 +149,7 @@
         <div class="col-lg-2" style="color: azure"></div>
       </div>
     </div>
-    <br />
+
     <script src="main.js"></script>
     <!-- <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script> -->
@@ -181,4 +169,13 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <br />
+  <footer>
+    &copy; Matthew Cox
+    <script type="text/javascript">
+      var d = new Date();
+      document.write(d.getFullYear());
+    </script>
+  </footer>
+  <br />
 </html>
