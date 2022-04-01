@@ -20,7 +20,9 @@ let randomPlayersTurn = randomTurn(players); //Declares the randomly selected pl
 
 //Displays the current players turn in html
 let div = $(".playerTurn");
-div.append(`<p>Player <a class=gt>${randomPlayersTurn}</a> it's your turn!</>`);
+div.append(
+  `<p>Player <span class="gt p${randomPlayersTurn}">${randomPlayersTurn}</span> goes first!</>`
+);
 
 //Condition to call a function based on which player is going first.
 if (randomPlayersTurn <= 1) {
@@ -63,6 +65,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         img.append(
           `<img class="${secondTurnID}" src="./images/${secondTurn}.gif" />`
         );
+
         cellsClicked.push(secondTurn);
 
         imgback.remove();
@@ -139,9 +142,8 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
   function winGame(playerId) {
     console.log(`Player ${playerId} Wins!`);
     let gameTable = $("#gameOver");
-    // console.log(gameTable);
-    gameTable.addClass("modal");
-    gameTable.prepend(`<p>"Testing"</p>`);
+
+    gameTable;
 
     return gameTable;
   }
