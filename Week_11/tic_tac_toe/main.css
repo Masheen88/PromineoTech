@@ -16,7 +16,6 @@ html {
 }
 
 .gameTable {
-  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
@@ -46,9 +45,6 @@ div.gameCell {
   border-radius: 90px;
   transition-duration: 0.5s;
 }
-div.row {
-  /* background-color: rgba(0, 0, 0, 0.3); */
-}
 
 .gameletter-o,
 .gameletter-x {
@@ -64,7 +60,6 @@ div.row {
 .container-fluid {
   max-width: 50%;
   padding: 5px;
-  /* border: 1px solid red; */
   display: block;
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -104,7 +99,6 @@ div.row {
 }
 
 body {
-  /* background-color: red; */
   background: linear-gradient(to right, #ff0000, #000000, #00aeff);
   background-size: 400% 400%;
   animation: animate-background 10s infinite ease-in-out;
