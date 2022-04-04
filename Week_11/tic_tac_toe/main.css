@@ -92,7 +92,7 @@ div.gameCell {
   border-radius: 90px;
 }
 
-.gt {
+.playerTurnID {
   color: red;
   font-size: 36px;
   font-weight: bold;
@@ -116,12 +116,18 @@ body {
   }
 }
 
-.p1 {
+.p1,
+.X {
   color: #ff0000;
+  font-size: 36px;
+  font-weight: bold;
 }
 
-.p2 {
+.p2,
+.O {
   color: #00aeff;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 footer {
@@ -130,4 +136,13 @@ footer {
   color: azure;
   background-color: hsl(210, 11%, 15%, 0.5);
   margin-top: 8px;
+}
+
+#gameOver {
+  color: blue;
+  background-color: blue;
+}
+
+#playerTurnContainer {
+  color: rgba(240, 255, 255, 0) !important;
 }
