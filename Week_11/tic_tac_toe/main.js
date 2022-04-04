@@ -57,6 +57,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         cellsClicked.push(firstTurn);
 
         imgback.remove();
+        img.remove();
       } else if (maxTurns % 2 == 0) {
         maxTurns++;
 
@@ -67,6 +68,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         cellsClicked.push(secondTurn);
 
         imgback.remove();
+        img.remove();
       }
 
       for (let i = 0; i < 3; i++) {
@@ -127,6 +129,74 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         (results[0] == 7 && results[6] == 5 && results[12] == 3)
       ) {
         winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 2 &&
+          results[12] == 9 &&
+          results[15] == 3 &&
+          results[18] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 3 &&
+          results[6] == 9 &&
+          results[9] == 2 &&
+          results[12] == 7 &&
+          results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 2 &&
+          results[6] == 4 &&
+          results[9] == 5 &&
+          results[12] == 3 &&
+          results[15] == 6 &&
+          results[18] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 6 &&
+          results[6] == 3 &&
+          results[9] == 5 &&
+          results[12] == 4 &&
+          results[15] == 2 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 4 &&
+          results[9] == 2 &&
+          results[12] == 6 &&
+          results[15] == 3 &&
+          results[18] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 3 &&
+          results[6] == 6 &&
+          results[9] == 2 &&
+          results[12] == 4 &&
+          results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 4 &&
+          results[9] == 2 &&
+          results[12] == 3 &&
+          results[15] == 6 &&
+          results[18] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 6 &&
+          results[6] == 3 &&
+          results[9] == 2 &&
+          results[12] == 4 &&
+          results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
       } else if (results.length == 27) {
         drawGame();
       }
@@ -142,6 +212,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
     );
     $("div.playerTurn").addClass("playerTurnContainer");
     div.remove();
+    img.remove();
   }
 
   function drawGame() {
