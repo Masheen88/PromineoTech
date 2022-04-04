@@ -57,7 +57,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         cellsClicked.push(firstTurn);
 
         imgback.remove();
-        img.remove();
+        // img.remove();
       } else if (maxTurns % 2 == 0) {
         maxTurns++;
 
@@ -68,7 +68,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         cellsClicked.push(secondTurn);
 
         imgback.remove();
-        img.remove();
+        // img.remove();
       }
 
       for (let i = 0; i < 3; i++) {
@@ -212,7 +212,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
     );
     $("div.playerTurn").addClass("playerTurnContainer");
     div.remove();
-    img.remove();
+    // img.remove();
   }
 
   function drawGame() {
