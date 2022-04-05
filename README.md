@@ -1,10 +1,10 @@
 <h1>
-Promineo Tech Projects
+<a href="http://127.0.0.1:5500/matthew/index.html#link">Promineo Tech Projects</a>
 <h1>
 
-<h5>
+<h3>
 This repo contains skills learned utilizing languages and software such as:
-<br>
+<br><br>
 	-JavaScript
 <br>
 	-Algorithms
