@@ -5,6 +5,8 @@
 //Update - PUT
 //Delete - DELETE
 
+//Continue tutorial (8:30) = https://www.youtube.com/watch?v=69TMynpJDg8
+
 //Class to define what a House contains
 class House {
   constructor(name) {
@@ -28,8 +30,7 @@ class Rooms {
 
 //Class to define a house API / methods to view/update a house.
 class HouseService {
-  // static url = "https://ancient-taiga-31359.herokuapp.com/api/houses";
-  static url = "https://crudcrud.com/api/8c7f41f9c6dc4fdb92e2b5c595dcfb61";
+  static url = "https://ancient-taiga-31359.herokuapp.com/api/houses";
 
   //Method to returns all houses from the url -GET
   static getAllHouses() {
