@@ -3,7 +3,7 @@ h1 {
 }
 
 .buttonGrid {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   text-align: center;
   float: none;
   margin: 0 auto;
@@ -11,6 +11,6 @@ h1 {
 }
 
 .buttonGridCell {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 2px;
 }
