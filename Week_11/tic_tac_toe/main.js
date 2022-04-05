@@ -52,7 +52,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         maxTurns++;
 
         img.append(
-          `<img class="${firstTurnID}" src="./images/${firstTurn}.gif" />`
+          `<img class="${firstTurnID} gameImg-${i}" src="./images/${firstTurn}.gif" />`
         );
         cellsClicked.push(firstTurn);
 
@@ -62,7 +62,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         maxTurns++;
 
         img.append(
-          `<img class="${secondTurnID}" src="./images/${secondTurn}.gif" />`
+          `<img class="${secondTurnID} gameImg-${i}" src="./images/${secondTurn}.gif" />`
         );
 
         cellsClicked.push(secondTurn);
@@ -71,6 +71,28 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         // img.remove();
       }
 
+      //Removes duplicate images if same cell is clicked
+      if (`.gameCell-${i}` === `.gameCell-1`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-2`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-3`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-4`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-5`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-6`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-7`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-8`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      } else if (`.gameCell-${i}` === `.gameCell-9`) {
+        $(`.gameImg-${i}`).eq(1).remove();
+      }
+
+      //Loop to pursh cells sort the cells clicked.
       for (let i = 0; i < 3; i++) {
         cellsClickedSorted.push([cellsClicked[0]]);
         cellsClicked.shift();
@@ -242,6 +264,23 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[12] == 7 &&
           results[15] == 3 &&
           results[18] == 2)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 2 &&
+          results[6] == 5 &&
+          results[9] == 4 &&
+          results[12] == 3 &&
+          results[15] == 6 &&
+          results[18] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 6 &&
+          results[6] == 3 &&
+          results[9] == 4 &&
+          results[12] == 5 &&
+          results[15] == 2 &&
+          results[18] == 1)
       ) {
         winGame(playerId);
       }
