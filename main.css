@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+}
+
+.buttonGrid {
+  border: 1px solid black;
+  text-align: center;
+  float: none;
+  margin: 0 auto;
+  display: block;
+}
+
+.buttonGridCell {
+  border: 1px solid black;
+  padding: 2px;
+}
