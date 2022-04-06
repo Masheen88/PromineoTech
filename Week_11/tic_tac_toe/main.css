@@ -19,6 +19,20 @@ html {
   align-items: center;
   justify-content: center;
 }
+#replayGame {
+  color: azure;
+  background-color: black;
+  outline: 1px solid azure;
+  position: relative;
+  overflow: hidden;
+  transition: color 1s;
+  transition: background-color 1s;
+}
+
+#replayGame:hover {
+  color: black;
+  background-color: azure;
+}
 
 .replayGame {
   padding-bottom: 20px;
