@@ -23,10 +23,8 @@ html {
   color: azure;
   background-color: black;
   outline: 1px solid azure;
-  position: relative;
-  overflow: hidden;
-  transition: color 1s;
-  transition: background-color 1s;
+  transition: color 1.5s;
+  transition: background-color 1.5s;
 }
 
 #replayGame:hover {
@@ -39,6 +37,31 @@ html {
 }
 .centerReplayBtn {
   padding-bottom: 9px;
+}
+
+/* remove border for edges */
+.gameCell-1:nth-child(1),
+.gameCell-2:nth-child(2),
+.gameCell-3:nth-child(3) {
+  border-top: none;
+}
+
+.gameCell-1:nth-child(1),
+.gameCell-4:nth-child(1),
+.gameCell-7:nth-child(1) {
+  border-left: none;
+}
+
+.gameCell-3:nth-child(3),
+.gameCell-6:nth-child(3),
+.gameCell-9:nth-child(3) {
+  border-right: none;
+}
+
+.gameCell-7:nth-child(1),
+.gameCell-8:nth-child(2),
+.gameCell-9:nth-child(3) {
+  border-bottom: none;
 }
 
 .row {
@@ -56,7 +79,7 @@ div.gameCell {
   padding-bottom: 3%;
 
   border: 1px solid black;
-  border-radius: 90px;
+  /* border-radius: 90px; */
   transition-duration: 0.5s;
 }
 

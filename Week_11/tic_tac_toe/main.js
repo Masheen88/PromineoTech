@@ -148,6 +148,151 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
       ) {
         winGame(playerId);
       }
+      //Win conditions for 5 turns
+      else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 2 &&
+          results[12] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 2 &&
+          results[6] == 7 &&
+          results[9] == 5 &&
+          results[12] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 3 &&
+          results[3] == 5 &&
+          results[6] == 9 &&
+          results[9] == 2 &&
+          results[12] == 6) ||
+        (results[0] == 6 &&
+          results[3] == 2 &&
+          results[6] == 9 &&
+          results[9] == 5 &&
+          results[12] == 3)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 7 &&
+          results[3] == 5 &&
+          results[6] == 9 &&
+          results[9] == 1 &&
+          results[12] == 8) ||
+        (results[0] == 8 &&
+          results[3] == 1 &&
+          results[6] == 9 &&
+          results[9] == 5 &&
+          results[12] == 7)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 3 &&
+          results[9] == 6 &&
+          results[12] == 2) ||
+        (results[0] == 2 &&
+          results[3] == 6 &&
+          results[6] == 3 &&
+          results[9] == 5 &&
+          results[12] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 3 &&
+          results[3] == 5 &&
+          results[6] == 1 &&
+          results[9] == 9 &&
+          results[12] == 2) ||
+        (results[0] == 2 &&
+          results[3] == 9 &&
+          results[6] == 1 &&
+          results[9] == 5 &&
+          results[12] == 3)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 3 &&
+          results[3] == 5 &&
+          results[6] == 9 &&
+          results[9] == 4 &&
+          results[12] == 6) ||
+        (results[0] == 6 &&
+          results[3] == 4 &&
+          results[6] == 9 &&
+          results[9] == 5 &&
+          results[12] == 3)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 3 &&
+          results[3] == 5 &&
+          results[6] == 9 &&
+          results[9] == 1 &&
+          results[12] == 6) ||
+        (results[0] == 6 &&
+          results[3] == 1 &&
+          results[6] == 9 &&
+          results[9] == 5 &&
+          results[12] == 3)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 6 &&
+          results[3] == 8 &&
+          results[6] == 9 &&
+          results[9] == 5 &&
+          results[12] == 3) ||
+        (results[0] == 3 &&
+          results[3] == 5 &&
+          results[6] == 9 &&
+          results[9] == 8 &&
+          results[12] == 6)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 4 &&
+          results[3] == 8 &&
+          results[6] == 7 &&
+          results[9] == 5 &&
+          results[12] == 1) ||
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 8 &&
+          results[12] == 4)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 4 &&
+          results[3] == 2 &&
+          results[6] == 1 &&
+          results[9] == 5 &&
+          results[12] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 5 &&
+          results[6] == 1 &&
+          results[9] == 2 &&
+          results[12] == 4)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 6 &&
+          results[3] == 2 &&
+          results[6] == 3 &&
+          results[9] == 5 &&
+          results[12] == 9) ||
+        (results[0] == 9 &&
+          results[3] == 5 &&
+          results[6] == 3 &&
+          results[9] == 2 &&
+          results[12] == 6)
+      ) {
+        winGame(playerId);
+      }
       //Win conditions for 6 turns
       else if (
         (results[0] == 1 &&
@@ -177,6 +322,66 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[9] == 6 &&
           results[12] == 5 &&
           results[15] == 8)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 3 &&
+          results[9] == 6 &&
+          results[12] == 9 &&
+          results[15] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 9 &&
+          results[6] == 6 &&
+          results[9] == 3 &&
+          results[12] == 5 &&
+          results[15] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 9 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 2 &&
+          results[12] == 6 &&
+          results[15] == 8) ||
+        (results[0] == 8 &&
+          results[3] == 6 &&
+          results[6] == 2 &&
+          results[9] == 7 &&
+          results[12] == 5 &&
+          results[15] == 9)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 2 &&
+          results[6] == 7 &&
+          results[9] == 5 &&
+          results[12] == 3 &&
+          results[15] == 8) ||
+        (results[0] == 8 &&
+          results[3] == 3 &&
+          results[6] == 5 &&
+          results[9] == 7 &&
+          results[12] == 2 &&
+          results[15] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 4 &&
+          results[12] == 9 &&
+          results[15] == 6) ||
+        (results[0] == 6 &&
+          results[3] == 9 &&
+          results[6] == 4 &&
+          results[9] == 7 &&
+          results[12] == 5 &&
+          results[15] == 1)
       ) {
         winGame(playerId);
       }
@@ -280,6 +485,74 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[9] == 4 &&
           results[12] == 5 &&
           results[15] == 2 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 3 &&
+          results[9] == 9 &&
+          results[12] == 7 &&
+          results[15] == 6 &&
+          results[18] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 6 &&
+          results[6] == 7 &&
+          results[9] == 9 &&
+          results[12] == 3 &&
+          results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 4 &&
+          results[9] == 8 &&
+          results[12] == 3 &&
+          results[15] == 9 &&
+          results[18] == 2) ||
+        (results[0] == 2 &&
+          results[3] == 9 &&
+          results[6] == 3 &&
+          results[9] == 8 &&
+          results[12] == 4 &&
+          results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 2 &&
+          results[9] == 3 &&
+          results[12] == 7 &&
+          results[15] == 6 &&
+          results[18] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 6 &&
+          results[6] == 7 &&
+          results[9] == 3 &&
+          results[12] == 2 &&
+          results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 2 &&
+          results[9] == 9 &&
+          results[12] == 8 &&
+          results[15] == 6 &&
+          results[18] == 3) ||
+        (results[0] == 3 &&
+          results[3] == 6 &&
+          results[6] == 8 &&
+          results[9] == 9 &&
+          results[12] == 2 &&
+          results[15] == 5 &&
           results[18] == 1)
       ) {
         winGame(playerId);
