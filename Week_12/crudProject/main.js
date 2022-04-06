@@ -28,7 +28,8 @@ class Rooms {
 
 //Class to define a house API / methods to view/update a house.
 class HouseService {
-  static url = "https://ancient-taiga-31359.herokuapp.com/api/houses";
+  static url = "https://crudcrud.com/api/8c7f41f9c6dc4fdb92e2b5c595dcfb61";
+  // static url = "https://ancient-taiga-31359.herokuapp.com/api/houses";
 
   //Method to returns all houses from the url -GET
   static getAllHouses() {
@@ -121,10 +122,9 @@ class DOMManager {
           if (room._id == roomId) {
             house.rooms.splice(house.rooms.indexOf(room), 1);
             HouseService.updateHouse(house).then(() => {
-              //Re-renders the DOM
               return HouseService.getAllHouses().then((houses) =>
                 this.render(houses)
-              );
+              ); //Re-renders the DOM
             });
           }
         }
