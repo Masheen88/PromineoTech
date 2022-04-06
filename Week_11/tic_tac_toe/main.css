@@ -146,3 +146,39 @@ footer {
 #playerTurnContainer {
   color: rgba(240, 255, 255, 0) !important;
 }
+
+#footerIcon {
+  text-decoration: none;
+}
+
+.icon {
+  display: inline-block;
+  font: size 44px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.bi-linkedin {
+  color: #0077b5;
+}
+
+.bi-github {
+  color: #4078c0;
+  animation-delay: 2s;
+}
+
+.bi-envelope {
+  color: #ea4335;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
