@@ -28,7 +28,7 @@ class Rooms {
 
 //Class to define a house API / methods to view/update a house.
 class HouseService {
-  static url = "https://crudcrud.com/api/8c7f41f9c6dc4fdb92e2b5c595dcfb61";
+  static url = "https://crudcrud.com/api/6b4d77f6002845228fcf207c786f9f09";
   // static url = "https://ancient-taiga-31359.herokuapp.com/api/houses";
 
   //Method to returns all houses from the url -GET
@@ -46,7 +46,7 @@ class HouseService {
     return $.post(this.url, house); //house is the http payload
   }
 
-  //Method to update an existing hosue - PUT
+  // Method to update an existing hosue - PUT
   static updateHouse(house) {
     return $.ajax({
       url: this.url + `/${house._id}`, //_id is the value that the database will create
@@ -56,6 +56,26 @@ class HouseService {
       type: "PUT",
     });
   }
+
+  // static updateHouse(house) {
+  //   fetch(this.url + `/${house._id}`, {
+  //     method: "PUT", // *GET, POST, PUT, DELETE, etc.
+  //     mode: "cors", // no-cors, *cors, same-origin
+  //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+  //     credentials: "omit", // include, *same-origin, omit
+  //     headers: {
+  //       "Content-Type": "application/json; charset=utf-8",
+  //       // 'Content-Type': 'application/x-www-form-urlencoded',
+  //     },
+  //     redirect: "follow", // manual, *follow, error
+  //     referrerPolicy: "origin-when-cross-origin", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  //     body: JSON.stringify(house), // body data type must match "Content-Type" header
+  //   })
+  //     .then((res) => res.json())
+  //     .then((house) => {
+  //       return house;
+  //     }); //data returns an array of strings from this response example.
+  // }
 
   //Method to delete an existing house - DELETE
   static deleteHouse(id) {
