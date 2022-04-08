@@ -1,10 +1,3 @@
-//API to use? https://crudcrud.com
-
-//Create - POST
-//Read - GET
-//Update - PUT
-//Delete - DELETE
-
 //Class to define what a House contains
 class House {
   constructor(name) {
@@ -14,6 +7,8 @@ class House {
 
   //Method to add a new room.
   addRoom(name, area) {
+    console.log("addROom name:", name); //
+    console.log("addROom area:", area); //
     this.rooms.push(new Rooms(name, area));
   }
 }
@@ -28,61 +23,58 @@ class Rooms {
 
 //Class to define a house API / methods to view/update a house.
 class HouseService {
-  static url = "https://crudcrud.com/api/6b4d77f6002845228fcf207c786f9f09";
-  // static url = "https://ancient-taiga-31359.herokuapp.com/api/houses";
+  static houses = [];
+
+  static crudcrud = "https://crudcrud.com/api/4d4361f846b94b46abd95e2d0b59d390"; //Replace this URL if expired
+  static url = `${this.crudcrud}/house`;
 
   //Method to returns all houses from the url -GET
   static getAllHouses() {
-    return $.get(this.url);
+    const data = $.get(this.url);
+    console.log("getAllHouses data:", data); //
+    return data;
   }
 
   //Method to return a specific house from the url -GET
   static getHouse(id) {
-    return $.get(this.url + `/${id}`);
+    return $.get(`${this.url}/${id}`);
   }
 
   //Method to takes an instance of the House class ie. (name,area) - POST
   static createHouse(house) {
-    return $.post(this.url, house); //house is the http payload
+    const responsePromise = $.ajax({
+      url: this.url,
+      data: JSON.stringify(house),
+      dataType: "json",
+      type: "POST",
+      contentType: "application/json",
+      crossDomain: true,
+    });
+    return responsePromise;
   }
 
   // Method to update an existing hosue - PUT
   static updateHouse(house) {
-    return $.ajax({
-      url: this.url + `/${house._id}`, //_id is the value that the database will create
+    const id = house._id;
+    delete house._id;
+    const responsePromise = $.ajax({
+      url: `${this.url}/${id}`,
       dataType: "json",
-      data: JSON.stringify(house), //house is converted into a string
+      data: JSON.stringify(house),
       contentType: "application/json",
+      crossDomain: true,
       type: "PUT",
     });
+    return responsePromise;
   }
-
-  // static updateHouse(house) {
-  //   fetch(this.url + `/${house._id}`, {
-  //     method: "PUT", // *GET, POST, PUT, DELETE, etc.
-  //     mode: "cors", // no-cors, *cors, same-origin
-  //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-  //     credentials: "omit", // include, *same-origin, omit
-  //     headers: {
-  //       "Content-Type": "application/json; charset=utf-8",
-  //       // 'Content-Type': 'application/x-www-form-urlencoded',
-  //     },
-  //     redirect: "follow", // manual, *follow, error
-  //     referrerPolicy: "origin-when-cross-origin", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-  //     body: JSON.stringify(house), // body data type must match "Content-Type" header
-  //   })
-  //     .then((res) => res.json())
-  //     .then((house) => {
-  //       return house;
-  //     }); //data returns an array of strings from this response example.
-  // }
 
   //Method to delete an existing house - DELETE
   static deleteHouse(id) {
-    return $.ajax({
-      url: this.url + `/${id}`,
+    const responsePromise = $.ajax({
+      url: `${this.url}/${id}`,
       type: "DELETE",
     });
+    return responsePromise;
   }
 }
 
@@ -100,7 +92,6 @@ class DOMManager {
   static deleteHouse(id) {
     HouseService.deleteHouse(id)
       .then(() => {
-        //Re-renders the DOM
         return HouseService.getAllHouses();
       })
       .then((houses) => this.render(houses));
@@ -108,24 +99,32 @@ class DOMManager {
 
   //Method to create a House
   static createHouse(name) {
+    //Re-renders the DOM
     HouseService.createHouse(new House(name)).then(() => {
-      return HouseService.getAllHouses().then((houses) => this.render(houses)); //Re-renders the DOM
+      HouseService.getAllHouses().then((houses) => this.render(houses)); //Re-renders the DOM
+      return console.log("createHouse Name:", name); //
     });
   }
 
   //Method to add a room to a House
   static addRoom(id) {
+    console.log("addRoom house._Id:", id); //
     for (let house of this.houses) {
+      console.log("addRoom house:", house); //
+      console.log("addRoom this.houses:", this.houses); //
+
       if (house._id == id) {
+        console.log("if house._id:", house._id);
         house.rooms.push(
           new Rooms(
             $(`#${house._id}-room-name`).val(),
             $(`#${house._id}-room-area`).val()
           )
         );
+        console.log("Rooms.house._id:", house); //
         //Method to send an update request to the API
+        //Re-renders the DOM
         HouseService.updateHouse(house).then(() => {
-          //Re-renders the DOM
           return HouseService.getAllHouses().then((houses) =>
             this.render(houses)
           );
@@ -136,15 +135,20 @@ class DOMManager {
 
   //Method to delete a room from a House
   static deleteRoom(houseId, roomId) {
+    console.log("deleteRoom houseId:", houseId); //
+    console.log("deleteRoom roomId:", roomId); //
     for (let house of this.houses) {
       if (house._id == houseId) {
+        // console.log("deleteRoom house._id:", house._id); //
         for (let room of house.rooms) {
           if (room._id == roomId) {
+            // console.log("deleteRoom test"); //
             house.rooms.splice(house.rooms.indexOf(room), 1);
+            //Re-renders the DOM
             HouseService.updateHouse(house).then(() => {
               return HouseService.getAllHouses().then((houses) =>
                 this.render(houses)
-              ); //Re-renders the DOM
+              );
             });
           }
         }
@@ -157,6 +161,10 @@ class DOMManager {
     this.houses = houses;
     $("#app").empty(); //References the div id #app in index.html
     for (let house of houses) {
+      console.log("render House._id", `${house._id}`); //
+      console.log("render house:", house); //
+      console.log("render houseLength:", houses.length); //
+      console.log("render", $("#app")); //
       $("#app").prepend(
         `
         <div id="${house._id}" class ="card">
@@ -182,6 +190,8 @@ class DOMManager {
       );
       //For each room of the house append additional HTML elements.
       for (let room of house.rooms) {
+        console.log("render room:", room); //
+        console.log("render ${room._id}:", `${room._id}`); //
         $(`#${house._id}`)
           .find(".card-body")
           .append(
@@ -190,7 +200,7 @@ class DOMManager {
                 <span id="name-${room._id}"
                   ><strong>Name: </strong> ${room.name}</span
                 >
-                <span id="name-${room._id}"
+                <span id="area-${room._id}"
                   ><strong>Area: </strong> ${room.area}</span
                 >
                 <button
