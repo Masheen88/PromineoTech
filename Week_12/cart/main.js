@@ -27,7 +27,7 @@ class Rooms {
 class ProductService {
   static houses = [];
 
-  static crudcrud = "https://crudcrud.com/api/2b93bee9434242bc952c135a4e8a3277"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/db976b515a96477dbc710661d34f1cee"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all houses from the url -GET
@@ -198,14 +198,17 @@ class DOMManager {
               <button
                 class="btn btn-danger"
                 id="deleteProductBtn"
-                onclick="DOMManager.deleteProduct('${house._id}')"
+                onclick="DOMManager.deleteProduct('${
+                  house._id
+                }'); removeProduct('${house._id}')"
               >
                 Remove Product
               </button>
               ${insertImg(house.name)}
               <div class=qtyInput>
               <h2>QTY</h2>
-              <input type="text" id="qtyInput" maxlength="2" size="2" class="form-control" onchange="changeQTY('${house}')" />
+              <input type="text" id="qtyInput" maxlength="2" size="2" class="form-control" onchange="changeQTY(
+                '${house._id}','${house.qty}')" />
               </div>
             </div>
           </div>
@@ -244,15 +247,22 @@ class DOMManager {
   }
 }
 
-function changeQTY(house) {
+function changeQTY(houseId, houseQty) {
+  console.log("changeQTY houseId =:", houseId);
+  console.log("changeQTY houseQty =:", houseQty);
   let Qty = document.getElementById("qtyInput");
   Qty.value = Qty.value;
   // house.qty.push(Qty.value);
-  ProductService.updateHouse(house).then(() => {
+  ProductService.updateHouse(houseQty).then(() => {
     return ProductService.getAllProducts().then((houses) =>
       this.render(houses)
     );
   });
+}
+
+function removeProduct(id) {
+  let product = document.getElementById(id);
+  product.remove();
 }
 
 // e.key is the modern way of detecting keys
