@@ -7,17 +7,18 @@ class House {
 
   //Method to add a new room.
   addRoom(name, area) {
-    console.log("addROom name:", name); //
-    console.log("addROom area:", area); //
+    // console.log("addROom name:", name); //
+    // console.log("addROom area:", area); //
     this.rooms.push(new Rooms(name, area));
   }
 }
 
 //Class to define what a Room in the House contains.
 class Rooms {
-  constructor(name, area) {
+  constructor(name, area, id) {
     this.name = name;
     this.area = area;
+    this._id = id;
   }
 }
 
@@ -25,13 +26,13 @@ class Rooms {
 class HouseService {
   static houses = [];
 
-  static crudcrud = "https://crudcrud.com/api/4d4361f846b94b46abd95e2d0b59d390"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/24f2b22782d2493aad0ab8438092fd91"; //Replace this URL if expired
   static url = `${this.crudcrud}/house`;
 
   //Method to returns all houses from the url -GET
   static getAllHouses() {
     const data = $.get(this.url);
-    console.log("getAllHouses data:", data); //
+    // console.log("getAllHouses data:", data); //
     return data;
   }
 
@@ -50,6 +51,7 @@ class HouseService {
       contentType: "application/json",
       crossDomain: true,
     });
+    console.log("responsePromise:", responsePromise);
     return responsePromise;
   }
 
@@ -108,20 +110,22 @@ class DOMManager {
 
   //Method to add a room to a House
   static addRoom(id) {
+    let i = 0;
     console.log("addRoom house._Id:", id); //
     for (let house of this.houses) {
       console.log("addRoom house:", house); //
       console.log("addRoom this.houses:", this.houses); //
-
       if (house._id == id) {
         console.log("if house._id:", house._id);
         house.rooms.push(
           new Rooms(
             $(`#${house._id}-room-name`).val(),
-            $(`#${house._id}-room-area`).val()
+            $(`#${house._id}-room-area`).val(),
+            $(`#${i++}-room-area`).val()
           )
         );
-        console.log("Rooms.house._id:", house); //
+        console.log("addRoom house:", house); //
+        console.log("addRoom house.rooms:", house.rooms); //
         //Method to send an update request to the API
         //Re-renders the DOM
         HouseService.updateHouse(house).then(() => {
@@ -141,7 +145,11 @@ class DOMManager {
       if (house._id == houseId) {
         // console.log("deleteRoom house._id:", house._id); //
         for (let room of house.rooms) {
-          if (room._id == roomId) {
+          console.log("for roomId:", roomId);
+          console.log("for room:", room);
+          console.log("for house.rooms:", house.rooms);
+          console.log("for ._id:", house._id);
+          if ($(roomId) == 3) {
             // console.log("deleteRoom test"); //
             house.rooms.splice(house.rooms.indexOf(room), 1);
             //Re-renders the DOM
@@ -163,8 +171,9 @@ class DOMManager {
     for (let house of houses) {
       console.log("render House._id", `${house._id}`); //
       console.log("render house:", house); //
-      console.log("render houseLength:", houses.length); //
-      console.log("render", $("#app")); //
+      console.log("render house.name:", house.name); //
+      // console.log("render houseLength:", houses.length); //
+      // console.log("render", $("#app")); //
       $("#app").prepend(
         `
         <div id="${house._id}" class ="card">
@@ -189,23 +198,26 @@ class DOMManager {
         `
       );
       //For each room of the house append additional HTML elements.
+      let i = 0;
       for (let room of house.rooms) {
         console.log("render room:", room); //
-        console.log("render ${room._id}:", `${room._id}`); //
+        console.log("render house._id:", house._id); //
+        console.log("render house._id:", room._id); //
+
         $(`#${house._id}`)
           .find(".card-body")
           .append(
             `
-              <p>
-                <span id="name-${room._id}"
+              <p id="roomId-${i++}">
+                <span id="name-${i++}"
                   ><strong>Name: </strong> ${room.name}</span
                 >
-                <span id="area-${room._id}"
+                <span id="area-${i++}"
                   ><strong>Area: </strong> ${room.area}</span
                 >
                 <button
                   class="btn btn-danger"
-                  onclick="DOMManager.deleteRoom('${house._id}', '${room._id}')"
+                  onclick="DOMManager.deleteRoom('${house._id}', '${i++}')"
                 >
                   Delete Room
                 </button>

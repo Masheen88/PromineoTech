@@ -137,6 +137,10 @@ class DOMManager {
     this.houses = houses;
     $("#app").empty(); //References the div id #app in index.html
     for (let house of houses) {
+      console.log("render House._id", `${house._id}`); //
+      console.log("render house:", house); //
+      console.log("render houseLength:", houses.length); //
+
       $("#app").prepend(
         `
         <div id="${house._id}" class ="card">
@@ -162,6 +166,8 @@ class DOMManager {
       );
       //For each room of the house append additional HTML elements.
       for (let room of house.rooms) {
+        console.log("render room:", room); //
+        console.log("render ${room._id}:", `${room._id}`); //
         $(`#${house._id}`)
           .find(".card-body")
           .append(
@@ -170,7 +176,7 @@ class DOMManager {
                 <span id="name-${room._id}"
                   ><strong>Name: </strong> ${room.name}</span
                 >
-                <span id="name-${room._id}"
+                <span id="area-${room._id}"
                   ><strong>Area: </strong> ${room.area}</span
                 >
                 <button
