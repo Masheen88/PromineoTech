@@ -75,6 +75,8 @@ function drawDOM() {
     teamDiv.appendChild(table);
     //Adds a row for each member
     for (member of team.members) {
+      console.log("forLoop member:", member);
+      console.log("forLoop team.members:", team.members);
       createMemberRow(team, table, member);
     }
   }
@@ -86,6 +88,7 @@ function createMemberRow(team, table, member) {
   row.insertCell(1).innerHTML = member.position;
   let actions = row.insertCell(2);
   actions.appendChild(createDeleteRowButton(team, member));
+  console.log("createMemberRow member:", member);
 }
 
 function createDeleteRowButton(team, member) {
