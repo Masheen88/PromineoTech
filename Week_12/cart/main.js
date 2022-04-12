@@ -27,7 +27,7 @@ class Rooms {
 class ProductService {
   static houses = [];
 
-  static crudcrud = "https://crudcrud.com/api/db976b515a96477dbc710661d34f1cee"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/dc35090975b34b9bb774c30e221f9107"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all houses from the url -GET
@@ -64,11 +64,26 @@ class ProductService {
     delete house._id;
     const responsePromise = $.ajax({
       url: `${this.url}/${id}`,
-      dataType: "json",
       data: JSON.stringify(house),
       contentType: "application/json",
       crossDomain: true,
       type: "PUT",
+    });
+    return responsePromise;
+  }
+
+  static updateProductQty(productId, qty) {
+    console.log("ProductService updateHouse house =:", productId);
+    console.log("ProductService house.qty =:", qty);
+    const id = `${this.url}/${productId}`;
+    // delete productId;
+    const responsePromise = $.ajax({
+      url: id,
+      type: "PUT",
+      dataType: "json",
+      contentType: "application/json",
+      data: JSON.stringify("qty", qty),
+      crossDomain: true,
     });
     return responsePromise;
   }
@@ -93,7 +108,6 @@ class ProductService {
 }
 
 //Re-Renders the DOM when creating a new class.
-
 class DOMManager {
   static houses;
 
@@ -152,18 +166,18 @@ class DOMManager {
   }
 
   //Method to delete a room from a House
-  static deleteRoom(houseId, roomId) {
-    // console.log("deleteRoom houseId:", houseId); //
+  static deleteRoom(productId, roomId) {
+    // console.log("deleteRoom productId:", productId); //
     // console.log("deleteRoom roomId:", roomId); //
     for (let house of this.houses) {
-      if (house._id == houseId) {
+      if (house._id == productId) {
         // console.log("deleteRoom house._id:", house._id); //
         for (let room of house.rooms) {
           console.log("for roomId:", roomId); //
           console.log("for room:", room); //
           console.log("for house.rooms:", house.rooms); //
           console.log("for ._id:", house._id); //
-          if ($(roomId) == 3) {
+          if ($(roomId) == room.name) {
             // console.log("deleteRoom test"); //
             house.rooms.splice(house.rooms.indexOf(room), 1);
             //Re-renders the DOM
@@ -216,33 +230,34 @@ class DOMManager {
         `
       );
       //For each room of the house append additional HTML elements.
-      let i = 0;
-      for (let room of house.rooms) {
-        // console.log("render room:", room); //
-        // console.log("render house._id:", house._id); //
-        // console.log("render house._id:", room._id); //
-
-        $(`#${house._id}`)
-          .find(".card-body")
-          .append(
-            `
-              <p id="roomId-${i++}">
-                <span id="name-${i++}"
-                  ><strong>Name: </strong> ${room.name}</span
-                >
-                <span id="area-${i++}"
-                  ><strong>Area: </strong> ${room.area}</span
-                >
-                <button
-                  class="btn btn-danger"
-                  onclick="DOMManager.deleteRoom('${house._id}', '${i++}')"
-                >
-                  Delete Room
-                </button>
-              </p>
-            `
-          );
-      }
+      // let i = 0;
+      // for (let room of house.rooms) {
+      //   console.log("render room:", room); //
+      //   console.log("render house._id:", house._id); //
+      //   console.log("render house._id:", room.name); //
+      //   $(`#${house._id}`)
+      //     .find(".card-body")
+      //     .append(
+      //       `
+      //         <p id="roomId-${i++}">
+      //           <span id="name-${i++}"
+      //             ><strong>Name: </strong> ${room.name}</span
+      //           >
+      //           <span id="area-${i++}"
+      //             ><strong>Area: </strong> ${room.area}</span
+      //           >
+      //           <button
+      //             class="btn btn-danger"
+      //             onclick="DOMManager.deleteRoom('${house._id}', '${
+      //         room.name
+      //       }')"
+      //           >
+      //             Delete Room
+      //           </button>
+      //         </p>
+      //       `
+      //     );
+      // }
     }
   }
 }
@@ -253,7 +268,7 @@ function changeQTY(houseId, houseQty) {
   let Qty = document.getElementById("qtyInput");
   Qty.value = Qty.value;
   // house.qty.push(Qty.value);
-  ProductService.updateHouse(houseQty).then(() => {
+  ProductService.updateProductQty(houseId, houseQty).then(() => {
     return ProductService.getAllProducts().then((houses) =>
       this.render(houses)
     );
@@ -270,7 +285,7 @@ function removeProduct(id) {
 // keyup is not compatible with Jquery select(), Keydown is.
 
 function insertImg(productName) {
-  console.log("productName =:", productName);
+  // console.log("productName =:", productName); //
   if (productName == `Macchiato`) {
     return `<img class="productImage" src="./images/productImgmacchiato.jpg" />`;
   } else if (productName == `Iced Coffee`) {
@@ -285,14 +300,14 @@ $("#addToCart").click(() => {
   var productMenu = document.getElementById("productSelectionMenu");
   // let table = $("#productTable");
   // console.log("productMenu =:", productMenu); //
-  console.log(
-    "productSelectionMenu",
-    `${productMenu.options[productMenu.selectedIndex].text}`
-  ); //
+  // console.log(
+  //   "productSelectionMenu",
+  //   `${productMenu.options[productMenu.selectedIndex].text}`
+  // ); //
 
   DOMManager.createProduct(
     `${productMenu.options[productMenu.selectedIndex].text}`,
-    0
+    1
   );
   // $("#new-house-name").val("");
 });
