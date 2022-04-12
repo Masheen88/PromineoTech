@@ -1,70 +1,53 @@
-//Class to define what a House contains
-class House {
+//Class to define what a product contains
+class Product {
   constructor(name, qty) {
     this.name = name;
-    this.rooms = [];
     this.qty = qty;
   }
-
-  //Method to add a new room.
-  addRoom(name, area) {
-    // console.log("addROom name:", name); //
-    // console.log("addROom area:", area); //
-    this.rooms.push(new Rooms(name, area));
-  }
 }
 
-//Class to define what a Room in the House contains.
-class Rooms {
-  constructor(name, area, id) {
-    this.name = name;
-    this.area = area;
-    this._id = id;
-  }
-}
-
-//Class to define a house API / methods to view/update a house.
+//Class to define a product API / methods to view/update a product.
 class ProductService {
-  static houses = [];
+  static products = [];
 
-  static crudcrud = "https://crudcrud.com/api/76a8036120d74f459152641162b7410e"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/9978e77db6f849b9a3fc005dcfef279f"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
-  //Method to returns all houses from the url -GET
+  //Method to returns all products from the url -GET
   static getAllProducts() {
     const data = $.get(this.url);
     // console.log("getAllProducts data:", data); //
     return data;
   }
 
-  //Method to return a specific house from the url -GET
-  static getHouse(id) {
+  //Method to return a specific product from the url -GET
+  static getproduct(id) {
     return $.get(`${this.url}/${id}`);
   }
 
-  //Method to takes an instance of the House class ie. (name,area) - POST
-  static createProduct(house) {
-    console.log("createProduct house =:", house); //
+  //Method to takes an instance of the product class ie. (name,area) - POST
+  static createProduct(product) {
+    console.log("createProduct product =:", product); //
     const responsePromise = $.ajax({
       url: this.url,
-      data: JSON.stringify(house),
+      data: JSON.stringify(product),
       dataType: "json",
       type: "POST",
       contentType: "application/json",
       crossDomain: true,
     });
-    console.log("responsePromise:", responsePromise);
+    console.log("responsePromise:", responsePromise); //
     return responsePromise;
   }
 
   // Method to update an existing hosue - PUT
-  static updateHouse(house) {
-    console.log("ProductService updateHouse house =:", house);
-    const id = house._id;
-    delete house._id;
+  static updateproduct(product) {
+    console.log("ProductService updateproduct product =:", product); //
+    const id = product._id;
+    delete product._id;
     const responsePromise = $.ajax({
       url: `${this.url}/${id}`,
-      data: JSON.stringify(house),
+      data: JSON.stringify(product),
       contentType: "application/json",
       crossDomain: true,
       type: "PUT",
@@ -73,8 +56,8 @@ class ProductService {
   }
 
   static updateProductQty(productId, qty) {
-    console.log("ProductService updateHouse house =:", productId);
-    console.log("ProductService house.qty =:", qty);
+    console.log("ProductService updateproduct product =:", productId); //
+    console.log("ProductService product.qty =:", qty); //
     const id = `${this.url}/${productId}`;
     // delete productId;
     const responsePromise = $.ajax({
@@ -98,9 +81,9 @@ class ProductService {
   }
 
   //Method to delete all products in the cart - DELETE
-  static deleteAllProducts(id) {
+  static deleteAllProducts() {
     const responsePromise = $.ajax({
-      url: `${this.url}/${id}`,
+      url: `${this.url}`,
       type: "DELETE",
     });
     return responsePromise;
@@ -109,169 +92,84 @@ class ProductService {
 
 //Re-Renders the DOM when creating a new class.
 class DOMManager {
-  static houses;
+  static products;
 
-  //Method that gets all houses and then re-renders the DOM with the new response.
+  //Method that gets all products and then re-renders the DOM with the new response.
   static getAllProducts() {
-    ProductService.getAllProducts().then((houses) => this.render(houses));
+    ProductService.getAllProducts().then((products) => this.render(products));
   }
 
-  //Method to delete a specific House
+  //Method to delete a specific product
   static deleteProduct(id) {
-    console.log("DOMManager deleteProduct id =:", id);
+    console.log("DOMManager deleteProduct id =:", id); //
     ProductService.deleteProduct(id)
       .then(() => {
         return ProductService.getAllProducts();
       })
-      .then((houses) => this.render(houses));
+      .then((products) => this.render(products));
   }
 
-  //Method to create a House
+  //Method to create a product
   static createProduct(name, qty) {
-    console.log("ProductService createProduct name =:", name);
-    console.log("ProductService createProduct defaultQTY =:", qty);
+    console.log("ProductService createProduct name =:", name); //
+    console.log("ProductService createProduct defaultQTY =:", qty); //
     //Re-renders the DOM
-    return ProductService.createProduct(new House(name, qty)).then(() => {
-      ProductService.getAllProducts().then((houses) => this.render(houses)); //Re-renders the DOM
+    return ProductService.createProduct(new Product(name, qty)).then(() => {
+      ProductService.getAllProducts().then((products) => this.render(products)); //Re-renders the DOM
     });
   }
 
-  //Method to add a room to a House
-  static addRoom(id) {
-    let i = 0;
-    // console.log("addRoom house._Id:", id); //
-    for (let house of this.houses) {
-      // console.log("addRoom house:", house); //
-      // console.log("addRoom this.houses:", this.houses); //
-      if (house._id == id) {
-        console.log("if house._id:", house._id);
-        house.rooms.push(
-          new Rooms(
-            $(`#${house._id}-room-name`).val(),
-            $(`#${house._id}-room-area`).val(),
-            $(`#${i++}-room-area`).val()
-          )
-        );
-        // console.log("addRoom house:", house); //
-        // console.log("addRoom house.rooms:", house.rooms); //
-        //Method to send an update request to the API
-        //Re-renders the DOM
-        ProductService.updateHouse(house).then(() => {
-          return ProductService.getAllProducts().then((houses) =>
-            this.render(houses)
-          );
-        });
-      }
-    }
-  }
-
-  //Method to delete a room from a House
-  static deleteRoom(productId, roomId) {
-    // console.log("deleteRoom productId:", productId); //
-    // console.log("deleteRoom roomId:", roomId); //
-    for (let house of this.houses) {
-      if (house._id == productId) {
-        // console.log("deleteRoom house._id:", house._id); //
-        for (let room of house.rooms) {
-          console.log("for roomId:", roomId); //
-          console.log("for room:", room); //
-          console.log("for house.rooms:", house.rooms); //
-          console.log("for ._id:", house._id); //
-          if ($(roomId) == room.name) {
-            // console.log("deleteRoom test"); //
-            house.rooms.splice(house.rooms.indexOf(room), 1);
-            //Re-renders the DOM
-            ProductService.updateHouse(house).then(() => {
-              return ProductService.getAllProducts().then((houses) =>
-                this.render(houses)
-              );
-            });
-          }
-        }
-      }
-    }
-  }
-
   //Renders various HTML elements to the DOM
-  static render(houses) {
-    console.log("DOMManger render houses:", houses); //
-    this.houses = houses;
+  static render(products) {
+    console.log("DOMManger render products:", products); //
+    this.products = products;
     $("#app").empty(); //References the div id #app in index.html
-    for (let house of houses) {
-      // console.log("render House._id", `${house._id}`); //
-      console.log("render house:", house); //
-      // console.log("render house.name:", house.name); //
-      // console.log("render houseLength:", houses.length); //
+    for (let product of products) {
+      // console.log("render product._id", `${product._id}`); //
+      console.log("render product:", product); //
+      // console.log("render product.name:", product.name); //
+      // console.log("render productLength:", products.length); //
       // console.log("render", $("#app")); //
       $("#productTable").prepend(
         `
           
             <div class="container col-sm-4">
-            <div class="productContainer" id="${house._id}">
-              <h2>${house.name}</h2>
+            <div class="productContainer" id="${product._id}">
+              <h2>${product.name}</h2>
               <button
                 class="btn btn-danger"
                 id="deleteProductBtn"
                 onclick="DOMManager.deleteProduct('${
-                  house._id
-                }'); removeProduct('${house._id}')"
+                  product._id
+                }'); removeProduct('${product._id}')"
               >
                 Remove Product
               </button>
-              ${insertImg(house.name)}
+              ${insertImg(product.name)}
               <div class=qtyInput>
               <h2>QTY</h2>
               <input type="text" id="qtyInput" maxlength="2" size="2" class="form-control" onchange="changeQTY(
-                '${house._id}','${house.qty}')" />
+                '${product._id}','${product.qty}')" />
               </div>
             </div>
           </div>
           <br />
         `
       );
-      //For each room of the house append additional HTML elements.
-      // let i = 0;
-      // for (let room of house.rooms) {
-      //   console.log("render room:", room); //
-      //   console.log("render house._id:", house._id); //
-      //   console.log("render house._id:", room.name); //
-      //   $(`#${house._id}`)
-      //     .find(".card-body")
-      //     .append(
-      //       `
-      //         <p id="roomId-${i++}">
-      //           <span id="name-${i++}"
-      //             ><strong>Name: </strong> ${room.name}</span
-      //           >
-      //           <span id="area-${i++}"
-      //             ><strong>Area: </strong> ${room.area}</span
-      //           >
-      //           <button
-      //             class="btn btn-danger"
-      //             onclick="DOMManager.deleteRoom('${house._id}', '${
-      //         room.name
-      //       }')"
-      //           >
-      //             Delete Room
-      //           </button>
-      //         </p>
-      //       `
-      //     );
-      // }
     }
   }
 }
 
-function changeQTY(houseId, houseQty) {
-  console.log("changeQTY houseId =:", houseId);
-  console.log("changeQTY houseQty =:", houseQty);
+function changeQTY(productId, productQty) {
+  console.log("changeQTY productId =:", productId); //
+  console.log("changeQTY productQty =:", productQty); //
   let Qty = document.getElementById("qtyInput");
   Qty.value = Qty.value;
-  console.log("changeQTY Qty.value =:", Qty.value);
-  // house.qty.push(Qty.value);
-  ProductService.updateProductQty(houseId, Qty.value).then(() => {
-    return ProductService.getAllProducts().then((houses) =>
-      this.render(houses)
+  console.log("changeQTY Qty.value =:", Qty.value); //
+  // product.qty.push(Qty.value);
+  ProductService.updateProductQty(productId, Qty.value).then(() => {
+    return ProductService.getAllProducts().then((products) =>
+      this.render(products)
     );
   });
 }
@@ -296,7 +194,7 @@ function insertImg(productName) {
   }
 }
 
-//Method to create a new house on click.
+//Method to create a new product on click.
 $("#addToCart").click(() => {
   var productMenu = document.getElementById("productSelectionMenu");
   // let table = $("#productTable");
@@ -310,8 +208,8 @@ $("#addToCart").click(() => {
     `${productMenu.options[productMenu.selectedIndex].text}`,
     1
   );
-  // $("#new-house-name").val("");
+  // $("#new-product-name").val("");
 });
 
-//Test method to get all houses.
+//Test method to get all products.
 DOMManager.getAllProducts();

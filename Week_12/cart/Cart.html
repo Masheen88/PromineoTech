@@ -125,11 +125,12 @@
               id="emptyCart"
               type="button"
               value="Click"
+              onclick="ProductService.deleteAllProducts()"
             >
               Empty Cart
             </button>
             <button
-              class="btn btn-warning"
+              class="btn btn-warning disabled"
               id="viewMoreProducts"
               type="button"
               value="Click"
@@ -137,7 +138,7 @@
               View More Products
             </button>
             <button
-              class="btn btn-success"
+              class="btn btn-success disabled"
               id="goToCheckout"
               type="button"
               value="Click"
