@@ -27,7 +27,7 @@ class Rooms {
 class ProductService {
   static houses = [];
 
-  static crudcrud = "https://crudcrud.com/api/dc35090975b34b9bb774c30e221f9107"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/76a8036120d74f459152641162b7410e"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all houses from the url -GET
@@ -82,7 +82,7 @@ class ProductService {
       type: "PUT",
       dataType: "json",
       contentType: "application/json",
-      data: JSON.stringify("qty", qty),
+      data: JSON.stringify({ qty: qty }),
       crossDomain: true,
     });
     return responsePromise;
@@ -267,8 +267,9 @@ function changeQTY(houseId, houseQty) {
   console.log("changeQTY houseQty =:", houseQty);
   let Qty = document.getElementById("qtyInput");
   Qty.value = Qty.value;
+  console.log("changeQTY Qty.value =:", Qty.value);
   // house.qty.push(Qty.value);
-  ProductService.updateProductQty(houseId, houseQty).then(() => {
+  ProductService.updateProductQty(houseId, Qty.value).then(() => {
     return ProductService.getAllProducts().then((houses) =>
       this.render(houses)
     );
