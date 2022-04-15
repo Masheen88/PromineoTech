@@ -6,3 +6,20 @@
 p {
   color: red;
 }
+
+#loading {
+  animation: 1s loading alternate infinte;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes loading {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}

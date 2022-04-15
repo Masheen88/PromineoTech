@@ -105,7 +105,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
       console.log("results", results);
 
       //A condition to check if the player won or the game was a draw.
-
+      //Turn combinations listed below - should have used an array instead :)
       //Win Conditions for 3 turns
       if (
         (results[0] == 1 && results[6] == 2 && results[12] == 3) ||
@@ -292,6 +292,32 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[12] == 6)
       ) {
         winGame(playerId);
+      } else if (
+        (results[0] == 9 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 3 &&
+          results[12] == 8) ||
+        (results[0] == 8 &&
+          results[3] == 3 &&
+          results[6] == 7 &&
+          results[9] == 5 &&
+          results[12] == 9)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 3 &&
+          results[12] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 3 &&
+          results[6] == 7 &&
+          results[9] == 5 &&
+          results[12] == 1)
+      ) {
+        winGame(playerId);
       }
       //Win conditions for 6 turns
       else if (
@@ -382,6 +408,66 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[9] == 7 &&
           results[12] == 5 &&
           results[15] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 2 &&
+          results[6] == 3 &&
+          results[9] == 5 &&
+          results[12] == 6 &&
+          results[15] == 8) ||
+        (results[0] == 8 &&
+          results[3] == 6 &&
+          results[6] == 5 &&
+          results[9] == 3 &&
+          results[12] == 2 &&
+          results[15] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 3 &&
+          results[6] == 5 &&
+          results[9] == 9 &&
+          results[12] == 7 &&
+          results[15] == 6) ||
+        (results[0] == 6 &&
+          results[3] == 7 &&
+          results[6] == 9 &&
+          results[9] == 5 &&
+          results[12] == 3 &&
+          results[15] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 9 &&
+          results[3] == 7 &&
+          results[6] == 5 &&
+          results[9] == 1 &&
+          results[12] == 3 &&
+          results[15] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 3 &&
+          results[6] == 1 &&
+          results[9] == 5 &&
+          results[12] == 7 &&
+          results[15] == 9)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 8 &&
+          results[3] == 4 &&
+          results[6] == 6 &&
+          results[9] == 7 &&
+          results[12] == 5 &&
+          results[15] == 1) ||
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 7 &&
+          results[9] == 6 &&
+          results[12] == 4 &&
+          results[15] == 8)
       ) {
         winGame(playerId);
       }
@@ -553,6 +639,23 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[9] == 9 &&
           results[12] == 2 &&
           results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 3 &&
+          results[6] == 4 &&
+          results[9] == 8 &&
+          results[12] == 6 &&
+          results[15] == 7 &&
+          results[18] == 5) ||
+        (results[0] == 5 &&
+          results[3] == 7 &&
+          results[6] == 6 &&
+          results[9] == 8 &&
+          results[12] == 4 &&
+          results[15] == 3 &&
           results[18] == 1)
       ) {
         winGame(playerId);
