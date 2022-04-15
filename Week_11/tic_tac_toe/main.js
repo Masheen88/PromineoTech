@@ -123,6 +123,7 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
 
       //A condition to check if the player won or the game was a draw.
       //Turn combinations listed below - should have used an array instead :)
+
       //Win Conditions for 3 turns
       if (
         (results[0] == 1 && results[6] == 2 && results[12] == 3) ||
