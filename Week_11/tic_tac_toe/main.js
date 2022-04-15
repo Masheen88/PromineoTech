@@ -8,20 +8,41 @@ replayButton.onclick = function (replay) {
 let maxTurns = 0; //Declares max number of turns (9) start at 0.
 
 let players = [1, 2]; //Declares the number of players
+let p1X = []; //Player 1 = X
+let p2O = []; //Player 2 = O
 
 //Function to randomly select a player turn
 function randomTurn(players) {
   let p1 = players[0];
   let p2 = players[1];
-  return Math.floor(Math.random() * (p2 - p1 + 1) + p1);
+  let randomPlayerReturn = Math.floor(Math.random() * (p2 - p1 + 1) + p1);
+  console.log("test", randomPlayerReturn);
+  if (randomPlayerReturn == 1) {
+    p1X.push("X");
+    return p1X, randomPlayerReturn;
+  } else if (randomPlayerReturn == 2) {
+    p2O.push("O");
+    return randomPlayerReturn;
+  }
 }
 
 let randomPlayersTurn = randomTurn(players); //Declares the randomly selected players turn
 
+//Function to write the game letter to the score area
+function playerLetter(randomPlayersTurn) {
+  if (randomPlayersTurn == 1) {
+    return p1X;
+  } else if (randomPlayersTurn == 2) {
+    return p2O;
+  }
+}
+
 //Displays the current players turn in html
 let div = $(".playerTurn");
 div.append(
-  `<p class="playerTurnContainer">Player <span class="playerTurnID p${randomPlayersTurn}">${randomPlayersTurn}</span> goes first!</>`
+  `<p class="playerTurnContainer">Player <span class="playerTurnID p${randomPlayersTurn}">${playerLetter(
+    randomPlayersTurn
+  )}</span> goes first!</>`
 );
 
 //Condition to call a function based on which player is going first.
@@ -104,14 +125,21 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
 
       //Function if a player wins the game
       function winGame(playerId) {
+        console.log(playerId);
         let gameTable = $(".card-body");
-
-        gameTable.prepend(
-          `<p> <span class = "${playerId}">${playerId}</span>'s Win!</p>`
-        );
-        $("div.playerTurn").addClass("playerTurnContainer");
-        div.remove();
-        // img.remove();
+        if (playerId == "X") {
+          gameTable.prepend(
+            `<p> <span class = "btn btn-danger px ${playerId}">${playerId}</span>'s Win!</p>`
+          );
+          $("div.playerTurn").addClass("playerTurnContainer");
+          div.remove();
+        } else if (playerId == "O") {
+          gameTable.prepend(
+            `<p> <span class = "btn btn-primary po ${playerId}">${playerId}</span>'s Win!</p>`
+          );
+          $("div.playerTurn").addClass("playerTurnContainer");
+          div.remove();
+        }
       }
 
       //Function if game is a draw
@@ -334,6 +362,58 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[6] == 7 &&
           results[9] == 5 &&
           results[12] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 5 &&
+          results[3] == 7 &&
+          results[6] == 6 &&
+          results[9] == 8 &&
+          results[12] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 8 &&
+          results[6] == 6 &&
+          results[9] == 7 &&
+          results[12] == 5)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 5 &&
+          results[3] == 1 &&
+          results[6] == 6 &&
+          results[9] == 2 &&
+          results[12] == 4) ||
+        (results[0] == 4 &&
+          results[3] == 2 &&
+          results[6] == 6 &&
+          results[9] == 1 &&
+          results[12] == 5)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 8 &&
+          results[3] == 4 &&
+          results[6] == 9 &&
+          results[9] == 5 &&
+          results[12] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 5 &&
+          results[6] == 9 &&
+          results[9] == 4 &&
+          results[12] == 8)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 2 &&
+          results[3] == 4 &&
+          results[6] == 3 &&
+          results[9] == 5 &&
+          results[12] == 1) ||
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 3 &&
+          results[9] == 4 &&
+          results[12] == 2)
       ) {
         winGame(playerId);
       }

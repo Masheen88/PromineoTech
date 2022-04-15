@@ -6,6 +6,16 @@
 
 html {
   background-color: #201f1f;
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .gameTitle {
@@ -165,6 +175,18 @@ body {
   color: #00aeff;
   font-size: 36px;
   font-weight: bold;
+}
+.px {
+  font-size: 36px !important;
+  font-weight: bold !important;
+  color: #ff0000 !important;
+  background-color: rgba(255, 0, 0, 0.157) !important;
+}
+.po {
+  font-size: 36px !important;
+  font-weight: bold !important;
+  color: #00aeff !important;
+  background-color: rgba(0, 174, 255, 0.157) !important;
 }
 
 footer {
