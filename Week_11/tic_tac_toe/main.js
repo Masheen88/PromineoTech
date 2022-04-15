@@ -57,7 +57,6 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         cellsClicked.push(firstTurn);
 
         imgback.remove();
-        // img.remove();
       } else if (maxTurns % 2 == 0) {
         maxTurns++;
 
@@ -68,7 +67,6 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         cellsClicked.push(secondTurn);
 
         imgback.remove();
-        // img.remove();
       }
 
       //Removes duplicate images if same cell is clicked
@@ -103,6 +101,25 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         return index !== undefined;
       });
       console.log("results", results);
+
+      //Function if a player wins the game
+      function winGame(playerId) {
+        let gameTable = $(".card-body");
+
+        gameTable.prepend(
+          `<p> <span class = "${playerId}">${playerId}</span>'s Win!</p>`
+        );
+        $("div.playerTurn").addClass("playerTurnContainer");
+        div.remove();
+        // img.remove();
+      }
+
+      //Function if game is a draw
+      function drawGame() {
+        let gameTable = $(".card-body");
+        gameTable.prepend(`<p>The Game is a Draw!</p>`);
+        div.remove();
+      }
 
       //A condition to check if the player won or the game was a draw.
       //Turn combinations listed below - should have used an array instead :)
@@ -771,24 +788,5 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
         drawGame();
       }
     });
-  }
-
-  function winGame(playerId) {
-    console.log(`Player ${playerId} Wins!`);
-    let gameTable = $(".card-body");
-
-    gameTable.prepend(
-      `<p> <span class = "${playerId}">${playerId}</span>'s Win!</p>`
-    );
-    $("div.playerTurn").addClass("playerTurnContainer");
-    div.remove();
-    // img.remove();
-  }
-
-  function drawGame() {
-    console.log("Game is a Draw!");
-    let gameTable = $(".card-body");
-    gameTable.prepend(`<p>The Game is a Draw!</p>`);
-    div.remove();
   }
 }
