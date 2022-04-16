@@ -757,6 +757,40 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
           results[18] == 1)
       ) {
         winGame(playerId);
+      } else if (
+        (results[0] == 1 &&
+          results[3] == 5 &&
+          results[6] == 4 &&
+          results[9] == 8 &&
+          results[12] == 3 &&
+          results[15] == 6 &&
+          results[18] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 6 &&
+          results[6] == 3 &&
+          results[9] == 8 &&
+          results[12] == 4 &&
+          results[15] == 5 &&
+          results[18] == 1)
+      ) {
+        winGame(playerId);
+      } else if (
+        (results[0] == 3 &&
+          results[3] == 4 &&
+          results[6] == 8 &&
+          results[9] == 1 &&
+          results[12] == 9 &&
+          results[15] == 2 &&
+          results[18] == 7) ||
+        (results[0] == 7 &&
+          results[3] == 2 &&
+          results[6] == 9 &&
+          results[9] == 1 &&
+          results[12] == 8 &&
+          results[15] == 4 &&
+          results[18] == 3)
+      ) {
+        winGame(playerId);
       }
       //Win conditions for 8 turns
       else if (
