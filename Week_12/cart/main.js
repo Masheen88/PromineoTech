@@ -10,13 +10,13 @@ class Product {
 class ProductService {
   static products = [];
 
-  static crudcrud = "https://crudcrud.com/api/9978e77db6f849b9a3fc005dcfef279f"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/a27feab9015f419d9b26207626d148a2"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all products from the url -GET
   static getAllProducts() {
     const data = $.get(this.url);
-    // console.log("getAllProducts data:", data); //
+    console.log("getAllProducts data:", data); //
     return data;
   }
 
@@ -56,19 +56,22 @@ class ProductService {
   }
 
   static updateProductQty(productId, qty) {
+    const id = `${this.url}/${productId}`;
+    console.log("testing", this.url);
     console.log("ProductService updateproduct product =:", productId); //
     console.log("ProductService product.qty =:", qty); //
-    const id = `${this.url}/${productId}`;
+    if (`${this.url}/${productId}` == `${this.url}/${productId}`) {
+      const responsePromise = $.ajax({
+        url: id,
+        type: "PUT",
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({ qty: qty }),
+        crossDomain: true,
+      });
+      return responsePromise;
+    }
     // delete productId;
-    const responsePromise = $.ajax({
-      url: id,
-      type: "PUT",
-      dataType: "json",
-      contentType: "application/json",
-      data: JSON.stringify({ qty: qty }),
-      crossDomain: true,
-    });
-    return responsePromise;
   }
 
   //Method to delete a specific product form the cart - DELETE
@@ -111,8 +114,8 @@ class DOMManager {
 
   //Method to create a product
   static createProduct(name, qty) {
-    console.log("ProductService createProduct name =:", name); //
-    console.log("ProductService createProduct defaultQTY =:", qty); //
+    // console.log("ProductService createProduct name =:", name); //
+    // console.log("ProductService createProduct defaultQTY =:", qty); //
     //Re-renders the DOM
     return ProductService.createProduct(new Product(name, qty)).then(() => {
       ProductService.getAllProducts().then((products) => this.render(products)); //Re-renders the DOM
@@ -130,7 +133,7 @@ class DOMManager {
       // console.log("render product.name:", product.name); //
       // console.log("render productLength:", products.length); //
       // console.log("render", $("#app")); //
-      $("#productTable").prepend(
+      $("#productTable").append(
         `
           
             <div class="container col-sm-4">
@@ -148,7 +151,9 @@ class DOMManager {
               ${insertImg(product.name)}
               <div class=qtyInput>
               <h2>QTY</h2>
-              <input type="text" id="qtyInput" maxlength="2" size="2" class="form-control" onchange="changeQTY(
+              <input type="text" id="qtyInput qtyInput-${
+                product._id
+              }" maxlength="2" size="2" class="form-control" onchange="changeQTY(
                 '${product._id}','${product.qty}')" value="${product.qty}" />
               </div>
             </div>
@@ -163,15 +168,19 @@ class DOMManager {
 function changeQTY(productId, productQty) {
   console.log("changeQTY productId =:", productId); //
   console.log("changeQTY productQty =:", productQty); //
-  let Qty = document.getElementById("qtyInput");
+  let Qty = document.getElementById(`qtyInput qtyInput-${productId}`);
+  Qty.append(`value=${Qty}`);
+  console.log(Qty);
   Qty.value = Qty.value;
   console.log("changeQTY Qty.value =:", Qty.value); //
   // product.qty.push(Qty.value);
+
   ProductService.updateProductQty(productId, Qty.value).then(() => {
     return ProductService.getAllProducts().then((products) =>
       this.render(products)
     );
   });
+  return Qty;
 }
 
 function removeProduct(id) {
