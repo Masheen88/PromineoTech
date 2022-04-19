@@ -26,8 +26,8 @@ class Rooms {
 class HouseService {
   static houses = [];
 
-  static crudcrud = "https://crudcrud.com/api/24f2b22782d2493aad0ab8438092fd91"; //Replace this URL if expired
-  static url = `${this.crudcrud}/house`;
+  static crudcrud = "https://crudcrud.com/api/0abd449954e64f69b01409ded8f72efe"; //Replace this URL if expired
+  static url = `${this.crudcrud}/products`;
 
   //Method to returns all houses from the url -GET
   static getAllHouses() {

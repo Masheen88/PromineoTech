@@ -10,7 +10,7 @@ class Product {
 class ProductService {
   static products = [];
 
-  static crudcrud = "https://crudcrud.com/api/a27feab9015f419d9b26207626d148a2"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/8411805fedb74ce89e1040555d8dd10b"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all products from the url -GET
@@ -47,7 +47,7 @@ class ProductService {
     delete product._id;
     const responsePromise = $.ajax({
       url: `${this.url}/${id}`,
-      data: JSON.stringify(product),
+      data: JSON.parse(product),
       contentType: "application/json",
       crossDomain: true,
       type: "PUT",
@@ -55,20 +55,22 @@ class ProductService {
     return responsePromise;
   }
 
-  static updateProductQty(productId, qty) {
+  static updateProductQty(productId, productName, qty) {
     const id = `${this.url}/${productId}`;
-    console.log("testing", this.url);
+    console.log("updateProductQty =:", productName);
+    console.log("testing", this.url); //
     console.log("ProductService updateproduct product =:", productId); //
-    console.log("ProductService product.qty =:", qty); //
+    console.log("ProductService product.qty =:", parseInt(qty)); //
     if (`${this.url}/${productId}` == `${this.url}/${productId}`) {
       const responsePromise = $.ajax({
         url: id,
         type: "PUT",
         dataType: "json",
         contentType: "application/json",
-        data: JSON.stringify({ qty: qty }),
+        data: JSON.stringify({ name: productName, qty: parseInt(qty) }),
         crossDomain: true,
       });
+      console.log("updateProductQty responsePromise", responsePromise);
       return responsePromise;
     }
     // delete productId;
@@ -154,7 +156,9 @@ class DOMManager {
               <input type="text" id="qtyInput qtyInput-${
                 product._id
               }" maxlength="2" size="2" class="form-control" onchange="changeQTY(
-                '${product._id}','${product.qty}')" value="${product.qty}" />
+                '${product._id}','${product.name}',${product.qty})" value="${
+          product.qty
+        }" />
               </div>
             </div>
           </div>
@@ -165,21 +169,24 @@ class DOMManager {
   }
 }
 
-function changeQTY(productId, productQty) {
+function changeQTY(productId, productName, productQty) {
   console.log("changeQTY productId =:", productId); //
   console.log("changeQTY productQty =:", productQty); //
+  console.log("changeQTY productName =:", productName); //
   let Qty = document.getElementById(`qtyInput qtyInput-${productId}`);
   Qty.append(`value=${Qty}`);
-  console.log(Qty);
+  console.log("testtest", Qty);
   Qty.value = Qty.value;
-  console.log("changeQTY Qty.value =:", Qty.value); //
+  console.log("changeQTY Qty.value =:", parseInt(Qty.value)); //
   // product.qty.push(Qty.value);
 
-  ProductService.updateProductQty(productId, Qty.value).then(() => {
-    return ProductService.getAllProducts().then((products) =>
-      this.render(products)
-    );
-  });
+  ProductService.updateProductQty(productId, productName, Qty.value).then(
+    () => {
+      return ProductService.getAllProducts().then((products) =>
+        this.render(products)
+      );
+    }
+  );
   return Qty;
 }
 
