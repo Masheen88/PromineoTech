@@ -26,6 +26,16 @@ code {
   padding-bottom: 25px;
 }
 
+.testing {
+  display: flex !important;
+  left: 50%;
+  top: 50%;
+  /* position: absolute; */
+  transform: translate(50%, 25%);
+  /* padding-top: 25px; */
+  /* padding-bottom: 25px; */
+}
+
 .center {
   margin: 0 auto;
   align-self: center;

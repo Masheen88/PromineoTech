@@ -1,6 +1,4 @@
 import React from "react";
-import ReplyButton from "./reply-button";
-import LikeButton from "./like-button";
 
 let myE = React.createElement;
 
@@ -86,22 +84,5 @@ export default class Navbar extends React.Component {
         </div>
       </nav>
     );
-    // return myE( // Non JSX
-    //   "div",
-    //   { className: "card w-75" },
-    //   myE(
-    //     "div",
-    //     { className: "card-header bg-success text-white" },
-    //     "Username and Time"
-    //   ),
-    //   myE("div", { className: "card-body" }, "Comment Content"),
-    //   myE(
-    //     "div",
-    //     { className: "card-footer" },
-    //     myE(LikeButton, {}, null),
-    //     myE("span", {}, " "),
-    //     myE(ReplyButton, {}, null)
-    //   )
-    // );
   }
 }

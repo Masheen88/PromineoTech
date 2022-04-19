@@ -1,13 +1,14 @@
 import React from "react";
 
-let myE = React.createElement; //Non JSX
 //makes the class accessible outside the file.
 //React.Componenet comes with the class and extends to create the compoenets you may work with
-export default class LikeButton extends React.Component {
+export default class LoginButton extends React.Component {
   //render defines what the 'componenet' or html will be rendered to screeen
   render() {
-    //JSX
-    return <button className="btn btn-primary">Like</button>;
-    // return myE("button", { className: "btn btn-primary" }, "Like"); // Non JSX
+    return (
+      <button className="btn btn-primary" id="loginButton">
+        Login
+      </button>
+    );
   }
 }

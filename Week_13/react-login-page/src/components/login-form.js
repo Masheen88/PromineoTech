@@ -1,7 +1,5 @@
 import React from "react";
-import ReplyButton from "./reply-button";
-import LikeButton from "./like-button";
-import Comment from "./comment";
+import LoginButton from "./login-button";
 
 // let myE = React.createElement; //NON JSX
 
@@ -12,7 +10,7 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <div
-        className="container bg-dark bg-opacity-0.8 d-flex w-50"
+        className="container bg-dark bg-opacity-0.8 d-flex w-100"
         id="loginForm"
       >
         <div className="center">
@@ -29,7 +27,9 @@ export default class LoginForm extends React.Component {
               <input></input>
             </span>
           </div>
-          <button className="btn btn-primary">Login</button>
+          <div className="testing">
+            <LoginButton />
+          </div>
         </div>
       </div>
     );
