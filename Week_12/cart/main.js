@@ -10,13 +10,12 @@ class Product {
 class ProductService {
   static products = [];
 
-  static crudcrud = "https://crudcrud.com/api/8411805fedb74ce89e1040555d8dd10b"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/862208bdfba74183a67f8603b3dfaa29"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all products from the url -GET
   static getAllProducts() {
     const data = $.get(this.url);
-    console.log("getAllProducts data:", data); //
     return data;
   }
 
@@ -27,7 +26,6 @@ class ProductService {
 
   //Method to takes an instance of the product class ie. (name,area) - POST
   static createProduct(product) {
-    console.log("createProduct product =:", product); //
     const responsePromise = $.ajax({
       url: this.url,
       data: JSON.stringify(product),
@@ -36,13 +34,12 @@ class ProductService {
       contentType: "application/json",
       crossDomain: true,
     });
-    console.log("responsePromise:", responsePromise); //
+    location.reload();
     return responsePromise;
   }
 
   // Method to update an existing hosue - PUT
   static updateproduct(product) {
-    console.log("ProductService updateproduct product =:", product); //
     const id = product._id;
     delete product._id;
     const responsePromise = $.ajax({
@@ -57,10 +54,6 @@ class ProductService {
 
   static updateProductQty(productId, productName, qty) {
     const id = `${this.url}/${productId}`;
-    console.log("updateProductQty =:", productName);
-    console.log("testing", this.url); //
-    console.log("ProductService updateproduct product =:", productId); //
-    console.log("ProductService product.qty =:", parseInt(qty)); //
     if (`${this.url}/${productId}` == `${this.url}/${productId}`) {
       const responsePromise = $.ajax({
         url: id,
@@ -70,7 +63,6 @@ class ProductService {
         data: JSON.stringify({ name: productName, qty: parseInt(qty) }),
         crossDomain: true,
       });
-      console.log("updateProductQty responsePromise", responsePromise);
       return responsePromise;
     }
     // delete productId;
@@ -82,6 +74,7 @@ class ProductService {
       url: `${this.url}/${id}`,
       type: "DELETE",
     });
+    location.reload();
     return responsePromise;
   }
 
@@ -101,12 +94,13 @@ class DOMManager {
 
   //Method that gets all products and then re-renders the DOM with the new response.
   static getAllProducts() {
-    ProductService.getAllProducts().then((products) => this.render(products));
+    ProductService.getAllProducts()
+      .then((products) => this.render(products))
+      .then(() => location.reload);
   }
 
   //Method to delete a specific product
   static deleteProduct(id) {
-    console.log("DOMManager deleteProduct id =:", id); //
     ProductService.deleteProduct(id)
       .then(() => {
         return ProductService.getAllProducts();
@@ -116,8 +110,6 @@ class DOMManager {
 
   //Method to create a product
   static createProduct(name, qty) {
-    // console.log("ProductService createProduct name =:", name); //
-    // console.log("ProductService createProduct defaultQTY =:", qty); //
     //Re-renders the DOM
     return ProductService.createProduct(new Product(name, qty)).then(() => {
       ProductService.getAllProducts().then((products) => this.render(products)); //Re-renders the DOM
@@ -126,15 +118,9 @@ class DOMManager {
 
   //Renders various HTML elements to the DOM
   static render(products) {
-    console.log("DOMManger render products:", products); //
     this.products = products;
     $("#app").empty(); //References the div id #app in index.html
     for (let product of products) {
-      // console.log("render product._id", `${product._id}`); //
-      console.log("render product:", product); //
-      // console.log("render product.name:", product.name); //
-      // console.log("render productLength:", products.length); //
-      // console.log("render", $("#app")); //
       $("#productTable").append(
         `
           
@@ -144,9 +130,9 @@ class DOMManager {
               <button
                 class="btn btn-danger"
                 id="deleteProductBtn"
-                onclick="DOMManager.deleteProduct('${
+                onclick="removeProduct('${
                   product._id
-                }'); removeProduct('${product._id}')"
+                }');DOMManager.deleteProduct('${product._id}')"
               >
                 Remove Product
               </button>
@@ -170,16 +156,9 @@ class DOMManager {
 }
 
 function changeQTY(productId, productName, productQty) {
-  console.log("changeQTY productId =:", productId); //
-  console.log("changeQTY productQty =:", productQty); //
-  console.log("changeQTY productName =:", productName); //
   let Qty = document.getElementById(`qtyInput qtyInput-${productId}`);
   Qty.append(`value=${Qty}`);
-  console.log("testtest", Qty);
   Qty.value = Qty.value;
-  console.log("changeQTY Qty.value =:", parseInt(Qty.value)); //
-  // product.qty.push(Qty.value);
-
   ProductService.updateProductQty(productId, productName, Qty.value).then(
     () => {
       return ProductService.getAllProducts().then((products) =>
@@ -195,12 +174,7 @@ function removeProduct(id) {
   product.remove();
 }
 
-// e.key is the modern way of detecting keys
-// e.keyCode is deprecated (left here for for legacy browsers support)
-// keyup is not compatible with Jquery select(), Keydown is.
-
 function insertImg(productName) {
-  // console.log("productName =:", productName); //
   if (productName == `Macchiato`) {
     return `<img class="productImage" src="./images/productImgmacchiato.jpg" />`;
   } else if (productName == `Iced Coffee`) {
@@ -213,18 +187,11 @@ function insertImg(productName) {
 //Method to create a new product on click.
 $("#addToCart").click(() => {
   var productMenu = document.getElementById("productSelectionMenu");
-  // let table = $("#productTable");
-  // console.log("productMenu =:", productMenu); //
-  // console.log(
-  //   "productSelectionMenu",
-  //   `${productMenu.options[productMenu.selectedIndex].text}`
-  // ); //
 
   DOMManager.createProduct(
     `${productMenu.options[productMenu.selectedIndex].text}`,
     1
   );
-  // $("#new-product-name").val("");
 });
 
 //Test method to get all products.
