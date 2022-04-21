@@ -141,7 +141,7 @@ class DOMManager {
               <h2>QTY</h2>
               <input type="text" id="qtyInput qtyInput-${
                 product._id
-              }" maxlength="2" size="2" class="form-control" onchange="changeQTY(
+              }" maxlength="2" size="2" class="form-control" style="text-align: center;" onchange="changeQTY(
                 '${product._id}','${product.name}',${product.qty})" value="${
           product.qty
         }" />
