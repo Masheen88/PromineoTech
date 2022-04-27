@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import App from "./App";
-import SecondCounterContainer from "./second-counter-container";
+import MovieReviews from "./movie_components/movie_reviews.js";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<SecondCounterContainer />);
+root.render(<MovieReviews />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
