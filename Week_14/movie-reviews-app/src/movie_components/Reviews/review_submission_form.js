@@ -92,14 +92,26 @@ export default class ReviewSubmissionForm extends React.Component {
           Insert your test comments header
           <br />
           More Text
-          {/* {
+          {
             //map array data
             this.state.reviewComments.map(function (val) {
               console.log("from mapping - val:", val);
-              console.log("from mapping", this.state.reviewComments);
-              return <div key={val.name}>{val.name}</div>;
+              return (
+                <div className="card w-75">
+                  <div className="card-header bg-primary text-white">
+                    <div className="row reviewCommentHeader">
+                      <div className="col-sm-6 reviewName">Testing</div>
+                      <div className="col-sm-6 reviewRatings">
+                        <ReviewStars />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card-body">More Testing</div>
+                  <div className="card-footer">{val}</div>
+                </div>
+              );
             })
-          } */}
+          }
         </div>
       </div>
     );
