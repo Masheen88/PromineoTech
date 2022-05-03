@@ -26,11 +26,21 @@ export default class ReviewSubmissionForm extends React.Component {
 
   //On submit passes data to render.
   handleSubmit(event) {
-    console.log("handleSUbmit-event:", event);
     event.preventDefault();
+    let reviewComments = this.state.reviewComments;
+    console.log("handleSubmit fullName:", event.target.elements.fullName.value);
+    let fullName = event.target.elements.fullName.value;
+    console.log(
+      "handleSubmit movieDescription:",
+      event.target.elements.movieDescription.value
+    );
+    let movieDescription = event.target.elements.movieDescription.value;
+    console.log("handleSUbmit-event:", event);
+
     console.log("handleSubmit-reviewcomments:", this.state.reviewComments);
     let reviews = this.state.reviewComments;
-    reviews.push("Test");
+    reviewComments.push([fullName, movieDescription]);
+    this.setState({ reviewComments });
   }
 
   //render defines what the 'component' or html will be rendered to screeen
@@ -61,7 +71,6 @@ export default class ReviewSubmissionForm extends React.Component {
               id="fullNameInput"
               placeholder="Full Name"
               value={this.state.reviewComments["fullName"]}
-              onBlur={this.handleChange.bind(this)}
               // onChange={this.handleReviewName}
             />
           </div>
@@ -76,7 +85,6 @@ export default class ReviewSubmissionForm extends React.Component {
             placeholder="This movie was the best movie in the world!"
             rows="3"
             value={this.state.reviewComments["movieDescription"]}
-            onBlur={this.handleChange.bind(this)}
           ></textarea>
           <br />
           <button
@@ -97,7 +105,7 @@ export default class ReviewSubmissionForm extends React.Component {
             this.state.reviewComments.map(function (val) {
               console.log("from mapping - val:", val);
               return (
-                <div className="card w-75">
+                <div className="card w-75" key={val}>
                   <div className="card-header bg-primary text-white">
                     <div className="row reviewCommentHeader">
                       <div className="col-sm-6 reviewName">Testing</div>
