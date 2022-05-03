@@ -1,5 +1,5 @@
 import React from "react";
-import all from "../StarRatings/starRatings.css";
+import css from "../StarRatings/starRatings.css";
 
 //makes the class accessible outside the file.
 //React.Componenet comes with the class and extends to create the compoenets you may work with
@@ -19,6 +19,7 @@ export default class AverageMovieStars extends React.Component {
                 id="averageStars-5"
                 type="radio"
                 name="star"
+                value="5"
               />{" "}
               <label
                 className="averageStars averageStars-5"
@@ -29,6 +30,7 @@ export default class AverageMovieStars extends React.Component {
                 id="averageStars-4"
                 type="radio"
                 name="star"
+                value="4"
               />{" "}
               <label
                 className="averageStars averageStars-4"
@@ -39,6 +41,7 @@ export default class AverageMovieStars extends React.Component {
                 id="averageStars-3"
                 type="radio"
                 name="star"
+                value="3"
               />{" "}
               <label
                 className="averageStars averageStars-3"
@@ -49,6 +52,7 @@ export default class AverageMovieStars extends React.Component {
                 id="averageStars-2"
                 type="radio"
                 name="star"
+                value="2"
               />{" "}
               <label
                 className="averageStars averageStars-2"
@@ -59,6 +63,7 @@ export default class AverageMovieStars extends React.Component {
                 id="averageStars-1"
                 type="radio"
                 name="star"
+                value="1"
               />{" "}
               <label
                 className="averageStars averageStars-1"

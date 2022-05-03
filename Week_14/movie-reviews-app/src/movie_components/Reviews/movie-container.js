@@ -22,6 +22,23 @@ export default class MovieContainer extends React.Component {
       movieAverageRating: props.movieAverageRating,
     };
   }
+
+  checkStarValue() {
+    let averageStarRating = 5;
+    let averageMovieStarRatingId = document.getElementById(
+      "averageMovieStarRatingId"
+    );
+    for (let i = 0; i <= 5; i++) {
+      const ratingStars = [
+        ...document.getElementsByClassName(`averageStars-${i}`),
+      ];
+      console.log(ratingStars);
+    }
+    if ((averageStarRating = 5)) {
+      console.log("this is a 5 star movie");
+      return <div>Testing average stars</div>;
+    }
+  }
   //render defines what the 'componenet' or html will be rendered to screeen
   render() {
     let movies = []; //array of all comments to display in the post.
@@ -85,7 +102,13 @@ export default class MovieContainer extends React.Component {
             <div className="col-sm-12">{this.state.movieImage}</div>
           </div>
           <div className="movieGenre"> {this.state.movieGenre}</div>
-          <div className="saverageMovieStarRating">
+          <div
+            className="averageMovieStarRating"
+            id="averageMovieStarRatingId"
+            value="5"
+            onClick={this.checkStarValue}
+          >
+            Testing
             <AverageMovieStars />
           </div>
           <div className="movieDescription">{this.state.movieDescription}</div>

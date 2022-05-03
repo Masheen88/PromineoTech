@@ -1,6 +1,4 @@
 import React from "react";
-import ReplyButton from "../reply-button";
-import LikeButton from "../like-button";
 import MovieReview from "./review_submission_form.js";
 import ReviewStars from "../ReviewStars/review-stars";
 
@@ -9,47 +7,39 @@ import ReviewStars from "../ReviewStars/review-stars";
 export default class ReviewSubmissionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.userEmail = React.createRef(null);
-    this.fullName = React.createRef(null);
-    this.userDescription = React.createRef(null);
-    this.userReviewCount = React.createRef(null);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = { reviewComments: props.reviewComments };
+    this.state = {
+      reviewComments: [],
+    };
   }
 
-  //Takes the name value
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log(this.userEmail.current.value);
-    console.log(this.fullName.current.value);
-    console.log(this.userDescription.current.value);
-    let movieReviewBody = document.getElementById("movieBodyComments");
-    let cm = document.createElement("button");
+  //Handles changes from the form.
+  handleChange(event) {
+    event.preventDefault();
+    let reviewComments = this.state.reviewComments;
+    let name = event.target.name;
+    let value = event.target.value;
+    reviewComments[name] = value;
 
-    return movieReviewBody.append(`<div>
-      <p class="btn btn-primary">${this.userEmail.current.value}</p>
-      <p class="btn btn-primary">${this.fullName.current.value}</p>
-      <p class="btn btn-primary">${this.userDescription.current.value}</p>
-    </div>`);
+    this.setState({ reviewComments });
+  }
+
+  //On submit passes data to render.
+  handleSubmit(event) {
+    console.log("handleSUbmit-event:", event);
+    event.preventDefault();
+    console.log("handleSubmit-reviewcomments:", this.state.reviewComments);
+    let reviews = this.state.reviewComments;
+    reviews.push("Test");
   }
 
   //render defines what the 'component' or html will be rendered to screeen
   render() {
-    let reviewComments = [];
-
-    if (this.state.reviewComments) {
-      //loops through each of this.state.comments and pushs a JSX Comment into the comments array []
-      for (let comment of this.state.reviewComments) {
-        reviewComments.push(<MovieReview {...comment} />);
-        reviewComments.push(this.userEmail.current.value);
-      }
-    }
     return (
       <div>
-        <ReviewStars />
-        <form id="movieReviewForm" onSubmit={this.handleSubmit}>
+        {/* <ReviewStars /> */}
+        <form id="movieReviewForm" onSubmit={this.handleSubmit.bind(this)}>
           <div className="reviewStars"></div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="emailInput">Email address</label>
             <input
               ref={this.userEmail}
@@ -60,40 +50,49 @@ export default class ReviewSubmissionForm extends React.Component {
               placeholder="Input email"
             />
             <small className="form-text text-muted"></small>
-          </div>
+          </div> */}
           <div className="form-group">
             <label htmlFor="fullNameInput">Full Name</label>
             <input
-              ref={this.fullName}
               name="fullName"
               type="text"
               className="form-control"
               id="fullNameInput"
               placeholder="Full Name"
+              value={this.state.reviewComments["fullName"]}
+              onChange={this.handleChange.bind(this)}
+              // onChange={this.handleReviewName}
             />
           </div>
           <label htmlFor="exampleFormControlTextarea1">
             So how was the movie?
           </label>
           <textarea
-            ref={this.userDescription}
             name="movieDescription"
             type="text"
             className="form-control"
             id="textArea"
             placeholder="This movie was the best movie in the world!"
             rows="3"
+            value={this.state.reviewComments["movieDescription"]}
+            onChange={this.handleChange.bind(this)}
           ></textarea>
           <br />
           <button
             className="btn btn-primary form-control"
             id="submitContactButton"
-            type="submit"
             value="Submit"
           >
             Submit Your Review
           </button>
         </form>
+
+        <div className="reviewsList">
+          Insert your test comments header
+          <br />
+          More Text
+          <div>{this.state.reviewComments}</div>
+        </div>
       </div>
     );
   }
