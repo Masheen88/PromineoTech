@@ -7,39 +7,45 @@ import ReviewStars from "../ReviewStars/review-stars";
 export default class ReviewSubmissionForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       reviewComments: [],
+      id: "",
+      currentDateTime: Date().toLocaleString(),
     };
   }
 
-  //Handles changes from the form.
-  handleChange(event) {
-    event.preventDefault();
-    let reviewComments = this.state.reviewComments;
-    let name = event.target.name;
-    let value = event.target.value;
-    // reviewComments[name] = value;
-    reviewComments.push(value);
-
-    this.setState({ reviewComments });
-  }
-
-  //On submit passes data to render.
+  //On submit passes form data to render.
   handleSubmit(event) {
+    console.log("handleSUbmit-event:", event);
     event.preventDefault();
     let reviewComments = this.state.reviewComments;
-    console.log("handleSubmit fullName:", event.target.elements.fullName.value);
+    console.log(
+      "index 0) handleSubmit email:",
+      event.target.elements.email.value
+    );
+    let email = event.target.elements.email.value;
+    console.log(
+      "index 1) handleSubmit fullName:",
+      event.target.elements.fullName.value
+    );
     let fullName = event.target.elements.fullName.value;
     console.log(
-      "handleSubmit movieDescription:",
+      "index 2) handleSubmit movieDescription:",
       event.target.elements.movieDescription.value
     );
     let movieDescription = event.target.elements.movieDescription.value;
-    console.log("handleSUbmit-event:", event);
+
+    let i = parseInt(this.state.reviewComments.length + 1);
+    console.log("index 3) id =:", i);
+
+    let date = this.state.currentDateTime;
+    console.log("index 4) date =:", date);
 
     console.log("handleSubmit-reviewcomments:", this.state.reviewComments);
+
     let reviews = this.state.reviewComments;
-    reviewComments.push([fullName, movieDescription]);
+    reviewComments.push([fullName, movieDescription, email, i + 1, date]);
     this.setState({ reviewComments });
   }
 
@@ -49,11 +55,15 @@ export default class ReviewSubmissionForm extends React.Component {
       <div>
         {/* <ReviewStars /> */}
         <form id="movieReviewForm" onSubmit={this.handleSubmit.bind(this)}>
-          <div className="reviewStars"></div>
-          {/* <div className="form-group">
+          <div name="todaysDate" value={this.state.currentDateTime}>
+            {this.state.currentDateTime["todaysDate"]}
+          </div>
+          <div name="reviewStars" className="reviewStars" value="">
+            {/* <ReviewStars /> */}
+          </div>
+          <div className="form-group">
             <label htmlFor="emailInput">Email address</label>
             <input
-              ref={this.userEmail}
               name="email"
               type="email"
               className="form-control"
@@ -61,7 +71,7 @@ export default class ReviewSubmissionForm extends React.Component {
               placeholder="Input email"
             />
             <small className="form-text text-muted"></small>
-          </div> */}
+          </div>
           <div className="form-group">
             <label htmlFor="fullNameInput">Full Name</label>
             <input
@@ -71,7 +81,6 @@ export default class ReviewSubmissionForm extends React.Component {
               id="fullNameInput"
               placeholder="Full Name"
               value={this.state.reviewComments["fullName"]}
-              // onChange={this.handleReviewName}
             />
           </div>
           <label htmlFor="exampleFormControlTextarea1">
@@ -100,26 +109,28 @@ export default class ReviewSubmissionForm extends React.Component {
           Insert your test comments header
           <br />
           More Text
-          {
-            //map array data
-            this.state.reviewComments.map(function (val) {
-              console.log("from mapping - val:", val);
-              return (
-                <div className="card w-75" key={val}>
-                  <div className="card-header bg-primary text-white">
-                    <div className="row reviewCommentHeader">
-                      <div className="col-sm-6 reviewName">Testing</div>
-                      <div className="col-sm-6 reviewRatings">
-                        <ReviewStars />
+          <div>
+            {
+              //map array data
+              this.state.reviewComments.reverse().map(function (val) {
+                console.log("from mapping - val:", val);
+                return (
+                  <div className="card w-75" key={val[3]}>
+                    <div className="card-header bg-primary text-white">
+                      <div className="row reviewCommentHeader">
+                        <div className="col-sm-6 reviewName">{val[0]}</div>
+                        <div className="col-sm-6 reviewRatings">
+                          <ReviewStars />
+                        </div>
                       </div>
                     </div>
+                    <div className="card-body">{val[1]}</div>
+                    <div className="card-footer">{val[4]}</div>
                   </div>
-                  <div className="card-body">More Testing</div>
-                  <div className="card-footer">{val}</div>
-                </div>
-              );
-            })
-          }
+                );
+              })
+            }
+          </div>
         </div>
       </div>
     );
