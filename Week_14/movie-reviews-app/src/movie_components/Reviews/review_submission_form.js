@@ -18,7 +18,8 @@ export default class ReviewSubmissionForm extends React.Component {
     let reviewComments = this.state.reviewComments;
     let name = event.target.name;
     let value = event.target.value;
-    reviewComments[name] = value;
+    // reviewComments[name] = value;
+    reviewComments.push(value);
 
     this.setState({ reviewComments });
   }
@@ -60,7 +61,7 @@ export default class ReviewSubmissionForm extends React.Component {
               id="fullNameInput"
               placeholder="Full Name"
               value={this.state.reviewComments["fullName"]}
-              onChange={this.handleChange.bind(this)}
+              onBlur={this.handleChange.bind(this)}
               // onChange={this.handleReviewName}
             />
           </div>
@@ -75,7 +76,7 @@ export default class ReviewSubmissionForm extends React.Component {
             placeholder="This movie was the best movie in the world!"
             rows="3"
             value={this.state.reviewComments["movieDescription"]}
-            onChange={this.handleChange.bind(this)}
+            onBlur={this.handleChange.bind(this)}
           ></textarea>
           <br />
           <button
@@ -91,7 +92,14 @@ export default class ReviewSubmissionForm extends React.Component {
           Insert your test comments header
           <br />
           More Text
-          <div>{this.state.reviewComments}</div>
+          {/* {
+            //map array data
+            this.state.reviewComments.map(function (val) {
+              console.log("from mapping - val:", val);
+              console.log("from mapping", this.state.reviewComments);
+              return <div key={val.name}>{val.name}</div>;
+            })
+          } */}
         </div>
       </div>
     );
