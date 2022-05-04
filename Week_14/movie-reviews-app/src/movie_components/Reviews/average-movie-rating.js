@@ -20,6 +20,7 @@ export default class AverageMovieStars extends React.Component {
                 type="radio"
                 name="star"
                 value="5"
+                defaultChecked //Testing of hard-coded review star value
               />{" "}
               <label
                 className="averageStars averageStars-5"

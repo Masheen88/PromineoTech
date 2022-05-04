@@ -11,27 +11,6 @@ import Review from "./comment";
 export default class Reviews extends React.Component {
   //render defines what the 'componenet' or html will be rendered to screeen
   render() {
-    let reviewComments = [];
-    let reviewOne = {
-      content: "This is my review test",
-      username: "Matthew",
-      date: "4/10/2022",
-      url: <img alt="movie poster" src="./images/test.jpg" />,
-      movierating: 1,
-    };
-    let reviewTwo = {
-      content: "This is my review test two",
-      username: "Ashley",
-      date: "3/21/2022",
-      movierating: 4,
-    };
-    let commentThree = {
-      content: "This is my review test three",
-      username: "Tom",
-      date: "1/4/2022",
-      movierating: 5,
-    };
-
     let movieOne = {
       movieName: "Zombieland",
       movieGenre: "Comedy, Horror",
@@ -92,13 +71,12 @@ export default class Reviews extends React.Component {
             {/* <div className="reviewForm">This is a test too</div> */}
             {/* <ReviewSubmissionForm /> */}
           </div>
-          <MovieReview {...reviewComments} />
+          <MovieReview />
           <div id="movieBodyComments"></div>
-          <div id="movieBodyFooter" className="card-footer movieBodyFooter">
-            <Review {...reviewOne} />
-            {/* <Review {...reviewTwo} /> */}
-            {/* <Review {...commentThree} /> */}
-          </div>
+          <div
+            id="movieBodyFooter"
+            className="card-footer movieBodyFooter"
+          ></div>
         </div>
       </div>
     );

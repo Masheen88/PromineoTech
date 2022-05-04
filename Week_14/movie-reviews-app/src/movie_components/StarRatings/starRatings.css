@@ -1,5 +1,6 @@
 /* Star rating CSS */
 
+/* Movie Star Rating */
 div.stars {
   width: 270px;
   display: inline-block;
@@ -29,7 +30,7 @@ input.averageStars:checked ~ label.averageStars:before {
 
 input.averageStars-5:checked ~ label.averageStars:before {
   color: #ffe222;
-  text-shadow: 0 0 20px #952;
+  text-shadow: 0 0 55px #f00;
 }
 input.averageStars-3:checked ~ label.averageStars:before {
   color: #ffae22;

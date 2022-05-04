@@ -108,7 +108,6 @@ export default class MovieContainer extends React.Component {
             value="5"
             onClick={this.checkStarValue}
           >
-            Testing
             <AverageMovieStars />
           </div>
           <div className="movieDescription">{this.state.movieDescription}</div>
