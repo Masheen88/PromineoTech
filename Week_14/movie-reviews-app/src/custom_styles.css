@@ -10,6 +10,7 @@ html,
   );
 }
 
+/* Navigation Bar */
 .navigationBar {
   padding-top: 5px;
   position: fixed;
@@ -25,12 +26,11 @@ html,
 
 a.nav-link {
   color: azure !important;
-  /* background-color: rgba(255, 255, 255, 0.526) !important; */
 }
 
+/* Movie Container */
 .container {
   padding-top: 100px;
-  /* height: 150vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,11 +61,7 @@ a.nav-link {
 
 .movieActor {
   width: 100%;
-  /* position: relative; */
-  /* justify-content: center; */
-  /* align-items: center; */
   text-align: center;
-  /* width: 20%; */
   animation-name: posterPulse;
   animation-fill-mode: forwards;
   animation-duration: 5s;
@@ -94,11 +90,35 @@ a.nav-link {
   margin: 0 auto;
   display: block;
 }
+
+/* Review Card Animation */
+.card.w-75 {
+  animation-name: reviewFadeIn;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+}
+
+@keyframes reviewFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .card-body {
   text-align: center;
 }
-/* Star rating CSS */
 
+/* User Review Profile Image */
+img#userProfileImage {
+  border-radius: 100%;
+  box-shadow: 4px 3px 15px rgb(0 0 0 / 80%);
+}
+
+/* Star rating CSS */
 div.stars {
   width: 270px;
   display: inline-block;

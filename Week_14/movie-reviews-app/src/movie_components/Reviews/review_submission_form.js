@@ -1,6 +1,4 @@
 import React from "react";
-import MovieReview from "./review_submission_form.js";
-import ReviewStars from "../ReviewStars/review-stars";
 
 //makes the class accessible outside the file.
 //React.Componenet comes with the class and extends to create the compoenets you may work with
@@ -173,7 +171,12 @@ export default class ReviewSubmissionForm extends React.Component {
                     <div className="card-header bg-primary text-white">
                       <div className="row reviewCommentHeader">
                         <div className="col-sm-6 reviewName">
-                          {CommentValues[0]}
+                          {CommentValues[0]} <br />{" "}
+                          <img
+                            id="userProfileImage"
+                            src="images/users/matthew.jpeg"
+                            alt={CommentValues[0]}
+                          />
                         </div>
                         <div className="col-sm-6 reviewRatings">
                           {(() => {
