@@ -9,6 +9,15 @@ html,
     rgba(0, 212, 255, 1) 100%
   );
 }
+.navigationBar {
+  display: flex;
+}
+nav#navibar {
+  text-align: center;
+  float: none;
+  margin: 0 auto;
+  display: block;
+}
 
 /* Navigation Bar */
 .navigationBar {
