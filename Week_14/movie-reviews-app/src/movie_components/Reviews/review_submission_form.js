@@ -8,9 +8,7 @@ export default class ReviewSubmissionForm extends React.Component {
 
     this.state = {
       reviewComments: [],
-      id: "",
       currentDateTime: Date().toLocaleString(),
-      starRating: "",
     };
   }
 
@@ -21,38 +19,36 @@ export default class ReviewSubmissionForm extends React.Component {
 
     console.log("handleSubmit reviewcomments:", this.state.reviewComments);
     let reviewComments = this.state.reviewComments;
-
     console.log(
-      "index 0) handleSubmit email:",
-      event.target.elements.email.value
-    );
-    let email = event.target.elements.email.value;
-    console.log(
-      "index 1) handleSubmit fullName:",
+      "index 0) handleSubmit fullName:",
       event.target.elements.fullName.value
     );
     let fullName = event.target.elements.fullName.value;
     console.log(
-      "index 2) handleSubmit movieDescription:",
+      "index 1) handleSubmit movieDescription:",
       event.target.elements.movieDescription.value
     );
     let movieDescription = event.target.elements.movieDescription.value;
+    console.log(
+      "index 2) handleSubmit email:",
+      event.target.elements.email.value
+    );
+    let email = event.target.elements.email.value;
 
-    let i = parseInt(this.state.reviewComments.length + 1);
-    console.log("index 3) handleSubmit id =:", i);
+    let id = parseInt(this.state.reviewComments.length + 1);
+    console.log("index 3) handleSubmit id =:", id);
 
     let date = this.state.currentDateTime;
     console.log("index 4) handleSUbmit date =:", date);
 
     let reviewStarRating = event.target.elements.star.value;
-    console.log("index 5) handleSubmit starRating1:", reviewStarRating);
+    console.log("index 5) handleSubmit starRating:", reviewStarRating);
 
-    let reviews = this.state.reviewComments;
     reviewComments.push([
       fullName,
       movieDescription,
       email,
-      i + 1,
+      id + 1,
       date,
       reviewStarRating,
     ]);

@@ -1,4 +1,5 @@
 import React from "react";
+import NavbarToggle from "react-bootstrap/NavbarToggle";
 
 //makes the class accessible outside the file.
 //React.Componenet comes with the class and extends to create the compoenets you may work with
