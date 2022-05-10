@@ -43,7 +43,7 @@ export class HousesList extends React.Component {
       <div className="house-list">
         <h1>⌂ API</h1>
         <div>
-          <NewHouseForm addNewHouse={this.addNewHouse} />
+          <NewHouseForm />
         </div>
         {this.state.houses.map((house) => (
           <House house={house} key={house._id} updateHouse={this.updateHouse} />

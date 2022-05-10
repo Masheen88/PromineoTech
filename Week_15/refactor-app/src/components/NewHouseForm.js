@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { housesApi } from "../rest/housesApi";
 
 export const NewHouseForm = (props) => {
   const [houseName, setName] = useState("");
 
   const onSubmit = (event) => {
-    event.preventDefault();
-    props.addNewHouse({ houseName });
-    setName("");
     console.log("onSubmit event:", event);
+    event.preventDefault();
+    console.log("onSubmit housename:", houseName);
+    await housesApi.post(houseName);
+    setName("");
   };
 
   return (
