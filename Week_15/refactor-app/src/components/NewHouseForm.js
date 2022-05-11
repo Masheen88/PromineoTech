@@ -8,7 +8,7 @@ export const NewHouseForm = (props) => {
     console.log("onSubmit event:", event);
     event.preventDefault();
     console.log("onSubmit housename:", houseName);
-    await housesApi.post(houseName);
+    housesApi.post(houseName);
     setName("");
   };
 

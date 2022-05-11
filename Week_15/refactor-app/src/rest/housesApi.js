@@ -36,8 +36,9 @@ class HouseApi {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(house),
+        body: JSON.stringify({ name: house }),
       });
+      console.log("resp", resp);
       return await resp.json();
     } catch (error) {
       console.log("Oh no! There was an error with adding a house.", error);
