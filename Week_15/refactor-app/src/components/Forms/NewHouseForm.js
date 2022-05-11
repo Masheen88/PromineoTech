@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { housesApi } from "../rest/housesApi";
+import { housesApi } from "../../rest/housesApi";
 
 export const NewHouseForm = (props) => {
   const [houseName, setName] = useState("");

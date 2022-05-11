@@ -1,8 +1,14 @@
 import React from "react";
+import "../../custom.css";
 import { House } from "./House";
-import { housesApi } from "../rest/housesApi";
-import { NewHouseForm } from "./NewHouseForm";
-import "../custom.css";
+import { housesApi } from "../../rest/housesApi";
+import { NewHouseForm } from "../Forms/NewHouseForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  regular,
+  solid,
+  brands,
+} from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export class HousesList extends React.Component {
   //Creates the house as an object
@@ -41,7 +47,11 @@ export class HousesList extends React.Component {
   render() {
     return (
       <div className="house-list">
-        <h1>⌂ API</h1>
+        <h1>
+          {" "}
+          <FontAwesomeIcon icon={solid("house")} /> API
+        </h1>
+
         <div>
           <NewHouseForm />
         </div>

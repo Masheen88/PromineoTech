@@ -4,3 +4,25 @@
   margin: 0 auto;
   display: block;
 }
+
+.roomName,
+.roomArea {
+  color: rgb(0, 112, 156);
+  text-decoration: underline;
+}
+
+#currentNav {
+  color: blue !important;
+}
+
+#root {
+  background: rgb(120, 77, 1);
+  background: linear-gradient(
+    180deg,
+    rgba(120, 77, 1, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+/* Stars */
