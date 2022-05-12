@@ -1,4 +1,5 @@
 import React from "react";
+import { EditHouseForm } from "../Forms/EditHouseForm";
 import { NewRoomForm } from "../Forms/NewRoomForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,6 +7,7 @@ import {
   solid,
   brands,
 } from "@fortawesome/fontawesome-svg-core/import.macro";
+import Button from "react-bootstrap/Button";
 
 export const House = (props) => {
   const { house, updateHouse } = props;
@@ -33,27 +35,40 @@ export const House = (props) => {
   };
 
   const rooms = () => (
-    <ul>
-      {house.rooms.map((room, index) => (
-        <div key={index}>
-          <label>
-            <strong>{`Room:`}</strong>{" "}
-            <span className="roomName">{`${room.name}`}</span>
-            <strong>{`Area: `}</strong>
-            <span className="roomArea">{`${room.area}`}</span> |{" "}
-          </label>
-          <button onClick={(event) => deleteRoom(room._id)}>Delete</button>
-        </div>
-      ))}
-    </ul>
+    <div className="roomsBody">
+      <br />
+      <ul className="allRooms">
+        {house.rooms.map((room, index) => (
+          <div className="roomsBody">
+            <div className="houseRoom" key={index}>
+              <label>
+                <strong>{` Room:`}</strong>&nbsp;
+                <span className="roomName">{`${room.name}`}</span>
+                <strong>{` Area: `}</strong>
+                <span className="roomArea">{`${room.area}`}</span> &nbsp;
+              </label>
+              <Button
+                variant="danger"
+                onClick={(event) => deleteRoom(room._id)}
+              >
+                Delete
+              </Button>
+            </div>
+            <br />
+          </div>
+        ))}
+      </ul>
+      <br />
+    </div>
   );
   //Returns the entire house component
   return (
-    <div>
-      <h1>
+    <div className="house">
+      <h1 className="houseTitle">
         <FontAwesomeIcon icon={solid("house-user")} />
         {house.name}
       </h1>
+      <EditHouseForm />
       {rooms({ rooms, houseId: house._id, deleteRoom })}
       <NewRoomForm addNewRoom={addNewRoom} />
     </div>

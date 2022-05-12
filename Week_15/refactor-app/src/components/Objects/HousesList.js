@@ -46,18 +46,28 @@ export class HousesList extends React.Component {
 
   render() {
     return (
-      <div className="house-list">
-        <h1>
-          {" "}
-          <FontAwesomeIcon icon={solid("house")} /> API
-        </h1>
+      <div>
+        <div className="house-list">
+          <h1>
+            {" "}
+            <FontAwesomeIcon icon={solid("house")} /> API
+          </h1>
 
-        <div>
-          <NewHouseForm />
+          <div>
+            <NewHouseForm />
+          </div>
+          <br />
+          <div className="houseBody">
+            {this.state.houses.map((house) => (
+              <House
+                house={house}
+                key={house._id}
+                updateHouse={this.updateHouse}
+              />
+            ))}
+          </div>
         </div>
-        {this.state.houses.map((house) => (
-          <House house={house} key={house._id} updateHouse={this.updateHouse} />
-        ))}
+        <br />
       </div>
     );
   }

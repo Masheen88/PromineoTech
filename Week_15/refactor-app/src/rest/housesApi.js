@@ -28,6 +28,23 @@ class HouseApi {
     }
   };
 
+  //Update request
+  putTest = async (houseId, house) => {
+    try {
+      const resp = await fetch(`${HOUSES_ENDPOINT}/${house._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({ _id: houseId, name: house }),
+      });
+      return await resp.json();
+    } catch (error) {
+      console.log("Oh no! There was an error with updating Houses.", error);
+    }
+  };
+
   //Post request
   post = async (house) => {
     try {

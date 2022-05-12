@@ -21,22 +21,25 @@ export const NewRoomForm = (props) => {
 
   return (
     <div>
-      <h4>Add a new room</h4>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="name"
-          onChange={(event) => setName(event.target.value)}
-          value={name}
-        />
-        <input
-          type="text"
-          placeholder="area"
-          onChange={handleAreaInput}
-          value={area}
-        />
-        <button type="submit">Add Room</button>
-      </form>
+      <br />
+      <div className="newRooms">
+        <h4>Add a new room</h4>
+        <form onSubmit={onSubmit}>
+          <input
+            type="text"
+            placeholder="name"
+            onChange={(event) => setName(event.target.value)}
+            value={name}
+          />
+          <input
+            type="text"
+            placeholder="area"
+            onChange={handleAreaInput}
+            value={area}
+          />
+          <button type="submit">Add Room</button>
+        </form>
+      </div>
     </div>
   );
 };

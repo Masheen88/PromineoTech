@@ -8,7 +8,7 @@ export default function App() {
   const [showNavSecond, setShowNavSecond] = useState(false);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="houseNavbar" sticky="top" bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="#home">Houses API ;)</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

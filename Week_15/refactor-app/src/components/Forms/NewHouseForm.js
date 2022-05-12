@@ -14,17 +14,19 @@ export const NewHouseForm = (props) => {
 
   return (
     <div>
-      <h4>Add a new house</h4>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          placeholder="name"
-          onChange={(event) => setName(event.target.value)}
-          value={houseName}
-        />
+      <div className="houseBody">
+        <h4>Add a new house</h4>
+        <form onSubmit={onSubmit}>
+          <input
+            type="text"
+            placeholder="name"
+            onChange={(event) => setName(event.target.value)}
+            value={houseName}
+          />
 
-        <button type="submit">Add House</button>
-      </form>
+          <button type="submit">Add House</button>
+        </form>
+      </div>
     </div>
   );
 };
