@@ -5,6 +5,7 @@ import {
   Route,
   Link,
   useMatch,
+  useNavigate,
 } from "react-router-dom";
 
 export default function App() {
@@ -46,13 +47,13 @@ export default function App() {
         </ul>
         {/* Uses a Routes (deprecated: Switch) to determine which URL was clicked and changed the url based on that. */}
         <Routes>
-          <Route path="/posts" element={<Posts posts={posts} />} exact></Route>
+          <Route path="/posts" element={<Posts posts={posts} />}></Route>
           <Route
             path="/friends"
             element={<Friends names={["Matthew", "Jane", "John"]} />}
             exact
           ></Route>
-          <Route path="/" element={<Home />} exact></Route>
+          <Route path="/" element={<Home />}></Route>
         </Routes>
       </div>
     </Router>
@@ -80,7 +81,10 @@ function Friends(props) {
 }
 
 function Posts({ posts }) {
+  console.log("postsFunctionTesting", posts);
   const match = useMatch();
+  console.log("postMatch", match);
+
   const findPostById = (id) => posts.filter((post) => post.id == id)[0];
 
   return (

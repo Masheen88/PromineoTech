@@ -1,0 +1,18 @@
+#currentNav {
+  color: rgb(255, 255, 255) !important;
+}
+
+a.nav-link,
+a.navbar-brand {
+  color: white !important;
+}
+
+#myNav {
+  background-color: rgba(0, 179, 255, 0.101) !important;
+  backdrop-filter: blur(3px) !important;
+}
+
+input[type="text"],
+#submitReviewButton {
+  color: black !important;
+}

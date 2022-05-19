@@ -1,0 +1,43 @@
+#reviewsMainImage {
+  height: auto;
+  width: 30%;
+  border-radius: 100%;
+}
+
+#commentsTitle {
+  margin: 10px;
+}
+
+/*  */
+
+.container {
+  position: block;
+  width: 360px;
+  height: auto;
+  margin-top: 50px;
+
+  background: rgba(0, 0, 0, 0);
+  transform: rotate(-30deg) skew(30deg) scale(0.8);
+  transition: 0.5s;
+}
+.container img {
+  position: absolute;
+  width: 100%;
+  transition: 0.5s;
+}
+.container:hover img:nth-child(4) {
+  transform: translate(150px, -150px);
+  opacity: 1;
+}
+.container:hover img:nth-child(3) {
+  transform: translate(110px, -110px);
+  opacity: 0.8;
+}
+.container:hover img:nth-child(2) {
+  transform: translate(70px, -70px);
+  opacity: 0.6;
+}
+.container:hover img:nth-child(1) {
+  transform: translate(30px, -30px);
+  opacity: 0.4;
+}

@@ -1,0 +1,17 @@
+#root {
+  height: 100vh;
+  width: 100vw;
+  background-color: #343434;
+  opacity: 0.8;
+
+  background-image: radial-gradient(circle at center center, #3f3f3f, #00aeff),
+    repeating-radial-gradient(
+      circle at center center,
+      #6100fc,
+      #049bff,
+      10px,
+      transparent 10px,
+      transparent 15px
+    );
+  background-blend-mode: multiply;
+}
