@@ -1,0 +1,46 @@
+.viewCartPage {
+  position: relative;
+  color: white;
+  background: rgba(0, 0, 0, 0.548);
+  font-size: 16px;
+  padding: 5%;
+}
+
+#homePage_title {
+  top: 0;
+}
+
+#homePage__video {
+  padding: 0;
+  margin-top: 0%;
+  width: 100vw;
+  filter: blur(10px);
+}
+
+.viewCartPage {
+  border: solid 1px azure;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+#productGrid {
+  border: solid 1px azure;
+  align-items: center;
+  justify-content: center;
+}
+
+#CartProductField {
+  border: 1px solid azure;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#CartButton {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+button.btn.btn-primary.ButtonText {
+  font-size: 24px;
+}

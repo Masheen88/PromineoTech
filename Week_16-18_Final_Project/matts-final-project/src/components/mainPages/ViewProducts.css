@@ -1,0 +1,50 @@
+.homePage {
+  position: relative;
+  color: white;
+  background: black;
+}
+
+#homePage_title {
+  top: 0;
+}
+
+#viewProductsPage__video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+#product {
+  background-color: rgba(53, 53, 53, 0.45) !important;
+  width: auto;
+
+  border: 1px solid azure;
+  border-radius: 5%;
+  margin: 0.5%;
+}
+
+#productThumbnail {
+  padding: 5px;
+  border: 1px solid azure;
+  height: auto;
+  width: 200px;
+  border-radius: 5%;
+  margin-top: 5%;
+}
+
+#productButton {
+  font-size: 20px;
+  margin: 2%;
+}
+
+.productDescription {
+  color: azure;
+  font-size: 16px;
+}

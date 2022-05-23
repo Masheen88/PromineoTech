@@ -17,8 +17,12 @@ import {
 
 import "./navbar.css";
 
-import Reviews from "../mainPages/reviews";
+import logo from "../images/mountainwater.png";
+
 import HomePage from "../mainPages/homePage";
+import ViewProducts from "../mainPages/ViewProducts";
+import Reviews from "../mainPages/reviews";
+import ViewCart from "../mainPages/ViewCart";
 
 class Navibar extends React.Component {
   render() {
@@ -35,11 +39,17 @@ class Navibar extends React.Component {
                 sticky="top"
                 id="myNav"
               >
-                <Navbar.Brand href="/">Welcome</Navbar.Brand>
+                <Navbar.Brand>
+                  <span>
+                    {" "}
+                    <img id="siteLogo" src={logo} />{" "}
+                    <span id="siteLogoTitle">Yak, Yak!</span>
+                  </span>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="/homePage">Home</Nav.Link>
                     <Nav.Link href="/about-us">Contact Us</Nav.Link>
                     <NavDropdown title="Site Content" id="basic-nav-dropdown">
                       <NavDropdown.Item href="/view-products">
@@ -51,18 +61,21 @@ class Navibar extends React.Component {
                       <NavDropdown.Item href="/reviews">
                         Reviews
                       </NavDropdown.Item>
-                      {/* <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                      </NavDropdown.Item> */}
                     </NavDropdown>
+                    <Nav.Link href="/cart">View Cart</Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>
               <br />
               <Routes>
-                <Route exact path="#home" element={<HomePage />}></Route>
+                <Route exact path="/homePage" element={<HomePage />}></Route>
+                <Route
+                  exact
+                  path="/view-products"
+                  element={<ViewProducts />}
+                ></Route>
                 <Route exact path="/reviews" element={<Reviews />}></Route>
+                <Route exact path="/cart" element={<ViewCart />}></Route>
               </Routes>
             </Router>
           </div>

@@ -14,14 +14,14 @@ class CommentsAPI {
   };
 
   //Update request
-  put = async (house) => {
+  put = async (comment) => {
     try {
-      const resp = await fetch(`${COMMENTS_ENDPOINT}/${house._id}`, {
+      const resp = await fetch(`${COMMENTS_ENDPOINT}/${comment._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(house),
+        body: JSON.stringify(comment),
       });
       return await resp.json();
     } catch (error) {
@@ -30,15 +30,15 @@ class CommentsAPI {
   };
 
   //Update request
-  putTest = async (houseId, house) => {
+  putTest = async (commentId, comment) => {
     try {
-      const resp = await fetch(`${COMMENTS_ENDPOINT}/${house._id}`, {
+      const resp = await fetch(`${COMMENTS_ENDPOINT}/${comment._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
 
-        body: JSON.stringify({ _id: houseId, name: house }),
+        body: JSON.stringify({ _id: commentId, name: comment }),
       });
       return await resp.json();
     } catch (error) {
@@ -47,14 +47,14 @@ class CommentsAPI {
   };
 
   //Post request
-  post = async (house) => {
+  post = async (comment) => {
     try {
       const resp = await fetch(`${COMMENTS_ENDPOINT}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name: house }),
+        body: JSON.stringify({ name: comment }),
       });
       console.log("resp", resp);
       return await resp.json();

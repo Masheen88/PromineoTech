@@ -10,7 +10,7 @@
 
 /*  */
 
-.container {
+.reviewContainer {
   position: block;
   width: 360px;
   height: auto;
@@ -20,24 +20,28 @@
   transform: rotate(-30deg) skew(30deg) scale(0.8);
   transition: 0.5s;
 }
-.container img {
+.reviewContainer img {
   position: absolute;
   width: 100%;
   transition: 0.5s;
 }
-.container:hover img:nth-child(4) {
+.reviewContainer:hover img:nth-child(4) {
   transform: translate(150px, -150px);
   opacity: 1;
 }
-.container:hover img:nth-child(3) {
+.reviewContainer:hover img:nth-child(3) {
   transform: translate(110px, -110px);
   opacity: 0.8;
 }
-.container:hover img:nth-child(2) {
+.reviewContainer:hover img:nth-child(2) {
   transform: translate(70px, -70px);
   opacity: 0.6;
 }
-.container:hover img:nth-child(1) {
+.reviewContainer:hover img:nth-child(1) {
   transform: translate(30px, -30px);
   opacity: 0.4;
+}
+
+#myComments {
+  color: rgb(255, 0, 0);
 }
