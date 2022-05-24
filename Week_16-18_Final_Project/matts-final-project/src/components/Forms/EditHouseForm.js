@@ -1,6 +1,19 @@
 import React, { useState } from "react";
-import { housesApi } from "../../rest/housesApi";
-import Button from "react-bootstrap/Button";
+
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+  Container,
+  Row,
+  Col,
+  Table,
+} from "react-bootstrap";
+
+import { commentsAPI } from "../rest/mainAPI";
 
 export const EditHouseForm = (props) => {
   const [houseName, setName] = useState("");
@@ -9,7 +22,7 @@ export const EditHouseForm = (props) => {
     console.log("onSubmit event:", event);
     event.preventDefault();
     console.log("onSubmit housename:", houseName);
-    housesApi.putTest("626ae63412f5da001704ada2", houseName);
+    commentsAPI.putTest("626ae63412f5da001704ada2", houseName);
     setName("");
   };
 

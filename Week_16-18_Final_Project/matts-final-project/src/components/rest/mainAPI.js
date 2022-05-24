@@ -25,12 +25,12 @@ class CommentsAPI {
       });
       return await resp.json();
     } catch (error) {
-      console.log("Oh no! There was an error with updating Houses.", error);
+      console.log("Oh no! There was an error with updating Comments.", error);
     }
   };
 
   //Update request
-  putTest = async (commentId, comment) => {
+  apiEdit = async (commentId, comment) => {
     try {
       const resp = await fetch(`${COMMENTS_ENDPOINT}/${comment._id}`, {
         method: "PUT",
@@ -49,17 +49,33 @@ class CommentsAPI {
   //Post request
   post = async (comment) => {
     try {
-      const resp = await fetch(`${COMMENTS_ENDPOINT}`, {
+      const response = await fetch(`${COMMENTS_ENDPOINT}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ name: comment }),
       });
-      console.log("resp", resp);
-      return await resp.json();
+      console.log("mainAPI postResponse:", response);
+      return await response.json();
     } catch (error) {
       console.log("Oh no! There was an error with adding a house.", error);
+    }
+  };
+
+  //Delete request
+  apiDelete = async (reviewId) => {
+    try {
+      const resp = await fetch(`${COMMENTS_ENDPOINT}/${reviewId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // body: JSON.stringify(reviewId),
+      });
+      return await resp.json();
+    } catch (error) {
+      console.log("Oh no! There was an error with deleting a review.", error);
     }
   };
 }

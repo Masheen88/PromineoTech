@@ -45,3 +45,13 @@
 #myComments {
   color: rgb(255, 0, 0);
 }
+
+#reviewContainer {
+  border: 1px solid white;
+}
+
+#reviewColumns {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border: 1px solid white;
+}
