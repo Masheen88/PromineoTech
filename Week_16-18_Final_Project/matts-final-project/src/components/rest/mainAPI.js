@@ -9,7 +9,7 @@ class CommentsAPI {
       const data = await resp.json();
       return data;
     } catch (error) {
-      console.log("Oh no! There was an error with fetchHouses.", error);
+      console.log("Oh no! There was an error with getting your review.", error);
     }
   };
 
@@ -25,41 +25,64 @@ class CommentsAPI {
       });
       return await resp.json();
     } catch (error) {
-      console.log("Oh no! There was an error with updating Comments.", error);
+      console.log(
+        "Oh no! There was an error with updating your review.",
+        error
+      );
     }
   };
 
   //Update request
-  apiEdit = async (commentId, comment) => {
+  apiEdit = async (commentId, commentData) => {
+    let commentIdArr = commentId;
+    console.log(
+      "mainAPI apiEdit productURL:",
+      `${COMMENTS_ENDPOINT}/${commentIdArr[0].slice(5)}`
+    );
+    console.log("mainAPI apiEdit commentId:", commentIdArr[0].slice(5));
+    console.log("mainAPI apiEdit commentData:", commentData[0].slice(9));
     try {
-      const resp = await fetch(`${COMMENTS_ENDPOINT}/${comment._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const resp = await fetch(
+        `${COMMENTS_ENDPOINT}/${commentIdArr[0].slice(5)}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-        body: JSON.stringify({ _id: commentId, name: comment }),
-      });
-      return await resp.json();
+          body: JSON.stringify({
+            comment: commentData[0],
+          }),
+        }
+      );
+      await resp.json();
+      return (window.location = "/reviews");
     } catch (error) {
-      console.log("Oh no! There was an error with updating Houses.", error);
+      console.log("Oh no! There was an error with editing your review.", error);
     }
   };
 
   //Post request
   post = async (comment) => {
+    console.log("mainAPI post:", comment);
     try {
       const response = await fetch(`${COMMENTS_ENDPOINT}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name: comment }),
+        body: JSON.stringify({
+          name: comment[0],
+          product: comment[1],
+          comment: comment[2],
+        }),
       });
       console.log("mainAPI postResponse:", response);
-      return await response.json();
+      await response.json();
+      // (window.location = "/reviews");
+      return (window.location = "/reviews");
     } catch (error) {
-      console.log("Oh no! There was an error with adding a house.", error);
+      console.log("Oh no! There was an error with adding a review.", error);
     }
   };
 
@@ -73,7 +96,8 @@ class CommentsAPI {
         },
         // body: JSON.stringify(reviewId),
       });
-      return await resp.json();
+      await resp.json();
+      return (window.location = "/reviews");
     } catch (error) {
       console.log("Oh no! There was an error with deleting a review.", error);
     }

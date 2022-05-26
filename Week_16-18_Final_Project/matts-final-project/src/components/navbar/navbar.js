@@ -3,17 +3,10 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useParams,
+  Navigate,
 } from "react-router-dom";
 
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 
 import "./navbar.css";
 
@@ -39,32 +32,34 @@ class Navibar extends React.Component {
                 sticky="top"
                 id="myNav"
               >
-                <Navbar.Brand>
-                  <span>
-                    {" "}
-                    <img id="siteLogo" src={logo} />{" "}
-                    <span id="siteLogoTitle">Yak, Yak!</span>
-                  </span>
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="mr-auto">
-                    <Nav.Link href="/homePage">Home</Nav.Link>
-                    <Nav.Link href="/about-us">Contact Us</Nav.Link>
-                    <NavDropdown title="Site Content" id="basic-nav-dropdown">
-                      <NavDropdown.Item href="/view-products">
-                        View Products
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="/play-a-game">
-                        Play A Game
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="/reviews">
-                        Reviews
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                    <Nav.Link href="/cart">View Cart</Nav.Link>
-                  </Nav>
-                </Navbar.Collapse>
+                <Container>
+                  <Navbar.Brand>
+                    <span>
+                      {" "}
+                      <img id="siteLogo" alt="" src={logo} />{" "}
+                      <span id="siteLogoTitle">Yak-Yak!</span>
+                    </span>
+                  </Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                      <Nav.Link href="/homePage">Home</Nav.Link>
+                      <Nav.Link href="/about-us">Contact Us</Nav.Link>
+                      <NavDropdown title="Site Content" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/view-products">
+                          View Products
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/reviews">
+                          Reviews
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="/play-a-game">
+                          Play A Game
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                      <Nav.Link href="/cart">View Cart</Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
               </Navbar>
               <br />
               <Routes>
@@ -76,6 +71,16 @@ class Navibar extends React.Component {
                 ></Route>
                 <Route exact path="/reviews" element={<Reviews />}></Route>
                 <Route exact path="/cart" element={<ViewCart />}></Route>
+                <Route
+                  exact
+                  path="/"
+                  element={<Navigate to="/homePage" />}
+                ></Route>
+                <Route
+                  exact
+                  path="/"
+                  element={<Navigate to="/matts-final-project" />}
+                ></Route>
               </Routes>
             </Router>
           </div>

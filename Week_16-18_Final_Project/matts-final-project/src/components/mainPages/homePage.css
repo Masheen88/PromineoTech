@@ -5,7 +5,14 @@
 }
 
 #homePage_title {
+  color: azure;
+  background-color: rgba(53, 53, 53, 0.45);
+  padding: 5px;
   top: 0;
+}
+
+.\#homePage_body {
+  margin: 50vh;
 }
 
 #homePage__video {

@@ -2,6 +2,7 @@
   "name": "matts-final-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://gitname.github.io/matts-final-project",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -13,11 +14,14 @@
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
+    "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }

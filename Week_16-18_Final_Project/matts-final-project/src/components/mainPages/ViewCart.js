@@ -1,41 +1,10 @@
 import React from "react";
 
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-import { commentsAPI } from "../rest/mainAPI";
 import "./ViewCart.css";
 
-import { AddNewReview } from "../Forms/AddNewReview";
-import ReviewsList from "../Forms/reviewForm";
-import Road from "../images/reviews_icon.svg";
-
 function ViewCart() {
-  const fetchHouses = async () => {
-    const houses = await commentsAPI.get();
-    this.setState({ houses });
-    console.log("fetch API Test", houses);
-  };
-
-  const updateHouse = async (updatedComment) => {
-    await commentsAPI.put(updatedComment);
-    //Updates the state after the current houses have been updated.
-    this.fetchHouses();
-  };
-
-  let state = {
-    comments: [],
-  };
-
   return (
     <div>
       <div className="viewCartPage">

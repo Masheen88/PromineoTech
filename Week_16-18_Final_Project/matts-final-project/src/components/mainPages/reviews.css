@@ -1,3 +1,8 @@
+.reviewPage {
+  position: relative;
+  color: white;
+}
+
 #reviewsMainImage {
   height: auto;
   width: 30%;
@@ -7,8 +12,6 @@
 #commentsTitle {
   margin: 10px;
 }
-
-/*  */
 
 .reviewContainer {
   position: block;
@@ -42,16 +45,72 @@
   opacity: 0.4;
 }
 
+div#reviewDataComment,
+div#reviewColumns\ reviewDataProduct,
+#reviewColumns\ reviewDataName,
+#reviewColumns\ reviewActionButtons {
+  padding: 5px;
+}
+
+#reviewContainer {
+  border-radius: 5px;
+  background-color: rgba(25, 25, 25, 0.257);
+}
+
+.editReviewBody {
+  border-radius: 5px;
+  color: azure;
+}
+
+input#reviewCommentBox {
+  width: 100%;
+}
+
+#reviewUserImage {
+  max-width: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
 #myComments {
   color: rgb(255, 0, 0);
 }
 
 #reviewContainer {
-  border: 1px solid white;
+  margin-top: 5px;
+  border: 1px solid azure;
+  padding: 2%;
 }
 
 #reviewColumns {
   margin-top: 1px;
   margin-bottom: 1px;
-  border: 1px solid white;
+}
+
+#reviewActionButtons {
+  margin: 5%;
+}
+
+.editButtonTitle {
+  color: black;
+}
+
+#reviewProductImage {
+  max-width: 100px;
+}
+
+#reviewPage__video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: blur(5px);
 }

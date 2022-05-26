@@ -1,0 +1,48 @@
+#currentNav {
+  color: rgb(255, 255, 255) !important;
+}
+
+a.nav-link,
+a.navbar-brand {
+  color: white !important;
+}
+
+#myNav {
+  font-size: 20px;
+  background-color: rgba(53, 53, 53, 0.45) !important;
+  backdrop-filter: blur(3px) !important;
+}
+
+input[type="text"],
+#submitReviewButton {
+  color: black !important;
+}
+
+#siteLogo {
+  width: 10%;
+}
+
+#siteLogoTitle {
+  font-size: 24px;
+}
+
+img#siteLogo {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+button.navbar-toggler.collapsed {
+  align-items: center;
+  justify-content: center;
+  height: 75%;
+  width: 100%;
+}
+
+button.navbar-toggler {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 75%;
+  width: 100%;
+}
