@@ -78,8 +78,8 @@ class Navibar extends React.Component {
                 ></Route>
                 <Route
                   exact
-                  path="/"
-                  element={<Navigate to="/matts-final-project" />}
+                  path="/matts-final-project"
+                  element={<Navigate to="/homePage" />}
                 ></Route>
               </Routes>
             </Router>
