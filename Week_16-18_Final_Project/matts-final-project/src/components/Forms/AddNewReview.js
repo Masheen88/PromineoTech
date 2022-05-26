@@ -38,7 +38,11 @@ export const AddNewReview = () => {
   }
 
   return (
-    <Card className="bg-transparent border-0" id="addReviewCard">
+    <Card
+      className="bg-transparent border-0"
+      style={{ width: "18rem" }}
+      id="addReviewCard"
+    >
       <div id="addReviewHeader">
         <div className="addReviewBody">
           <h4>Add A New Review</h4>

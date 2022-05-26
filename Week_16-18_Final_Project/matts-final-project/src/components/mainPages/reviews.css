@@ -1,3 +1,10 @@
+.reviewsTitle {
+  color: azure;
+  background-color: rgba(53, 53, 53, 0.45);
+  padding: 5px;
+  top: 0;
+}
+
 .reviewPage {
   position: relative;
   color: white;
@@ -52,6 +59,12 @@ div#reviewColumns\ reviewDataProduct,
   padding: 5px;
 }
 
+#reviewDataComment,
+#reviewUserHeader,
+#reviewProductName {
+  font-size: 16px;
+}
+
 #reviewContainer {
   border-radius: 5px;
   background-color: rgba(25, 25, 25, 0.257);
@@ -94,6 +107,15 @@ input#reviewCommentBox {
   margin: 5%;
 }
 
+.deleteButton,
+.editButton,
+#submitReviewButton {
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 16px;
+  padding: 10px;
+}
+
 .editButtonTitle {
   color: black;
 }
@@ -113,4 +135,37 @@ input#reviewCommentBox {
   bottom: 0;
   z-index: -1;
   filter: blur(5px);
+}
+
+.reviewLoadingBarHide {
+  display: none;
+}
+
+.reviewBody {
+  animation-delay: fadeIn 15s;
+  animation: fadeIn 15s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.reviewBodyLoading {
+  animation: fadeIn 10s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

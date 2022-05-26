@@ -39,18 +39,12 @@ class Footer extends React.Component {
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                       <Nav.Link href="/homePage">Home</Nav.Link>
-                      <Nav.Link href="/about-us">Contact Us</Nav.Link>
-                      <NavDropdown title="Site Content" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/view-products">
-                          View Products
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/reviews">
-                          Reviews
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/play-a-game">
-                          Play A Game
-                        </NavDropdown.Item>
-                      </NavDropdown>
+                      <Nav.Link href="/about-us">About Us</Nav.Link>
+                      <Nav.Link href="/about-us">View Products</Nav.Link>
+                      <Nav.Link href="/reviews">Reviews</Nav.Link>
+                      <Nav.Link href="/play-a-game" disabled>
+                        Play A Game
+                      </Nav.Link>
                       <Nav.Link href="/cart">View Cart</Nav.Link>
                     </Nav>
                   </Navbar.Collapse>

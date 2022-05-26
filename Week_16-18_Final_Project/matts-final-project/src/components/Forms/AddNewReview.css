@@ -2,6 +2,7 @@
   color: white;
   padding: 10px;
   background-color: rgba(39, 39, 39, 0.22);
+  width: 100%;
 }
 
 .addReviewBody {
@@ -28,4 +29,10 @@
   margin: 0 auto;
   display: block;
   width: 25%;
+}
+
+input[type="text"],
+select#productReviewDropdown,
+input#reviewCommentBox {
+  margin: 2px;
 }

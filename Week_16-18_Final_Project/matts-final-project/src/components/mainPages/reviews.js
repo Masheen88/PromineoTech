@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Container, Row, Col, Spinner } from "react-bootstrap";
 
 import { commentsAPI } from "../rest/mainAPI";
 
 import "./reviews.css";
+import $ from "jquery";
 
 import reviewBadge from "../images/reviews_icon.svg";
 import videoBg from "../videos/review-water.mp4";
@@ -29,6 +30,7 @@ function Reviews() {
   const [showEditForm, setShowEditForm] = useState(false);
   const [newComment, setNewComment] = useState("");
   const [reviewProductId, setReviewProductId] = useState("");
+  const [loadingBar, setShowLoadingBar] = useState(false);
 
   const deleteReview = async (event) => {
     event.preventDefault();
@@ -65,10 +67,20 @@ function Reviews() {
       });
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      $(".reviewLoadingBar").addClass("reviewLoadingBarHide");
+      $(".reviewBody").addClass("reviewBodyLoading");
+    }, 3000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className="reviewPage">
       <div className="reviewsTitle">
-        Hope you had fun on your adventure, tell us how we did!
+        <h1>Hope you had fun on your adventure, tell us how we did!</h1>
       </div>
 
       <div>
@@ -84,6 +96,7 @@ function Reviews() {
           <br />
           <div className="reviews-list">
             <h1 id="commentsTitle">Reviews</h1>
+            <Spinner className="reviewLoadingBar" animation="border" />
           </div>
           <br />
           <div className="reviewBody">
@@ -91,17 +104,16 @@ function Reviews() {
               return (
                 <Container id="reviewContainer" key={index}>
                   <Row>
-                    <Col xs={1}></Col>
-                    <Col xs={2}></Col>
-                    <Col xs={2} id="reviewColumns reviewDataName">
+                    <Col xs={3}></Col>
+                    <Col xs={3} id="reviewColumns reviewDataName">
                       <div id="reviewUserHeader">
                         {data.name.slice(6)}
                         <br />
                         <img id="reviewUserImage" alt="" src={user1} />
                       </div>
                     </Col>
-                    <Col xs={2} id="reviewColumns reviewDataProduct">
-                      <div>{data.product.slice(8)}</div>
+                    <Col xs={3} id="reviewColumns reviewDataProduct">
+                      <div id="reviewProductName">{data.product.slice(8)}</div>
                       <div>
                         {(() => {
                           if (data.product === `product: Kayak 1`) {
@@ -146,7 +158,30 @@ function Reviews() {
                         })()}
                       </div>
                     </Col>
-                    <Col xs={2} id="reviewActionButtons">
+                    <Col xs={3}></Col>
+                  </Row>
+                  <Row>
+                    <Col xs={4}></Col>
+                    <Col xs={4} id="reviewColumns">
+                      <div id="reviewDataComment">
+                        {data.comment.slice(9)} <span> </span>
+                      </div>
+                      <Button
+                        className="editButton btn btn-info"
+                        onClick={() => setShowEditForm(true)}
+                      >
+                        Edit Review
+                      </Button>
+                      <Button
+                        className="deleteButton btn btn-danger"
+                        onClick={deleteReview}
+                        value={data._id}
+                      >
+                        Delete
+                      </Button>
+                    </Col>
+                    <Col xs={4}>
+                      {" "}
                       <div className="editButtonTitle">
                         {showEditForm ? (
                           <div className="editReviewBody">
@@ -161,43 +196,18 @@ function Reviews() {
                                 value={newComment.comment}
                               ></input>
                               &nbsp;
-                              <Button variant="success" type="submit">
+                              <Button
+                                id="submitReviewButton"
+                                variant="success"
+                                type="submit"
+                              >
                                 Submit New Review
                               </Button>
                             </form>
                           </div>
                         ) : null}
                       </div>
-                      <br />
-                      <br />
-                      <Button
-                        className="btn btn-danger"
-                        onClick={deleteReview}
-                        value={data._id}
-                      >
-                        Delete
-                      </Button>
                     </Col>
-                    <Col xs={2}></Col>
-                    <Col xs={1}></Col>
-                  </Row>
-                  <Row>
-                    <Col xs={4}></Col>
-                    <Col xs={4} id="reviewColumns">
-                      <div id="reviewDataComment">
-                        {data.comment.slice(9)}{" "}
-                        <span>
-                          {" "}
-                          <Button
-                            className="btn btn-info"
-                            onClick={() => setShowEditForm(true)}
-                          >
-                            Edit Review
-                          </Button>
-                        </span>
-                      </div>
-                    </Col>
-                    <Col xs={4}></Col>
                   </Row>
                 </Container>
               );
