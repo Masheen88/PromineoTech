@@ -1,10 +1,21 @@
 import React from "react";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap";
 
 import "./ViewProducts.css";
 
 import ProductsButton from "../Sub-Components/productsButton";
+import ViewProductButton from "../Sub-Components/viewProductButton";
 
 //Page Background
 import videoBg from "../videos/product-river.mp4";
@@ -19,6 +30,8 @@ import img7 from "../images/product_images/7.jpg";
 import img8 from "../images/product_images/8.jpeg";
 import img9 from "../images/product_images/9.jpg";
 
+import ProductDetails from "./ProductDetails";
+
 function ViewProducts() {
   return (
     <div>
@@ -29,8 +42,13 @@ function ViewProducts() {
           <Col id="product">
             <img id="productThumbnail" alt="" src={img1} />
             <br />
-            <desc className="productDescription">This is a fine kayak!</desc>
+            <div className="productDescription">This is a fine kayak!</div>
+            <Link to={"/Components"}>
+              <ViewProductButton />
+            </Link>
+
             <ProductsButton />
+            <div></div>
           </Col>
           <Col xs={3} id="product">
             <img id="productThumbnail" alt="" src={img2} />

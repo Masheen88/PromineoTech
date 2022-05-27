@@ -6,7 +6,16 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Container,
+  NavItem,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 
 import "./navbar.css";
 
@@ -16,6 +25,7 @@ import HomePage from "../mainPages/homePage";
 import ViewProducts from "../mainPages/ViewProducts";
 import Reviews from "../mainPages/reviews";
 import ViewCart from "../mainPages/ViewCart";
+import NavbarOffcanvas from "react-bootstrap/esm/NavbarOffcanvas";
 
 class Navibar extends React.Component {
   render() {
@@ -44,7 +54,7 @@ class Navibar extends React.Component {
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                       <Nav.Link href="/homePage">Home</Nav.Link>
-                      <Nav.Link href="/about-us">Contact Us</Nav.Link>
+                      <Nav.Link href="/about-us">About Us</Nav.Link>
                       <NavDropdown title="Site Content" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/view-products">
                           View Products
@@ -56,8 +66,11 @@ class Navibar extends React.Component {
                           Play A Game
                         </NavDropdown.Item>
                       </NavDropdown>
-                      <Nav.Link href="/cart">View Cart</Nav.Link>
                     </Nav>
+                    <Button variant="outline-primary">
+                      {" "}
+                      <Nav.Link href="/cart">View Cart</Nav.Link>
+                    </Button>
                   </Navbar.Collapse>
                 </Container>
               </Navbar>

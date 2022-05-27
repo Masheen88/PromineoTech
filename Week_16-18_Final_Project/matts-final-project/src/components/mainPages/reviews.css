@@ -136,12 +136,17 @@ input#reviewCommentBox {
   z-index: -1;
   filter: blur(5px);
 }
+/* Loading Bar */
+/* .reviewLoadingBarHide {
+  display: none;
+} */
 
-.reviewLoadingBarHide {
+.reviewBodyHide {
   display: none;
 }
 
-.reviewBody {
+/* Loading Bar */
+/* .reviewBody {
   animation-delay: fadeIn 15s;
   animation: fadeIn 15s;
 }
@@ -154,18 +159,4 @@ input#reviewCommentBox {
   100% {
     opacity: 1;
   }
-}
-
-.reviewBodyLoading {
-  animation: fadeIn 10s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
+} */

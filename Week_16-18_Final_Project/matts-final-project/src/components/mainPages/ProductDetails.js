@@ -25,7 +25,7 @@ import img7 from "../images/product_images/7.jpg";
 import img8 from "../images/product_images/8.jpeg";
 import img9 from "../images/product_images/9.jpg";
 
-function Reviews() {
+function ProductDetails() {
   const [reviewData, setAPIData] = useState([]);
   const [showEditForm, setShowEditForm] = useState(false);
   const [newComment, setNewComment] = useState("");
@@ -238,4 +238,4 @@ function Reviews() {
   );
 }
 
-export default Reviews;
+export default ProductDetails;
