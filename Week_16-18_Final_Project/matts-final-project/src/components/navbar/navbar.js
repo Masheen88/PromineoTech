@@ -25,7 +25,7 @@ import HomePage from "../mainPages/homePage";
 import ViewProducts from "../mainPages/ViewProducts";
 import Reviews from "../mainPages/reviews";
 import ViewCart from "../mainPages/ViewCart";
-import NavbarOffcanvas from "react-bootstrap/esm/NavbarOffcanvas";
+import ProductDetails from "../mainPages/ProductDetails";
 
 class Navibar extends React.Component {
   render() {
@@ -93,6 +93,11 @@ class Navibar extends React.Component {
                   exact
                   path="/matts-final-project"
                   element={<Navigate to="/homePage" />}
+                ></Route>
+                <Route
+                  exact
+                  path="/kayak-1"
+                  element={<ProductDetails />}
                 ></Route>
               </Routes>
             </Router>

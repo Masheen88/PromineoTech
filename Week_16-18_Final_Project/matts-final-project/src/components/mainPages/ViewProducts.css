@@ -30,18 +30,22 @@
   margin: 0.5%;
 }
 
+#productButton {
+  font-size: 20px;
+  margin: 2%;
+}
+#productName {
+  margin-top: 2%;
+  color: azure;
+}
+
 #productThumbnail {
   padding: 5px;
   border: 1px solid azure;
   height: auto;
   width: 200px;
   border-radius: 5%;
-  margin-top: 5%;
-}
-
-#productButton {
-  font-size: 20px;
-  margin: 2%;
+  margin-top: 2%;
 }
 
 .productDescription {

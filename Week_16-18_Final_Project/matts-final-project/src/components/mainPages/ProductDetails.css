@@ -1,0 +1,21 @@
+.productDetailPage {
+  color: black;
+}
+
+.card {
+  font-size: 16px;
+  color: black !important;
+}
+
+#productDetailImage {
+  max-width: 50%;
+}
+
+.ProductDetailReviewBody {
+  font-size: 20px;
+}
+
+#productPrice {
+  font-size: 24px;
+  color: red;
+}

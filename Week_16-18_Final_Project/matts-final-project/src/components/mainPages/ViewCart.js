@@ -1,27 +1,40 @@
 import React from "react";
 
-import { Button } from "react-bootstrap";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 import "./ViewCart.css";
+import img1 from "../images/product_images/1.png";
 
 function ViewCart() {
   return (
     <div>
       <div className="viewCartPage">
         Just Viewing the cart!
-        <div id="productGrid" className="container">
-          <div className="row">
-            <div id="CartProductField" className="col-sm-5">
-              Product Image Here
-            </div>
-            <div id="CartProductField" className="col-sm-4">
-              Product Name Here
-            </div>
-            <div id="CartProductField" className="col-sm-3">
-              Product QTY Here
-            </div>
-          </div>
-        </div>
+        <Container id="productGrid">
+          <Row>
+            <Col>
+              <h3>Product Image</h3>
+              <div id="CartProductField cartProductImage">
+                <img id="productThumbnail" alt="" src={img1} />
+              </div>
+            </Col>
+            <Col>
+              <h3>Product Name</h3>
+              <div id="CartProductField cartProductName">Kayak 1</div>
+            </Col>
+            <Col>
+              <h3>Product Quantity</h3>
+              <div
+                id="CartProductField cartProductQty"
+                placeHolder="1"
+                value="1"
+                size={5}
+              >
+                Qty: <input></input>
+              </div>
+            </Col>
+          </Row>
+        </Container>
         <div id="CartButtons" className="container">
           <div className="row">
             <div id="CartButton" className="col-sm-4">
