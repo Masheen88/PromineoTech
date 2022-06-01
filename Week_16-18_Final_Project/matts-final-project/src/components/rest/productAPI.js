@@ -1,13 +1,13 @@
 //This file is for testing at the moment and is not using on the final project
 
-const COMMENTS_ENDPOINT =
+const PRODUCTS_ENDPOINT =
   "https://6283f68ba48bd3c40b6933a7.mockapi.io/api/v1/products";
 
 class ProductAPI {
   //Send Request
   get = async () => {
     try {
-      const resp = await fetch(COMMENTS_ENDPOINT);
+      const resp = await fetch(PRODUCTS_ENDPOINT);
       const data = await resp.json();
       return data;
     } catch (error) {
@@ -18,7 +18,7 @@ class ProductAPI {
   //Update request
   put = async (comment) => {
     try {
-      const resp = await fetch(`${COMMENTS_ENDPOINT}/${comment._id}`, {
+      const resp = await fetch(`${PRODUCTS_ENDPOINT}/${comment._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -38,14 +38,14 @@ class ProductAPI {
   apiEdit = async (commentId, commentData) => {
     let commentIdArr = commentId;
     console.log(
-      "mainAPI apiEdit productURL:",
-      `${COMMENTS_ENDPOINT}/${commentIdArr[0].slice(5)}`
+      "productsAPI apiEdit productURL:",
+      `${PRODUCTS_ENDPOINT}/${commentIdArr[0].slice(5)}`
     );
-    console.log("mainAPI apiEdit commentId:", commentIdArr[0].slice(5));
-    console.log("mainAPI apiEdit commentData:", commentData[0].slice(9));
+    console.log("productsAPI apiEdit commentId:", commentIdArr[0].slice(5));
+    console.log("productsAPI apiEdit commentData:", commentData[0].slice(9));
     try {
       const resp = await fetch(
-        `${COMMENTS_ENDPOINT}/${commentIdArr[0].slice(5)}`,
+        `${PRODUCTS_ENDPOINT}/${commentIdArr[0].slice(5)}`,
         {
           method: "PUT",
           headers: {
@@ -53,45 +53,44 @@ class ProductAPI {
           },
 
           body: JSON.stringify({
-            comment: commentData[0],
+            productQty: commentData[0],
           }),
         }
       );
       await resp.json();
-      return (window.location = "/reviews");
+      return (window.location = "/cart");
     } catch (error) {
       console.log("Oh no! There was an error with editing your review.", error);
     }
   };
 
   //Post request
-  post = async (comment) => {
-    console.log("mainAPI post:", comment);
+  post = async (productData) => {
+    console.log("productsAPI post:", productData);
     try {
-      const response = await fetch(`${COMMENTS_ENDPOINT}`, {
+      const response = await fetch(`${PRODUCTS_ENDPOINT}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: comment[0],
-          product: comment[1],
-          comment: comment[2],
+          productName: productData[0],
+          productImg: productData[3],
+          productQty: productData[1],
+          productPrice: productData[2],
         }),
       });
-      console.log("mainAPI postResponse:", response);
+      console.log("productsAPI postResponse:", response);
       await response.json();
-      // (window.location = "/reviews");
-      return (window.location = "/reviews");
     } catch (error) {
       console.log("Oh no! There was an error with adding a review.", error);
     }
   };
 
   //Delete request
-  apiDelete = async (reviewId) => {
+  apiDelete = async (productId) => {
     try {
-      const resp = await fetch(`${COMMENTS_ENDPOINT}/${reviewId}`, {
+      const resp = await fetch(`${PRODUCTS_ENDPOINT}/${productId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +98,26 @@ class ProductAPI {
         // body: JSON.stringify(reviewId),
       });
       await resp.json();
-      return (window.location = "/reviews");
+      return (window.location = "/cart");
+    } catch (error) {
+      console.log("Oh no! There was an error with deleting a review.", error);
+    }
+  };
+
+  apiDeleteAll = async () => {
+    try {
+      const resp = await fetch(
+        `https://6283f68ba48bd3c40b6933a7.mockapi.io/api/v1/products/`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // body: JSON.stringify(reviewId),
+        }
+      );
+      await resp.json();
+      return (window.location = "/cart");
     } catch (error) {
       console.log("Oh no! There was an error with deleting a review.", error);
     }

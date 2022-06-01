@@ -37,3 +37,8 @@
 button.btn.btn-primary.ButtonText {
   font-size: 24px;
 }
+
+input#cartProductQtyField {
+  /* width: 2em; */
+  color: black;
+}
