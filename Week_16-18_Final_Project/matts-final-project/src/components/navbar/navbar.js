@@ -54,7 +54,9 @@ class Navibar extends React.Component {
                   <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                       <Nav.Link href="/homePage">Home</Nav.Link>
-                      <Nav.Link href="/about-us">About Us</Nav.Link>
+                      <Nav.Link href="/about-us" disabled>
+                        About Us
+                      </Nav.Link>
                       <NavDropdown title="Site Content" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/view-products">
                           View Products
@@ -62,7 +64,7 @@ class Navibar extends React.Component {
                         <NavDropdown.Item href="/reviews">
                           Reviews
                         </NavDropdown.Item>
-                        <NavDropdown.Item href="/play-a-game">
+                        <NavDropdown.Item href="/play-a-game" disabled>
                           Play A Game
                         </NavDropdown.Item>
                       </NavDropdown>

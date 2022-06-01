@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Linkedin, Github, Envelope } from "react-bootstrap-icons";
 
 import "./footer.css";
 
@@ -59,6 +60,24 @@ class Footer extends React.Component {
                 ></Route>
               </Routes>
             </Router>
+            <div className="icons-wrapper">
+              <a
+                id="footerIcon"
+                href="https://linkedin.com/in/matthewthomascox/"
+              >
+                <Linkedin className="bi-linkedin icon" />
+              </a>
+              <a id="footerIcon" href="mailto:mattdrummerguy@gmail.com">
+                <Envelope className="bi-envelope icon" />
+              </a>
+              <a id="footerIcon" href="https://github.com/Masheen88">
+                <Github className="bi-github icon" />
+              </a>
+            </div>
+            &copy; Matthew Cox
+            {
+              //let d = new Date(); document.write(d.getFullYear());
+            }
           </div>
         </div>
       </div>
