@@ -33,7 +33,7 @@ function AddCartProducts() {
       newTotal += productData[i].productQty * 499.99;
     }
     console.log("CartCalculation newTotal:", newTotal);
-    return newTotal;
+    return parseFloat(newTotal).toFixed(2);
   }
 
   useEffect(() => {
