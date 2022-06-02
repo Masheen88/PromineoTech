@@ -74,10 +74,7 @@ class Footer extends React.Component {
                 <Github className="bi-github icon" />
               </a>
             </div>
-            &copy; Matthew Cox
-            {
-              //let d = new Date(); document.write(d.getFullYear());
-            }
+            &copy; - {new Date().getFullYear()} Matthew Cox
           </div>
         </div>
       </div>

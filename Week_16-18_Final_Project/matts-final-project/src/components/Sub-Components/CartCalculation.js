@@ -26,12 +26,13 @@ function AddCartProducts() {
   }
 
   function addAll(productyQty) {
-    console.log(productData);
+    console.log("CartCalculation productData:");
+    console.log("CartCalculation productyQty:", productyQty);
     let newTotal = 0;
     for (let i = 0; i < cartTotal.length; i++) {
-      newTotal += cartTotal[i];
+      newTotal += productData[i].productQty * 499.99;
     }
-    console.log(newTotal);
+    console.log("CartCalculation newTotal:", newTotal);
     return newTotal;
   }
 
@@ -48,7 +49,7 @@ function AddCartProducts() {
       {[...productData].reverse().map((data, index) => {
         return (
           <Container hidden id="hiddenProductPriceContainer" key={index}>
-            {addProducts(data.productQty)}
+            {addProducts()}
           </Container>
         );
       })}

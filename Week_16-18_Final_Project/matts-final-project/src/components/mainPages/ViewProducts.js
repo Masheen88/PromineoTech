@@ -39,9 +39,7 @@ function ViewProducts() {
             <Link to={"/kayak-1"}>
               <ViewProductButton />
             </Link>
-            <Link to={"/cart"}>
-              <ProductsButton />
-            </Link>
+            <Link to={"/cart"}>{/* <ProductsButton /> */}</Link>
           </Col>
           <Col id="product">
             <h2 id="productName">Kayak 2</h2>
@@ -53,7 +51,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
           <Col id="product">
             <h2 id="productName">Kayak 3</h2>
@@ -65,7 +63,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
         </Row>
         <Row>
@@ -77,7 +75,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
           <Col id="product">
             <h2 id="productName">Kayak 5</h2>
@@ -89,7 +87,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
           <Col id="product">
             <h2 id="productName">Kayak 6</h2>
@@ -101,7 +99,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
         </Row>
         <Row>
@@ -115,7 +113,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
           <Col id="product">
             <h2 id="productName">Kayak 8</h2>
@@ -127,7 +125,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
           <Col id="product">
             <h2 id="productName">Kayak 9</h2>
@@ -137,7 +135,7 @@ function ViewProducts() {
             <Link to={"#"}>
               <ViewProductButton />
             </Link>
-            <ProductsButton />
+            {/* <ProductsButton /> */}
           </Col>
         </Row>
       </Container>
