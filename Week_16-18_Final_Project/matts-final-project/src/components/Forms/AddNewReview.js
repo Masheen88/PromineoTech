@@ -48,6 +48,7 @@ export const AddNewReview = () => {
           <h4>Add A New Review</h4>
           <form onSubmit={onSubmit}>
             <input
+              id="reviewNameField"
               type="text"
               name="name"
               placeholder="name"
