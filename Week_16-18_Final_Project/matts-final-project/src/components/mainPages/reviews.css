@@ -75,6 +75,10 @@ div#reviewColumns\ reviewDataProduct,
   color: azure;
 }
 
+input#reviewNameField {
+  width: 160px;
+}
+
 input#reviewCommentBox {
   width: 100%;
 }
