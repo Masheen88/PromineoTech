@@ -1,3 +1,4 @@
+console.log("Conditions and Loops Testing");
 /* - Practice Code Begin
 
 var costOfChips = 4;
@@ -135,22 +136,37 @@ window.alert(`Hello, ${name}` + "!");
 
 // Credentials Mechanism Test
 
-var loggedIn = false;
-
 //While Loop to continuously prompt the user
 
-//! = not loggedIn in this example or loggedIn = false
-/*
-while (!loggedIn) {
-  let username2 = prompt("Username:");
-  let password2 = prompt("Password:");
+var loggedIn = false;
+let logInAttempts = 0;
+let logInAttemptsLimit = 3;
 
-  if (username2 == "Matthew123" && passMattword2 == "12345") {
+//! = not loggedIn in this example or loggedIn = false
+
+while (!loggedIn === true) {
+  let username2 = prompt("Enter Your Username:");
+  if (username2 == null) {
+    console.log("null");
+    break;
+  }
+  let password2 = prompt("Enter Your Password:");
+  if (password2 == null) {
+    console.log("null");
+    break;
+  }
+
+  if (username2 == "Matthew123" && password2 == "12345") {
+    console.log("Login Successful");
     alert("Welcome back", username2);
-    //Setts the LoggedIn variable to true to break the loop
+    //Sets the LoggedIn variable to true to break the loop
     loggedIn = true;
-  } else {
-    alert("Incorrect username or password!");
+  } else if (logInAttempts < logInAttemptsLimit) {
+    console.log("Login Failed", logInAttempts);
+    logInAttempts++;
+  } else if (logInAttempts > logInAttemptsLimit) {
+    console.log("Login Failed", logInAttempts);
+    alert("You have exceeded the number of login attempts.");
+    break;
   }
 }
-*/

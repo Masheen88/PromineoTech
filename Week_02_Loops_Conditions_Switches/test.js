@@ -17,9 +17,8 @@ Let's play a game.
 
 //The game will consist of 100 turns.
 var points = 0;
-var pointsReset = false;
 let turns = 100;
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < turns; i++) {
   //2. If the number of turns is even, you gain 5 points.
   if (i % 2 === 0) {
     points += 5;
