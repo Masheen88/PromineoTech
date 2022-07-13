@@ -125,6 +125,11 @@ function flipTiles(firstTurn, secondTurn, firstTurnID, secondTurnID, playerId) {
 
       //Function if a player wins the game
       function winGame(playerId) {
+        //remove event listener from all game tiles
+        for (let i = 0; i <= 9; i++) {
+          $(`.gameCell-${i}`).off("click");
+        }
+
         console.log(playerId);
         let gameTable = $(".card-body");
         if (playerId == "X") {
