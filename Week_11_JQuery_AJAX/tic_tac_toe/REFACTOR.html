@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="main.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <h1 class="gameTitle">Tic-Tac-Toe Game</h1>
+    <div id="gameOver"></div>
+    <center class="centerReplayBtn">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <div class="playerTurn"></div>
+          <button
+            type="button"
+            class="btn btn-warning replayGame"
+            id="replayGame"
+          >
+            Restart Game
+          </button>
+        </div>
+      </div>
+    </center>
+
+    <div class="container-fluid gameTable">
+      <div class="row" id="row1">
+        <div class="col-sm-3 gameCell gameCell-1" id="gameButtons">
+          <img
+            class="gameletter-back gameletter-back-1"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+        <div class="col-sm-3 gameCell gameCell-2" id="gameButtons-1">
+          <img
+            class="gameletter-back gameletter-back-2"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+        <div class="col-sm-3 gameCell gameCell-3" id="gameButtons-2">
+          <img
+            class="gameletter-back gameletter-back-3"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+      </div>
+      <div class="row" id="row2">
+        <div class="col-sm-3 gameCell gameCell-4" id="gameButtons-3">
+          <img
+            class="gameletter-back gameletter-back-4"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+        <div class="col-sm-3 gameCell gameCell-5" id="gameButtons-5">
+          <img
+            class="gameletter-back gameletter-back-5"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+        <div class="col-sm-3 gameCell gameCell-6" id="gameButtons-6">
+          <img
+            class="gameletter-back gameletter-back-6"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+      </div>
+      <div class="row" id="row3">
+        <div class="col-sm-3 gameCell gameCell-7" id="gameButtons-7">
+          <img
+            class="gameletter-back gameletter-back-7"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+        <div class="col-sm-3 gameCell gameCell-8" id="gameButtons-8">
+          <img
+            class="gameletter-back gameletter-back-8"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+        <div class="col-sm-3 gameCell gameCell-9" id="gameButtons-9">
+          <img
+            class="gameletter-back gameletter-back-9"
+            src="./images/game_cell_back.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./tic-tac-toe_REFACTOR.js"></script>
+    <br /><br />
+  </body>
+  <footer>
+    <div class="icons-wrapper">
+      <a id="footerIcon" href="https://linkedin.com/in/matthewthomascox/">
+        <i class="bi bi-linkedin icon"></i>
+      </a>
+      <a id="footerIcon" href="mailto:mattdrummerguy@gmail.com">
+        <i class="bi bi-envelope icon"></i>
+      </a>
+      <a id="footerIcon" href="https://github.com/Masheen88">
+        <i class="bi bi-github icon"></i>
+      </a>
+    </div>
+    &copy; Matthew Cox
+    <script type="text/javascript">
+      var d = new Date();
+      document.write(d.getFullYear());
+    </script>
+  </footer>
+</html>
