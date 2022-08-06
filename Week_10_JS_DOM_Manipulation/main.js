@@ -79,6 +79,7 @@ function addContact(contactId, fullName, email) {
   // console.log("fullName Test:", fullName);
   let contactTable = document.getElementById("contactTable");
   let contactRow = contactTable.insertRow(1);
+  let contactTableHeader = contactTable.createTHead();
   let contactNumber = contactRow.insertCell(-1);
   let contactFullName = contactRow.insertCell(1);
   let contactEmail = contactRow.insertCell(2);
@@ -86,8 +87,18 @@ function addContact(contactId, fullName, email) {
 
   contactRow.setAttribute("id", `table-row-${contactId}`);
 
+  // create th
+  let contactNumberHeader = contactTableHeader.insertRow(0);
+
   contactNumber.innerHTML = contactId;
   contactFullName.innerHTML = fullName;
   contactEmail.innerHTML = email;
   contactDeleteBtn.appendChild(createDeleteContactButton(contactInTable));
+}
+
+//fiberonachi sequence
+
+function fibonacci(n) {
+  if (n <= 1) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }

@@ -39,7 +39,6 @@ class Menu {
     this.teams = [];
     this.selectedTeam = null;
   }
-
   start() {
     //Shows the menu until selection has been made.
     let selection = this.showMainMenuOptions();

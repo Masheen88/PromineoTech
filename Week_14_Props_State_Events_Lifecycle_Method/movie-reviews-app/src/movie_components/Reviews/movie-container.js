@@ -41,6 +41,7 @@ export default class MovieContainer extends React.Component {
   }
   //render defines what the 'componenet' or html will be rendered to screeen
   render() {
+    console.log(this.state);
     let movies = []; //array of all comments to display in the post.
     //Checks for the state of the comment ie. are there any comments in the state's comments property?
     if (this.state.movies) {

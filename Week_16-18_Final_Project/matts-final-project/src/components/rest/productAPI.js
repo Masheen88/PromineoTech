@@ -1,7 +1,7 @@
 //This file is for testing at the moment and is not using on the final project
 
 const PRODUCTS_ENDPOINT =
-  "https://6283f68ba48bd3c40b6933a7.mockapi.io/api/v1/products";
+  "https://62cc7a298042b16aa7d0144e.mockapi.io/Promineo_Tech_API/products";
 
 class ProductAPI {
   //Send Request

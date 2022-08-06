@@ -34,9 +34,10 @@ export const House = (props) => {
     return updateHouse({ ...house, rooms: [...house.rooms, room] });
   };
 
-  const rooms = () => (
+  const rooms = (myRoom) => (
     <div className="roomsBody">
       <br />
+      {console.log("Myrroom", myRoom)}
       <ul className="allRooms">
         {house.rooms.map((room, index) => (
           <div className="roomsBody">
@@ -69,6 +70,7 @@ export const House = (props) => {
         {house.name}
       </h1>
       <EditHouseForm />
+      Test
       {rooms({ rooms, houseId: house._id, deleteRoom })}
       <NewRoomForm addNewRoom={addNewRoom} />
     </div>

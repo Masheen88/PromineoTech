@@ -1,5 +1,5 @@
 const COMMENTS_ENDPOINT =
-  "https://6283f68ba48bd3c40b6933a7.mockapi.io/api/v1/comments";
+  "https://62cc7a298042b16aa7d0144e.mockapi.io/Promineo_Tech_API/comments";
 
 class CommentsAPI {
   //Send Request
@@ -7,6 +7,7 @@ class CommentsAPI {
     try {
       const resp = await fetch(COMMENTS_ENDPOINT);
       const data = await resp.json();
+      console.log(data);
       return data;
     } catch (error) {
       console.log("Oh no! There was an error with getting your review.", error);

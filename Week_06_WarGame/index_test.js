@@ -27,6 +27,7 @@ describe("#createPlayers", () => {
       } else {
         alert("This contains invalid characters");
         console.log(gamePlayers[i], "is", false);
+        s;
         testPlayers.push(false, gamePlayers[i]);
       }
     }

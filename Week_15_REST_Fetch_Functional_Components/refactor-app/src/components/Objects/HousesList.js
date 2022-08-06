@@ -29,6 +29,7 @@ export class HousesList extends React.Component {
   //   console.log("handleHouseInput", houseInput);
   // };
 
+  //Fetches the houses from the API
   componentDidMount() {
     this.fetchHouses();
   }
