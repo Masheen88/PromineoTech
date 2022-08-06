@@ -87,18 +87,8 @@ function addContact(contactId, fullName, email) {
 
   contactRow.setAttribute("id", `table-row-${contactId}`);
 
-  // create th
-  let contactNumberHeader = contactTableHeader.insertRow(0);
-
   contactNumber.innerHTML = contactId;
   contactFullName.innerHTML = fullName;
   contactEmail.innerHTML = email;
   contactDeleteBtn.appendChild(createDeleteContactButton(contactInTable));
-}
-
-//fiberonachi sequence
-
-function fibonacci(n) {
-  if (n <= 1) return 1;
-  return fibonacci(n - 1) + fibonacci(n - 2);
 }
