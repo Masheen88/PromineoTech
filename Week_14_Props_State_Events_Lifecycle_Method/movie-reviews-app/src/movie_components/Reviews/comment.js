@@ -36,6 +36,7 @@ export default class Post extends React.Component {
     if (this.state.comments) {
       //loops through each of this.state.comments and pushs a JSX Comment into the comments array []
       for (let comment of this.state.comments) {
+        console.log("Comment:", comment);
         comments.push(<Review {...comment} />);
       }
     }

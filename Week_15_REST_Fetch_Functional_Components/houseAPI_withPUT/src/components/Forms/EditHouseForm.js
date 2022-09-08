@@ -3,13 +3,16 @@ import { housesApi } from "../../rest/housesApi";
 import Button from "react-bootstrap/Button";
 
 export const EditHouseForm = (props) => {
+  const houseId = props.houseId;
   const [houseName, setName] = useState("");
 
   const onSubmit = (event) => {
+    // console.log(houseId);
     console.log("onSubmit event:", event);
     event.preventDefault();
     console.log("onSubmit housename:", houseName);
-    housesApi.putTest("626ae63412f5da001704ada2", houseName);
+
+    housesApi.putTest(houseId, houseName);
     setName("");
   };
 

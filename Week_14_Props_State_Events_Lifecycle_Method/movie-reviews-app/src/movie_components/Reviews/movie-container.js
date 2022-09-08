@@ -47,6 +47,7 @@ export default class MovieContainer extends React.Component {
     if (this.state.movies) {
       //loops through each of this.state.comments and pushs a JSX Comment into the comments array []
       for (let comment of this.state.movies) {
+        console.log("Comment:", comment);
         movies.push(<Review {...comment} />);
       }
     }

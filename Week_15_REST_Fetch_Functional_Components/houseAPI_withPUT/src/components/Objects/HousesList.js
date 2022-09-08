@@ -4,11 +4,7 @@ import { House } from "./House";
 import { housesApi } from "../../rest/housesApi";
 import { NewHouseForm } from "../Forms/NewHouseForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  regular,
-  solid,
-  brands,
-} from "@fortawesome/fontawesome-svg-core/import.macro";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export class HousesList extends React.Component {
   //Creates the house as an object
@@ -19,6 +15,12 @@ export class HousesList extends React.Component {
   addNewHouse = async (updatedHouse) => {
     console.log("addnewHouse Test");
     await housesApi.post(updatedHouse);
+    //Updates the state after the current houses have been updated.
+    this.fetchHouses();
+  };
+
+  deleteHouse = async (houseId) => {
+    await housesApi.delete(houseId);
     //Updates the state after the current houses have been updated.
     this.fetchHouses();
   };
@@ -36,6 +38,12 @@ export class HousesList extends React.Component {
 
   fetchHouses = async () => {
     const houses = await housesApi.get();
+
+    // limit the number of houses to 5
+    // if (houses.length > 5) {
+    //   houses.length = 5;
+    // }
+
     this.setState({ houses });
   };
 
@@ -59,6 +67,7 @@ export class HousesList extends React.Component {
           </div>
           <br />
           <div className="houseBody">
+            {console.log("House", this.houses)}
             {this.state.houses.map((house) => (
               <House
                 house={house}

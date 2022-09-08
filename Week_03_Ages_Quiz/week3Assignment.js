@@ -65,7 +65,7 @@ for (let i = 0; i < names.length; i++) {
   //Sums the characters in each name element and divides by the array length.
   totalNamesAverage += names[i].length / names.length;
 }
-
+status;
 //Logs out the results of the totalNamesAverage variable to the browser console.
 console.log("2a. The average of all names:", totalNamesAverage);
 

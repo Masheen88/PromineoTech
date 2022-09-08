@@ -12,6 +12,19 @@ class HouseApi {
     }
   };
 
+  delete = async (houseId) => {
+    console.log("inside delete api:", houseId);
+    try {
+      const resp = await fetch(`${HOUSES_ENDPOINT}/${houseId}`, {
+        method: "DELETE",
+      });
+      const data = await resp.json();
+      return data;
+    } catch (error) {
+      console.log("Oh no! There was an error with deleteHouse.", error);
+    }
+  };
+
   //Update request
   put = async (house) => {
     try {
@@ -30,15 +43,16 @@ class HouseApi {
 
   //Update request
   putTest = async (houseId, house) => {
+    console.log("inside putTest api:", "id:", houseId, "data:", house);
     try {
-      const resp = await fetch(`${HOUSES_ENDPOINT}/${house._id}`, {
+      const resp = await fetch(`${HOUSES_ENDPOINT}/${houseId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-
-        body: JSON.stringify({ _id: houseId, name: house }),
+        body: JSON.stringify({ name: house }),
       });
+      console.log("inside putTest api resp:", resp);
       return await resp.json();
     } catch (error) {
       console.log("Oh no! There was an error with updating Houses.", error);
