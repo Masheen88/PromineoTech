@@ -5,7 +5,6 @@ import {
   Route,
   Link,
   useMatch,
-  useNavigate,
 } from "react-router-dom";
 
 export default function App() {

@@ -10,7 +10,7 @@ class Product {
 class ProductService {
   static products = [];
 
-  static crudcrud = "https://crudcrud.com/api/2f8550f213f34d47924d3859cb1563fa"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/b155fd177e634cb9894c17427ccc48f7"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all products from the url -GET

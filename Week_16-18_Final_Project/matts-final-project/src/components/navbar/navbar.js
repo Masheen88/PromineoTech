@@ -33,50 +33,50 @@ class Navibar extends React.Component {
       <div>
         <div className="row">
           <div className="col-md-12">
+            <br />
+            <Navbar
+              bg="dark"
+              variant="dark"
+              expand="lg"
+              sticky="top"
+              id="myNav"
+            >
+              <Container>
+                <Navbar.Brand>
+                  <span>
+                    {" "}
+                    <img id="siteLogo" alt="" src={logo} />{" "}
+                    <span id="siteLogoTitle">Yak-Yak!</span>
+                  </span>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="mr-auto">
+                    <Nav.Link href="/homePage">Home</Nav.Link>
+                    <Nav.Link href="/about-us" disabled>
+                      About Us
+                    </Nav.Link>
+                    <NavDropdown title="Site Content" id="basic-nav-dropdown">
+                      <NavDropdown.Item href="/view-products">
+                        View Products
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="/reviews">
+                        Reviews
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="/play-a-game" disabled>
+                        Play A Game
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav>
+                  <Button variant="outline-primary">
+                    {" "}
+                    <Nav.Link href="/cart">View Cart</Nav.Link>
+                  </Button>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
+            <br />
             <Router>
-              <br />
-              <Navbar
-                bg="dark"
-                variant="dark"
-                expand="lg"
-                sticky="top"
-                id="myNav"
-              >
-                <Container>
-                  <Navbar.Brand>
-                    <span>
-                      {" "}
-                      <img id="siteLogo" alt="" src={logo} />{" "}
-                      <span id="siteLogoTitle">Yak-Yak!</span>
-                    </span>
-                  </Navbar.Brand>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                      <Nav.Link href="/homePage">Home</Nav.Link>
-                      <Nav.Link href="/about-us" disabled>
-                        About Us
-                      </Nav.Link>
-                      <NavDropdown title="Site Content" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/view-products">
-                          View Products
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/reviews">
-                          Reviews
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/play-a-game" disabled>
-                          Play A Game
-                        </NavDropdown.Item>
-                      </NavDropdown>
-                    </Nav>
-                    <Button variant="outline-primary">
-                      {" "}
-                      <Nav.Link href="/cart">View Cart</Nav.Link>
-                    </Button>
-                  </Navbar.Collapse>
-                </Container>
-              </Navbar>
-              <br />
               <Routes>
                 <Route exact path="/homePage" element={<HomePage />}></Route>
                 <Route

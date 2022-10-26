@@ -67,7 +67,7 @@ export class HousesList extends React.Component {
           </div>
           <br />
           <div className="houseBody">
-            {console.log("House", this.houses)}
+            {console.log("House: Test123", this.state.houses)}
             {this.state.houses.map((house) => (
               <House
                 house={house}

@@ -16,6 +16,7 @@ class CommentsAPI {
 
   //Update request
   put = async (comment) => {
+    console.log("comment:",comment)
     try {
       const resp = await fetch(`${COMMENTS_ENDPOINT}/${comment._id}`, {
         method: "PUT",
@@ -24,6 +25,7 @@ class CommentsAPI {
         },
         body: JSON.stringify(comment),
       });
+      console.log("resp:",resp)
       return await resp.json();
     } catch (error) {
       console.log(

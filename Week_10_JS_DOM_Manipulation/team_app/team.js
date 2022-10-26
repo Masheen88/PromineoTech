@@ -35,6 +35,7 @@ let teamId = 0;
 //Action taken when clicking on create
 onClick("new-team", () => {
   teams.push(new Team(teamId++, getValue("new-team-name"))); //
+  console.log("teams:", teams);
   //calls the function to iterate over the team array and build a table for each one
   drawDOM();
 });
@@ -63,6 +64,7 @@ function drawDOM() {
   //calls the fucntion to clear the teamdiv
   clearElement(teamDiv);
   for (team of teams) {
+    console.log("team:", team);
     let table = createTeamTable(team);
     let title = document.createElement("h2");
     //Builds the title based on the instance of the team class name.

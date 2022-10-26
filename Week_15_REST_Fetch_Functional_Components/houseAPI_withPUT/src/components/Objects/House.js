@@ -8,6 +8,8 @@ import { housesApi } from "../../rest/housesApi";
 
 export const House = (props) => {
   const { house, updateHouse } = props;
+  // console log a house
+  console.log("house: Test:", house);
 
   const deleteHouse = async (houseId) => {
     console.log("deleteHouse ID:", houseId);

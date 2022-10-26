@@ -26,7 +26,7 @@ class Rooms {
 class HouseService {
   static houses = [];
 
-  static crudcrud = "https://crudcrud.com/api/0abd449954e64f69b01409ded8f72efe"; //Replace this URL if expired
+  static crudcrud = "https://crudcrud.com/api/4f4829ed033c4b27b4f8f20154701d09"; //Replace this URL if expired
   static url = `${this.crudcrud}/products`;
 
   //Method to returns all houses from the url -GET
@@ -204,7 +204,7 @@ class DOMManager {
         console.log("render house._id:", house._id); //
         console.log("render house._id:", room._id); //
 
-        $(`#${house._id}`)
+        $(`#${house?._id}`) // ? checks if house is null or undefined
           .find(".card-body")
           .append(
             `

@@ -5,6 +5,8 @@ replayButton.onclick = function (replay) {
   window.location.reload();
 };
 
+//winning array combinations
+
 let maxTurns = 0; //Declares max number of turns (9) start at 0.
 
 let players = [1, 2]; //Declares the number of players

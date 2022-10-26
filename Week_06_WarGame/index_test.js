@@ -13,22 +13,22 @@ describe("#createDeckOfCards ", () => {
 
 //Checks if the prompt input contains numbers.
 describe("#createPlayers", () => {
-  it("should see if players returned in the prompt are a string with no numbers.", (done) => {
+  it("should see if players returned in the prompt is a string with no numbers.", (done) => {
     var newPlayers = new Players();
     var testPlayers = [];
 
     let gamePlayers = newPlayers.createPlayers();
 
     for (let i = 0; i < gamePlayers.length; i++) {
-      let lettersNumbers = /^[a-zA-Z]+$/;
+      let lettersNumbers = /^[a-zA-Z]+$/; //regex to check for letters only
       if (gamePlayers[i].match(lettersNumbers)) {
         console.log(gamePlayers[i], "is", true);
-        testPlayers.push(true, gamePlayers[i]);
+        testPlayers.push(true, gamePlayers[i]); //pushes true and the player name to the testPlayers array
       } else {
         alert("This contains invalid characters");
-        console.log(gamePlayers[i], "is", false);
+        console.log(gamePlayers[i], "is", false); //This is not working
         s;
-        testPlayers.push(false, gamePlayers[i]);
+        testPlayers.push(false, gamePlayers[i]); //This is not working
       }
     }
 

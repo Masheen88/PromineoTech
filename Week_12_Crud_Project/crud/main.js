@@ -18,6 +18,9 @@ class House {
   }
 }
 
+//font awesome cdn
+//https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css
+
 //Class to define what a Room in the House contains.
 class Rooms {
   constructor(name, area) {
@@ -167,7 +170,7 @@ class DOMManager {
       //For each room of the house append additional HTML elements.
       for (let room of house.rooms) {
         console.log("render room:", room); //
-        console.log("render ${room._id}:", `${room._id}`); //
+        // console.log("render ${room._id}:", `${room._id}`); //
         $(`#${house._id}`)
           .find(".card-body")
           .append(
