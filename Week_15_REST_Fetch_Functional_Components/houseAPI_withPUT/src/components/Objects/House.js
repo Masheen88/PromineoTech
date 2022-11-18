@@ -28,8 +28,27 @@ export const House = (props) => {
   };
 
   const addNewRoom = (room) => {
-    return updateHouse({ ...house, rooms: [...house.rooms, room] });
-  };
+    //generate random index
+    let randomIndex = Math.floor(Math.random() * house.rooms.length);
+    //check if existing room id matches the randomIndex and if it does increment until it does not match
+    while (house.rooms.some((x) => x._id === randomIndex)) {
+      randomIndex++;
+      console.log("randomIndex:", randomIndex);
+    }
+
+    const updatedHouse = {
+      ...house,
+      rooms: [
+        ...house.rooms,
+        {
+          _id: randomIndex,
+          name: room.name,
+          area: room.area,
+        },
+      ],
+    };
+    return updateHouse(updatedHouse);
+  }; //Adds the room to the house
 
   //function to check if the room name is null or empty
   const checkRoomName = (room) => {
@@ -60,7 +79,7 @@ export const House = (props) => {
   const rooms = (myRoom) => (
     <div className="roomsBody">
       <br />
-      {/* {console.log("Myrroom", myRoom)} */}
+      {/* {console.log("Myroom", myRoom)} */}
       <ul className="allRooms">
         {house.rooms.map((room, index) => (
           <div className="roomsBody" key={index}>

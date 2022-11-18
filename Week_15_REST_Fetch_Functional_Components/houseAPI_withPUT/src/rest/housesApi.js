@@ -1,4 +1,6 @@
-const HOUSES_ENDPOINT = "https://ancient-taiga-31359.herokuapp.com/api/houses";
+// const HOUSES_ENDPOINT = "https://ancient-taiga-31359.herokuapp.com/api/houses";
+const HOUSES_ENDPOINT =
+  "https://62c85d578c90491c2cb47da3.mockapi.io/Promineo_Tech_API/houses";
 
 class HouseApi {
   //Send Request

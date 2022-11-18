@@ -11,7 +11,7 @@ export class HousesList extends React.Component {
   state = {
     houses: [],
   };
-
+  //test
   addNewHouse = async (updatedHouse) => {
     console.log("addnewHouse Test");
     await housesApi.post(updatedHouse);
