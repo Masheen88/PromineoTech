@@ -22,7 +22,7 @@ export const House = (props) => {
     const updatedHouse = {
       //If delete a room remove the room from the array.
       ...house,
-      rooms: house.rooms.filter((x) => x._id !== roomId),
+      rooms: house.rooms.filter((x) => x.house_id !== roomId),
     };
     updateHouse(updatedHouse);
   };
@@ -31,7 +31,7 @@ export const House = (props) => {
     //generate random index
     let randomIndex = Math.floor(Math.random() * house.rooms.length);
     //check if existing room id matches the randomIndex and if it does increment until it does not match
-    while (house.rooms.some((x) => x._id === randomIndex)) {
+    while (house.rooms.some((x) => x.house_id === randomIndex)) {
       randomIndex++;
       console.log("randomIndex:", randomIndex);
     }
@@ -47,6 +47,8 @@ export const House = (props) => {
         },
       ],
     };
+
+    console.log("updatedHouse:", updatedHouse);
     return updateHouse(updatedHouse);
   }; //Adds the room to the house
 
@@ -93,7 +95,7 @@ export const House = (props) => {
 
               <Button
                 variant="danger"
-                onClick={(event) => deleteRoom(room._id)}
+                onClick={(event) => deleteRoom(room.room_id)}
               >
                 Delete
               </Button>
@@ -117,8 +119,8 @@ export const House = (props) => {
         {" "}
         Delete{" "}
       </Button>
-      <EditHouseForm houseId={house._id} />
-      {rooms({ rooms, houseId: house._id, deleteRoom })}
+      <EditHouseForm houseId={house.house_id} />
+      {rooms({ rooms, houseId: house.house_id, deleteRoom })}
       <NewRoomForm addNewRoom={addNewRoom} />
     </div>
   );

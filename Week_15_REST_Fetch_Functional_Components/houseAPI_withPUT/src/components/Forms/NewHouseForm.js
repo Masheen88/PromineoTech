@@ -7,9 +7,10 @@ export const NewHouseForm = (props) => {
   const onSubmit = (event) => {
     console.log("onSubmit event:", event);
     event.preventDefault();
-    console.log("onSubmit housename:", houseName);
+    console.log("onSubmit house name:", houseName);
     housesApi.post(houseName);
     setName("");
+    props.updateHouse();
   };
 
   return (

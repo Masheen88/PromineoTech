@@ -1,4 +1,4 @@
-/* 1a.
+/* ANCHOR 1a.
 Create an array called ages that contains the following values: 
 3, 9, 23, 64, 2, 8, 28, 93.
 Programmatically subtract the value of the first element in the array from the value in 
@@ -17,7 +17,7 @@ let minusAges = ages[ages.length - 1] - ages[0];
 //Logs out the results of minusAges variable to the browser console.
 console.log("1a. Subjecting first array from last array:", minusAges);
 
-/* 1b.
+/* ANCHOR 1b.
 Add a new age to your array and repeat the step above to ensure it is dynamic.
 (works for arrays of different lengths).
 */
@@ -28,7 +28,7 @@ ages.push(100, 110);
 //Logs out the results of minusAges variable to the browser console but include our added ages from above.
 console.log("1b. Adding to the array then repeat step 1:", minusAges);
 
-/* 1c.
+/* ANCHOR 1c.
 Use a loop to iterate through the array and calculate the average age. 
 Print the result to the console.
  */
@@ -48,7 +48,7 @@ for (let i = 0; i < ages.length; i++) {
 //Logs out the results of the average variable to the browser console.
 console.log("1c. The average of all ages:", average);
 
-/* 2a.
+/* ANCHOR 2a.
 Create an array called names that contains the following values: 
 ‘Sam’, ‘Tommy’, ‘Tim’, ‘Sally’, ‘Buck’, ‘Bob’.
 Use a loop to iterate through the array and calculate the average number of letters per name.
@@ -69,7 +69,7 @@ status;
 //Logs out the results of the totalNamesAverage variable to the browser console.
 console.log("2a. The average of all names:", totalNamesAverage);
 
-/*2b.
+/* ANCHOR 2b.
 Use a loop to iterate through the array again and concatenate all the names together, 
 separated by spaces, 
 and print the result to the console.
@@ -86,7 +86,7 @@ for (let i = 0; i < names.length; i++) {
 //Logs out the results of the concatNames to the browser console.
 console.log("2b. Names Concatenated:", concatNames);
 
-/*3
+/* ANCHOR 3
 How do you access the last element of any array?
  */
 let lastArrayElement = names.slice(-1);
@@ -94,7 +94,7 @@ let lastArrayElement = names.slice(-1);
 //Logs out the results of the lastArrayElement variable to the browser console.
 console.log("3. Last Element:", lastArrayElement);
 
-/*4
+/* ANCHOR 4
 How do you access the first element of any array?
  */
 let firstArrayElement = names.slice(0, 1);
@@ -102,7 +102,7 @@ let firstArrayElement = names.slice(0, 1);
 //Logs out the results of the firstArrayElement variable to the browser console.
 console.log("4. First Element:", firstArrayElement);
 
-/*5
+/* ANCHOR 5
 Create a new array called nameLengths. 
 Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.
 For example:
@@ -120,7 +120,7 @@ for (let i = 0; i < names.length; i++) {
 //Logs out the results of the nameLengths variable to the browser console.
 console.log("5. Names character lengths add to new array:", nameLengths);
 
-/*6
+/* ANCHOR 6
 Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. 
 Print the result to the console.
  */
@@ -135,7 +135,7 @@ for (let i = 0; i < nameLengths.length; i++) {
 
 //Logs out the results of the totalNameArrLength variable to the browser console.
 console.log("6. Total of nameLength Array elements:", totalNameArrLength);
-/*7
+/* ANCHOR 7
 Write a function that takes two parameters, 
 word and n, as arguments and returns the word concatenated to itself n number of times. 
 (i.e. if I pass in ‘Hello’ and 3, I would expect the function to return ‘HelloHelloHello’).
@@ -153,7 +153,7 @@ let wordRepeating = parAddition("Hello", 3);
 //Logs out the results of the wordRepeating variable to the browser console.
 console.log("7. Word Concatenating based on n number of times:", wordRepeating);
 
-/*8
+/* ANCHOR 8
 Write a function that takes two parameters, firstName and lastName, and returns a full name 
 (the full name should be the first and the last name separated by a space).
  */
@@ -170,7 +170,7 @@ let yourFullName = fullName("Matthew", "Cox");
 //Logs out the results of the yourFullName variable to the browser console.
 console.log("8. First name and last name:", yourFullName);
 
-/*9
+/* ANCHOR 9
 Write a function that takes an array of numbers and returns true 
 if the sum of all the numbers in the array is greater than 100.
  */
@@ -195,11 +195,11 @@ let yourSummedArray = trueArray(yourArray);
 //Logs out the results of the yourSummedArray variable to the browser console.
 console.log("9. Is array sum greater than 100?", yourSummedArray);
 
-/*10
+/* ANCHOR 10
 Write a function that takes an array of numbers and returns the average of all the elements in the array.
  */
 
-/*Creatse a function to output the average of all numbers in the array.
+/*Creates a function to output the average of all numbers in the array.
 This accepts one array parameter.*/
 function averageArray(arr1) {
   let total = 0;
@@ -215,7 +215,7 @@ console.log(
   averageArray(yourArray)
 );
 
-/*11
+/* ANCHOR 11
 Write a function that takes two arrays of numbers and returns true if 
 the average of the elements in the first array is greater than the average of the elements in the second array.
  */
@@ -258,7 +258,7 @@ console.log(
   averageTwoArrays(array1, array2)
 );
 
-/*12
+/* ANCHOR 12
 Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and 
 returns true if it is hot outside and if moneyInPocket is greater than 10.50.
  */
@@ -274,7 +274,7 @@ function willBuyDrink(isHotOutside, moneyInPocket) {
 //Logs out the results of the willBuyDrink function to the browser console.
 console.log("12. Should I buy a drink?", willBuyDrink(true, 10.51));
 
-/*13
+/* ANCHOR 13
 Create a function of your own that solves a problem. 
 In comments, write what the function does and why you created it.
 */
@@ -283,7 +283,7 @@ In comments, write what the function does and why you created it.
 Problem: We are driving the worlds worst car! :) You use 1 gallons of gas per mile. We need to calculate 
 if you have enough gallons of gas to get to your destination.
 
-Solution: I chose to create a function containg an IF statment that will tell you if you need to fill up 
+Solution: I chose to create a function containing an IF statement that will tell you if you need to fill up 
 based on the amount of fuel you have "gallonsOfFuel" and the miles you have left to drive "milesLeftToDrive"
 */
 
@@ -292,7 +292,7 @@ function buyGas(gallonsOfFuel, milesLeftToDrive) {
   //Sets a blank variable
   let goBuyGas;
 
-  //If Your gallons of fuel are less than or euqal to the miles you have left let the user know they need gas.
+  //If Your gallons of fuel are less than or equal to the miles you have left let the user know they need gas.
   if (gallonsOfFuel <= milesLeftToDrive) {
     goBuyGas =
       "You have " +

@@ -2,12 +2,14 @@ var expect = chai.expect;
 
 //Checks if the number of cards in a deck.
 describe("#createDeckOfCards ", () => {
+  // (done) is a parameter used to tell Mocha that this test is asynchronous.
   it("should see if the length of the card deck is equal to 52.", function (done) {
-    let testDeck = new deckOfCards();
-    let cards = testDeck.cardDeck;
-    console.log("Test", cards);
-    expect(cards.length).to.eql(52);
-    done();
+    let testDeck = new deckOfCards(); //Creates a new deck of cards from the war.js game itself.
+    let cards = testDeck.cardDeck; //Creates a variable that holds the card deck.
+    let numberOfCards = cards.length; //Creates a variable that holds the number of cards in the deck.
+    console.log("Test", cards); //Prints the cards to the console.
+    expect(numberOfCards).to.eql(52); //Checks if the number of cards is equal to 52.
+    done(); //Tells Mocha that the test is done.
   });
 });
 

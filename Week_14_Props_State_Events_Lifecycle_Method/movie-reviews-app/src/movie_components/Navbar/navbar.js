@@ -1,12 +1,11 @@
 import React from "react";
-import NavbarToggle from "react-bootstrap/NavbarToggle";
 
 //makes the class accessible outside the file.
-//React.Componenet comes with the class and extends to create the compoenets you may work with
+//React.Component comes with the class and extends to create the components you may work with
 export default class Navbar extends React.Component {
-  //render defines what the 'componenet' or html will be rendered to screeen
+  //render defines what the 'component' or html will be rendered to screen
   render() {
-    //When creating alot of elements you can point to a method to make calling it much shorter.
+    //When creating a lot of elements you can point to a method to make calling it much shorter.
 
     return (
       <nav id="navibar" className="navbar navbar-expand-lg">

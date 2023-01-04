@@ -7,7 +7,9 @@ class HouseApi {
   get = async () => {
     try {
       const resp = await fetch(HOUSES_ENDPOINT);
+
       const data = await resp.json();
+
       return data;
     } catch (error) {
       console.log("Oh no! There was an error with fetchHouses.", error);
@@ -29,8 +31,9 @@ class HouseApi {
 
   //Update request
   put = async (house) => {
+    console.log(house);
     try {
-      const resp = await fetch(`${HOUSES_ENDPOINT}/${house._id}`, {
+      const resp = await fetch(`${HOUSES_ENDPOINT}/${house.house_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

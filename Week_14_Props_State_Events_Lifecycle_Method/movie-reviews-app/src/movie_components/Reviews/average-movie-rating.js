@@ -1,10 +1,9 @@
 import React from "react";
-import css from "../StarRatings/starRatings.css";
 
 //makes the class accessible outside the file.
-//React.Componenet comes with the class and extends to create the compoenets you may work with
+//React.Component comes with the class and extends to create the components you may work with
 export default class AverageMovieStars extends React.Component {
-  //render defines what the 'componenet' or html will be rendered to screeen
+  //render defines what the 'component' or html will be rendered to screen
   render() {
     //JSX
 

@@ -1,21 +1,7 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container,
-  NavItem,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 
 import "./navbar.css";
 
@@ -78,29 +64,7 @@ class Navibar extends React.Component {
             <br />
             <Router>
               <Routes>
-                <Route exact path="/homePage" element={<HomePage />}></Route>
-                <Route
-                  exact
-                  path="/view-products"
-                  element={<ViewProducts />}
-                ></Route>
-                <Route exact path="/reviews" element={<Reviews />}></Route>
-                <Route exact path="/cart" element={<ViewCart />}></Route>
-                <Route
-                  exact
-                  path="/"
-                  element={<Navigate to="/homePage" />}
-                ></Route>
-                <Route
-                  exact
-                  path="/matts-final-project"
-                  element={<Navigate to="/homePage" />}
-                ></Route>
-                <Route
-                  exact
-                  path="/kayak-1"
-                  element={<ProductDetails />}
-                ></Route>
+                <Route exact path="/home" element={<HomePage />}></Route>
               </Routes>
             </Router>
           </div>

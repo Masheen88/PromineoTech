@@ -1,7 +1,7 @@
 import React from "react";
 
 //makes the class accessible outside the file.
-//React.Componenet comes with the class and extends to create the compoenets you may work with
+//React.Component comes with the class and extends to create the components you may work with
 export default class ReviewSubmissionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,6 @@ export default class ReviewSubmissionForm extends React.Component {
       currentDateTime: Date().toLocaleString(),
     };
   }
-
   //On submit passes form data to render.
   handleSubmit(event) {
     console.log("handleSUbmit event:", event);
@@ -44,18 +43,20 @@ export default class ReviewSubmissionForm extends React.Component {
     let reviewStarRating = event.target.elements.star.value;
     console.log("index 5) handleSubmit starRating:", reviewStarRating);
 
-    reviewComments.push([
-      fullName,
-      movieDescription,
-      email,
-      id + 1,
-      date,
-      reviewStarRating,
-    ]);
+    reviewComments.push({
+      reviewFullName: fullName,
+      reviewDescription: movieDescription,
+      reviewEmail: email,
+      reviewId: id + 1,
+      reviewDate: date,
+      reviewRating: reviewStarRating,
+    });
     this.setState({ reviewComments });
+    this.props.handleRatingChange(reviewComments);
+    // this.props.getRating(reviewComments);
   }
 
-  //render defines what the 'component' or html will be rendered to screeen
+  //render defines what the 'component' or html will be rendered to screen
   render() {
     return (
       <div>
@@ -158,25 +159,29 @@ export default class ReviewSubmissionForm extends React.Component {
           <br />
 
           <div>
+            <h2>Movie Review</h2>
+            {/* if rating reviewComments rating array is not empty */}
+            <div className="Ratings" id="Ratings"></div>
             {
               //map array data
+
               this.state.reviewComments.reverse().map(function (CommentValues) {
-                console.log("from mapping - CommentValues:", CommentValues);
+                // console.log("from mapping - CommentValues:", CommentValues);
                 return (
-                  <div className="card w-75" key={CommentValues[3]}>
+                  <div className="card w-75" key={CommentValues.reviewId}>
                     <div className="card-header bg-primary text-white">
                       <div className="row reviewCommentHeader">
                         <div className="col-sm-6 reviewName">
-                          {CommentValues[0]} <br />{" "}
+                          {CommentValues.reviewFullName} <br />{" "}
                           <img
                             id="userProfileImage"
                             src="images/users/matthew.jpeg"
-                            alt={CommentValues[0]}
+                            alt={CommentValues.reviewFullName}
                           />
                         </div>
                         <div className="col-sm-6 reviewRatings">
                           {(() => {
-                            if (CommentValues[5] === "star1") {
+                            if (CommentValues.reviewRating === "star1") {
                               return (
                                 <div>
                                   <input
@@ -195,7 +200,7 @@ export default class ReviewSubmissionForm extends React.Component {
                                   </label>
                                 </div>
                               );
-                            } else if (CommentValues[5] === "star2") {
+                            } else if (CommentValues.reviewRating === "star2") {
                               return (
                                 <div>
                                   <input
@@ -215,7 +220,7 @@ export default class ReviewSubmissionForm extends React.Component {
                                   </label>
                                 </div>
                               );
-                            } else if (CommentValues[5] === "star3") {
+                            } else if (CommentValues.reviewRating === "star3") {
                               return (
                                 <div>
                                   <input
@@ -235,7 +240,7 @@ export default class ReviewSubmissionForm extends React.Component {
                                   </label>
                                 </div>
                               );
-                            } else if (CommentValues[5] === "star4") {
+                            } else if (CommentValues.reviewRating === "star4") {
                               return (
                                 <div>
                                   <input
@@ -255,7 +260,7 @@ export default class ReviewSubmissionForm extends React.Component {
                                   </label>
                                 </div>
                               );
-                            } else if (CommentValues[5] === "star5") {
+                            } else if (CommentValues.reviewRating === "star5") {
                               return (
                                 <div>
                                   <input
@@ -285,10 +290,10 @@ export default class ReviewSubmissionForm extends React.Component {
                       </div>
                     </div>
                     <div className="card-body reviewCommentBody">
-                      {CommentValues[1]}
+                      {CommentValues.reviewDescription}
                     </div>
                     <div className="card-footer reviewCommentFooter">
-                      {CommentValues[4]}
+                      {CommentValues.reviewDate}
                     </div>
                   </div>
                 );

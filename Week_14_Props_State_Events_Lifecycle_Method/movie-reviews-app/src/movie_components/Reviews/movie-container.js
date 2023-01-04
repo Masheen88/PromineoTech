@@ -1,11 +1,10 @@
 import React from "react";
 import Review from "./reviews";
-import AverageMovieStars from "./average-movie-rating";
 
 // let myE = React.createElement; //NON JSX
 
 //makes the class accessible outside the file.
-//React.Componenet comes with the class and extends to create the compoenets you may work with
+//React.Component comes with the class and extends to create the components you may work with
 export default class MovieContainer extends React.Component {
   //state - constructor for the Posts class.
   //props must be included in the constructor to explicitly accept the props
@@ -20,32 +19,43 @@ export default class MovieContainer extends React.Component {
       movieImage: props.movieImage,
       movieActors: props.movieActors,
       movieAverageRating: props.movieAverageRating,
+      myRatings: [""],
     };
+    this.newRatings = this.newRatings.bind(this);
+  }
+
+  newRatings() {
+    //convert this.props.myRatings to an array
+    let myRatings = this.props.myRatings;
+    let myRatingsArray = [];
+    for (let i = 0; i < myRatings.length; i++) {
+      myRatingsArray.push(myRatings[i]);
+    }
+    this.setState({ myRatings: myRatingsArray });
+  }
+
+  //update state if props rating length changes
+  componentDidUpdate(prevProps) {
+    if (this.props.myRatings.length !== prevProps.myRatings.length) {
+      this.newRatings();
+      console.log("updated", this.props.myRatings);
+      console.log("updated2", this.state.myRatings);
+    }
   }
 
   checkStarValue() {
     let averageStarRating = 5;
-    let averageMovieStarRatingId = document.getElementById(
-      "averageMovieStarRatingId"
-    );
-    for (let i = 0; i <= 5; i++) {
-      const ratingStars = [
-        ...document.getElementsByClassName(`averageStars-${i}`),
-      ];
-      console.log(ratingStars);
-    }
-    if ((averageStarRating = 5)) {
-      console.log("this is a 5 star movie");
-      return <div>Testing average stars</div>;
-    }
+    return averageStarRating;
   }
-  //render defines what the 'componenet' or html will be rendered to screeen
+  //render defines what the 'components' or html will be rendered to screen
+
   render() {
-    console.log(this.state);
+    // console.log(this.props.getRating());
+
     let movies = []; //array of all comments to display in the post.
     //Checks for the state of the comment ie. are there any comments in the state's comments property?
     if (this.state.movies) {
-      //loops through each of this.state.comments and pushs a JSX Comment into the comments array []
+      //loops through each of this.state.comments and pushes a JSX Comment into the comments array []
       for (let comment of this.state.movies) {
         console.log("Comment:", comment);
         movies.push(<Review {...comment} />);
@@ -53,6 +63,7 @@ export default class MovieContainer extends React.Component {
     }
     return (
       <div className="Moviecard">
+        Test: {this.state.myRatings}
         <div className="card-header bg-primary text-white">
           {this.state.movieName}
         </div>
@@ -108,9 +119,34 @@ export default class MovieContainer extends React.Component {
             className="averageMovieStarRating"
             id="averageMovieStarRatingId"
             value="5"
-            onClick={this.checkStarValue}
           >
-            <AverageMovieStars />
+            Test
+            {/* update state if the array has changed */}
+            {this.state.myRatings > 0 ? (
+              <div>
+                <h3>Movie Rating</h3>
+
+                <p>Movie Rating: {}</p>
+                <div>
+                  <input
+                    className="star star-1"
+                    type="checkbox"
+                    name="star"
+                    value="star1"
+                    defaultChecked
+                  />
+                  <label
+                    id="reviewStar"
+                    className="star star-1"
+                    htmlFor="star-1"
+                  >
+                    &nbsp;{this.props.myRatings}
+                  </label>
+                </div>
+              </div>
+            ) : (
+              <div>No Reviews!</div>
+            )}
           </div>
           <div className="movieDescription">{this.state.movieDescription}</div>
         </div>

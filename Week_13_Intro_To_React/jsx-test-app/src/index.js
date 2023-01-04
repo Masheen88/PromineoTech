@@ -6,10 +6,10 @@ import App from "./App";
 import NewsFeed from "./components/news-feed";
 import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")); // createRoot is a new method in React 18
 root.render(
+  // Renders the NewsFeed component
   <NewsFeed />
-  // React.createElement(NewsFeed, {}, null) //NON JSX
 );
 
 // If you want to start measuring performance in your app, pass a function

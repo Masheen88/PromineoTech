@@ -89,7 +89,7 @@ class Menu {
   displayTeams() {
     //Needs to build a string to display it in a message box or prompt.
     let teamString = "";
-    //For loop itereates through each team.
+    //For loop iterates through each team.
     for (let i = 0; i < this.teams.length; i++) {
       //Gathers each team and adds a new line.
       teamString += i + ") " + this.teams[i].name + `\n`;

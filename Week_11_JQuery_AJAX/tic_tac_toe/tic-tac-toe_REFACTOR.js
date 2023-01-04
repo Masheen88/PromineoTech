@@ -16,6 +16,12 @@ function randomTurn(players) {
   let p1 = players[0];
   let p2 = players[1];
   let randomPlayerReturn = Math.floor(Math.random() * (p2 - p1 + 1) + p1);
+  //return randomPlayerReturn as a positive number
+  return Math.abs(randomPlayerReturn);
+  //convert negative number to positive
+}
+
+
   console.log("test", randomPlayerReturn);
   if (randomPlayerReturn == 1) {
     p1X.push("X");

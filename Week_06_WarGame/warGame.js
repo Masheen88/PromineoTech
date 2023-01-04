@@ -185,5 +185,3 @@ function countPlayerScore(finalScore, player1name, player2name) {
 }
 //Function to run and call the game.
 countPlayerScore(finalScore, Player1, Player2);
-
-{"trainerName":"trainerName 1","pokemon":[[pokemonId: "1", pokemonName: "Pikachu", pokemonLevel: "5"]],"_id":"1"}

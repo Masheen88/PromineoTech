@@ -116,6 +116,7 @@ do {
 //Arrays a collection of variables: ie.let students = ("Student 1", "Student 2", "Student 3", etc..)
 
 let question = parseInt(prompt("Please enter a number"));
+let reset = true;
 //Always have the most specific cast first and the simple statements last.
 for (let i = 1; i <= question; i++) {
   //Code To Run

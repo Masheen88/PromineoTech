@@ -63,15 +63,15 @@ export class HousesList extends React.Component {
           </h1>
 
           <div>
-            <NewHouseForm />
+            <NewHouseForm updateHouse={this.updateHouse} />
           </div>
           <br />
           <div className="houseBody">
             {console.log("House: Test123", this.state.houses)}
-            {this.state.houses.map((house) => (
+            {this.state.houses.reverse().map((house) => (
               <House
                 house={house}
-                key={house._id}
+                key={house.house_id}
                 updateHouse={this.updateHouse}
               />
             ))}
